@@ -32,7 +32,7 @@ import apps.uzazisalama.com.anc.database.AncClient;
 public class ClientRegisterActivity extends BaseActivity {
 
     Toolbar clientsRegisterToolbar;
-    MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner;
+    MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner, lastChildBirthYearSpinner, lastChildBirthStatusSpinner;
     EditText firstName, middleName, surname, dateOfBirth, phoneNumber, village, gravidaEt, paraEt, spauseName;
     EditText dateOfLNMP, dateOfDelivery;
     CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo;
@@ -42,7 +42,7 @@ public class ClientRegisterActivity extends BaseActivity {
 
     //ValueHolders
     String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
-    int gravidaValue, paraValue;
+    int gravidaValue, paraValue, lastChildBirthStatus, lastChildBirthYear;
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
     String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
@@ -65,7 +65,7 @@ public class ClientRegisterActivity extends BaseActivity {
         }
 
         //initialize the gestational age spinner with values
-        gestationalAgeSpinner.setItems("Gestational Age", "< 20 Years", "20+ Years");
+        gestationalAgeSpinner.setItems("Gestational Age", "< 20 Weeks", "20+ Weeks");
         gestationalAgeSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
@@ -102,7 +102,7 @@ public class ClientRegisterActivity extends BaseActivity {
         });
 
         //initializing the pmtctStatus spinner with values
-        pmtctStatusSpinner.setItems("PMTCT Status","1", "2", "Unknown");
+        pmtctStatusSpinner.setItems("1", "2", "Unknown");
         pmtctStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -110,6 +110,26 @@ public class ClientRegisterActivity extends BaseActivity {
                 if (position == 0)
                     pmCtcStatus = "";
                 else pmCtcStatus = item;
+            }
+        });
+
+        lastChildBirthYearSpinner.setItems(2017, 2016, 2015, 2014, 2013, 2012, 2011, 2009, 2008, 2007, 2006, 2005, 2004, 2003);
+        lastChildBirthYearSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                lastChildBirthYear = (Integer) item;
+            }
+        });
+
+        lastChildBirthStatusSpinner.setItems("Alive", "Died");
+        lastChildBirthStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if (position == 0){
+                    lastChildBirthStatus = 1;
+                }else if (position == 1){
+                    lastChildBirthStatus = 0;
+                }
             }
         });
 
@@ -303,6 +323,8 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setSpouseName(spauseNameValue);
         ancClient.setLnmp(dateOfLNMPValue);
         ancClient.setEdd(dateOfDeliveryValue);
+        ancClient.setLastChildBirthStatus(lastChildBirthStatus);
+        ancClient.setLastChildBirthYear(lastChildBirthYear);
 
         new AsyncTask<AncClient, Void, Void>(){
             @Override
@@ -331,6 +353,8 @@ public class ClientRegisterActivity extends BaseActivity {
         heightSpinner = findViewById(R.id.height_spinner);
         levelOfEducationSpinner = findViewById(R.id.level_of_education_spinner);
         pmtctStatusSpinner = findViewById(R.id.pmtct_status_spinner);
+        lastChildBirthYearSpinner = findViewById(R.id.last_child_birth_year_spinner);
+        lastChildBirthStatusSpinner = findViewById(R.id.last_child_birth_status_spinner);
 
         //EditText
         firstName = findViewById(R.id.first_name);

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ANC.iml" filepath="$PROJECT_DIR$/ANC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" filepath="$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

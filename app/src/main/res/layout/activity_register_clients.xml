@@ -334,16 +334,99 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:padding="2dp"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginTop="8dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="50dp">
+                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:id="@+id/pmctc_title"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:text="PMTCT Status"/>
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
                                     android:id="@+id/pmtct_status_spinner"
                                     android:layout_width="match_parent"
+                                    android:layout_below="@+id/pmctc_title"
+                                    android:layout_marginTop="22dp"
                                     app:ms_arrow_tint="@color/card_grid_tex"
                                     app:ms_text_color="@color/pink_400"
+                                    app:ms_background_selector="@drawable/border_one"
+                                    android:layout_height="wrap_content"/>
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@color/card_separator"/>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:padding="2dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16sp"
+                                    android:id="@+id/lcsy_title"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:text="Last child birth year"/>
+
+                                <com.jaredrummler.materialspinner.MaterialSpinner
+                                    android:id="@+id/last_child_birth_year_spinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_below="@+id/lcsy_title"
+                                    android:layout_marginTop="22dp"
+                                    android:layout_alignParentBottom="true"
+                                    app:ms_arrow_tint="@color/card_grid_tex"
+                                    app:ms_text_color="@color/pink_400"
+                                    app:ms_background_selector="@drawable/border_one"
+                                    android:layout_height="wrap_content"/>
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@color/card_separator"/>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:padding="2dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:id="@+id/lcbs_title"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:text="Last child birth status Status"/>
+
+                                <com.jaredrummler.materialspinner.MaterialSpinner
+                                    android:id="@+id/last_child_birth_status_spinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_below="@+id/lcbs_title"
+                                    android:layout_marginTop="8dp"
+                                    app:ms_arrow_tint="@color/card_grid_tex"
+                                    app:ms_text_color="@color/pink_400"
+                                    app:ms_background_selector="@drawable/border_one"
                                     android:layout_height="wrap_content"/>
 
                             </RelativeLayout>
@@ -564,113 +647,6 @@
 
                             </RelativeLayout>
 
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
-
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
-                                    android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/last_pregnancy_10_years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
-                                        android:layout_marginRight="16dp"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
-
-                                    <com.uniquestudio.library.CircleCheckBox
-                                        android:id="@+id/last_pregnancy_10_years_yes_checkbox"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
-                                        app:background_color="@color/white"
-                                        app:border_width="1dp"
-                                        app:tick_width="1dp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
-                                    android:layout_marginBottom="8dp"
-                                    android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/last_pregnancy_10_years_no_checkbox_container"
-                                    android:layout_below="@id/last_pregnancy_10_years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
-
-                                    <com.uniquestudio.library.CircleCheckBox
-                                        android:id="@+id/last_pregnancy_10_years_no_checkbox"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
-                                        app:background_color="@color/white"
-                                        app:border_width="1dp"
-                                        app:tick_width="1dp"/>
-
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginRight="4dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
-                                    android:fontFamily="@font/avenir_light"
-                                    android:text="Last pregnancy 10 years ago"
-                                    android:layout_toLeftOf="@id/last_pregnancy_10_years_no_checkbox_container"
-                                    android:layout_marginLeft="8dp"/>
-
-                            </RelativeLayout>
-
                         </LinearLayout>
 
                         <View
@@ -784,6 +760,113 @@
                                     android:text="Pregrancy with > 35 years"
                                     android:layout_marginRight="4dp"
                                     android:layout_toLeftOf="@id/pregnancy_morethan35years_no_checkbox_container"/>
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@color/card_separator"/>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="8dp"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginRight="8dp"
+                                    android:padding="4dp"
+                                    android:id="@+id/last_pregnancy_10_years_yes_checkbox_container"
+                                    android:layout_alignParentRight="true">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/red_200"
+                                        android:text="Yes"
+                                        android:layout_marginRight="16dp"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_marginBottom="4dp"
+                                        android:textStyle="bold"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/last_pregnancy_10_years_yes_checkbox"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_marginBottom="4dp"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/red_200"
+                                        app:tick_color="@color/red_200"
+                                        app:background_color="@color/white"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:padding="4dp"
+                                    android:id="@+id/last_pregnancy_10_years_no_checkbox_container"
+                                    android:layout_below="@id/last_pregnancy_10_years_yes_checkbox_container"
+                                    android:layout_alignParentRight="true">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/green_200"
+                                        android:text="No"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginRight="16dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/last_pregnancy_10_years_no_checkbox"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_marginBottom="4dp"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/green_200"
+                                        app:tick_color="@color/green_200"
+                                        app:background_color="@color/white"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginRight="4dp"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:text="Last pregnancy 10 years ago"
+                                    android:layout_toLeftOf="@id/last_pregnancy_10_years_no_checkbox_container"
+                                    android:layout_marginLeft="8dp"/>
 
                             </RelativeLayout>
 
