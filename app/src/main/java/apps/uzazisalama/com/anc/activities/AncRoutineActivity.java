@@ -169,7 +169,9 @@ public class AncRoutineActivity extends BaseActivity {
                         super.onPostExecute(aVoid);
                         successMessage.setVisibility(View.GONE);
 
-                        startActivity(new Intent(AncRoutineActivity.this, PncClientDetailActivity.class));
+                        Intent intent = new Intent(AncRoutineActivity.this, PncClientDetailActivity.class);
+                        intent.putExtra("currentAncClient", currentAncClient);
+                        startActivity(intent);
 
                     }
                 }.execute();

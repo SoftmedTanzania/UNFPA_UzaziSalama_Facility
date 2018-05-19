@@ -49,10 +49,109 @@
         android:orientation="vertical"
         android:layout_marginTop="?attr/actionBarSize">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            app:cardBackgroundColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ANC CLIENTS"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/avenir_light"
+                    android:textSize="26sp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/summary_title"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/border_round_button"
+                    android:text="Search"
+                    android:id="@+id/search_button"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/search_button">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:hint="Client Name"
+                        android:textColorHint="@color/card_grid_tex"
+                        android:paddingLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:drawableLeft="@mipmap/ic_calendar"
+                        android:drawablePadding="4dp"
+                        android:textSize="14sp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/border_one"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:hint="Para"
+                        android:textColorHint="@color/card_grid_tex"
+                        android:paddingLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:drawableLeft="@mipmap/ic_calendar"
+                        android:drawablePadding="4dp"
+                        android:id="@+id/search_para"
+                        android:textSize="14sp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/border_one"
+                        android:layout_height="wrap_content" />
+
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:hint="Gravida"
+                        android:textColorHint="@color/card_grid_tex"
+                        android:paddingLeft="8dp"
+                        android:id="@+id/search_gravida"
+                        android:fontFamily="@font/avenir_light"
+                        android:drawableLeft="@mipmap/ic_calendar"
+                        android:drawablePadding="4dp"
+                        android:paddingRight="8dp"
+                        android:textSize="14sp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/border_one"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/card_separator"/>

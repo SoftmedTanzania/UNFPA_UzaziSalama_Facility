@@ -17,12 +17,12 @@ import apps.uzazisalama.com.anc.database.AncClient;
  * On Project ANC
  */
 
-public class ClientsViewModel extends AndroidViewModel {
+public class AncClientsViewModel extends AndroidViewModel {
 
     LiveData<List<AncClient>> allClientsList;
     AppDatabase database;
 
-    public ClientsViewModel(Application application){
+    public AncClientsViewModel(Application application){
         super(application);
         database = AppDatabase.getDatabase(this.getApplication());
         allClientsList = database.clientModel().getAllAncClients();

@@ -2,6 +2,7 @@ package apps.uzazisalama.com.anc.database;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 /**
  * Created by issy on 18/05/2018.
@@ -14,6 +15,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Referral {
 
     @PrimaryKey(autoGenerate = false)
+    @NonNull
     private String referralID;
 
     private String ancClientID;

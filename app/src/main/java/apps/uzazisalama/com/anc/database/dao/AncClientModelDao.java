@@ -26,11 +26,14 @@ public interface AncClientModelDao {
     @Query("SELECT * from AncClient")
     LiveData<List<AncClient>> getAllClients();
 
-    @Query("select * from AncClient where pncStatus = 0 ")
+    @Query("select * from AncClient where pncStatus = 1 ")
     LiveData<List<AncClient>> getAllAncClients();
 
     @Query("select * from AncClient where pncStatus = 1 ")
     LiveData<List<AncClient>> getAllPncClients();
+
+    @Query("select * from AncClient where ID = :clientID")
+    List<AncClient> getItemById(String clientID);
 
     @Insert(onConflict = REPLACE)
     void addNewClient(AncClient ancClient);

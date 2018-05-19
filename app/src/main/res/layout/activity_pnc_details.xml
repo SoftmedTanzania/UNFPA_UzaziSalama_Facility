@@ -88,47 +88,64 @@
                     android:layout_height="match_parent"
                     android:background="@color/card_separator"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
-
-                <View
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Phone"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_marginRight="16dp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_phone"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="+255755688678"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Village"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_village"
+                        android:layout_marginRight="16dp"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Kilosa"/>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -150,47 +167,64 @@
                     android:layout_height="match_parent"
                     android:background="@color/card_separator"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
-
-                <View
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Age"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_marginRight="16dp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_age"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="32 Years"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Spause Name"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_spause_name"
+                        android:layout_marginRight="16dp"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Musa"/>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -212,47 +246,64 @@
                     android:layout_height="match_parent"
                     android:background="@color/card_separator"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
-
-                <View
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="Phone"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Gravida"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_marginRight="16dp"
-                    android:textColor="@color/card_title_text"
-                    android:layout_marginLeft="16dp"
-                    android:fontFamily="@font/avenir_light"
-                    android:text="+255755688678"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_gravida"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="3"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_title_text"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Para"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:id="@+id/client_para"
+                        android:layout_marginRight="16dp"
+                        android:textColor="@color/card_grid_text"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="2"/>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -271,160 +322,413 @@
         </LinearLayout>
 
         <android.support.v7.widget.CardView
-            android:layout_weight="0.3"
+            android:layout_weight="0.5"
             android:layout_width="0dp"
             app:cardBackgroundColor="@color/card_separator_third"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginLeft="32dp"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/avenir_light"
-                    android:textColor="@color/black"
-                    android:text="Mother's Maternity Status"/>
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="32dp"
                         android:textSize="16sp"
-                        android:fontFamily="@font/avenir_light"
-                        android:textColor="@color/card_title_text"
-                        android:text="Place Of Birth"/>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:padding="2dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="@drawable/border_one"
-                        android:layout_height="match_parent">
-
-                        <com.jaredrummler.materialspinner.MaterialSpinner
-                            android:id="@+id/height_spinner"
-                            android:layout_width="match_parent"
-                            app:ms_arrow_tint="@color/card_grid_tex"
-                            app:ms_text_color="@color/pink_400"
-                            android:layout_height="wrap_content"/>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/avenir_light"
-                        android:textColor="@color/card_title_text"
-                        android:text="Child Status"/>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:padding="2dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="@drawable/border_one"
-                        android:layout_height="match_parent">
-
-                        <com.jaredrummler.materialspinner.MaterialSpinner
-                            android:id="@+id/child_Status_spinner"
-                            android:layout_width="match_parent"
-                            app:ms_arrow_tint="@color/card_grid_tex"
-                            app:ms_text_color="@color/pink_400"
-                            android:layout_height="wrap_content"/>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"/>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:padding="2dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="@drawable/border_one"
-                        android:layout_height="match_parent">
-
-                        <com.jaredrummler.materialspinner.MaterialSpinner
-                            android:id="@+id/child_Status_spinner"
-                            android:layout_width="match_parent"
-                            app:ms_arrow_tint="@color/card_grid_tex"
-                            app:ms_text_color="@color/pink_400"
-                            android:layout_height="wrap_content"/>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <Button
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/border_color_primary"
-                        android:text="Save"
-                        android:layout_alignParentRight="true"
-                        android:id="@+id/save_routine_button"
                         android:fontFamily="@font/avenir_light"
                         android:textColor="@color/colorPrimary"
-                        android:textAllCaps="false"
-                        android:layout_marginRight="16dp"
+                        android:text="Mother's Maternity Status"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_below="@+id/new_visit_input_container"/>
+                        android:orientation="horizontal">
 
-                </RelativeLayout>
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="Date of Admission"
+                            android:textColorHint="@color/card_grid_tex"
+                            android:paddingLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:drawableLeft="@mipmap/ic_calendar"
+                            android:drawablePadding="4dp"
+                            android:layout_marginRight="8dp"
+                            android:textSize="14sp"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/black"
+                            android:id="@+id/date_of_admission"
+                            android:background="@drawable/border_one"
+                            android:layout_height="wrap_content" />
 
-            </LinearLayout>
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="Date of Delivery"
+                            android:textColorHint="@color/card_grid_tex"
+                            android:paddingLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:drawableLeft="@mipmap/ic_calendar"
+                            android:drawablePadding="4dp"
+                            android:textSize="14sp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/black"
+                            android:id="@+id/date_of_delivery"
+                            android:background="@drawable/border_one"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/misscarriage_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Miss carrieage"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/misscarriage_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/misscarriage_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/delivery_method_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Delivery Method"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/delivery_method_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/delivery_method_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/delivery_complications_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Delivery Complications"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/delivery_complications_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/delivery_complications_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/mother_discharge_condition_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Mother Discharge Condition"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/mother_discharge_condition_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/mother_discharge_condition_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="32dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/avenir_light"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Child Condition"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/child_gender_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Child Gender"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/child_gender_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/child_gender_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="Child Weight"
+                            android:textColorHint="@color/card_grid_tex"
+                            android:paddingLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:inputType="numberDecimal"
+                            android:drawableLeft="@mipmap/ic_calendar"
+                            android:drawablePadding="4dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:id="@+id/child_weight"
+                            android:background="@drawable/border_one"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="Apgar Score"
+                            android:textColorHint="@color/card_grid_tex"
+                            android:paddingLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:drawableLeft="@mipmap/ic_calendar"
+                            android:drawablePadding="4dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:inputType="number"
+                            android:id="@+id/apgar_score"
+                            android:background="@drawable/border_one"
+                            android:layout_height="wrap_content" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/card_title_text"
+                            android:text="Child Status"/>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginLeft="16dp"
+                            android:background="@drawable/border_one"
+                            android:layout_height="match_parent">
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/child_status_spinner"
+                                android:layout_width="match_parent"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"/>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginLeft="16dp"
+                            android:background="@drawable/border_one"
+                            android:layout_height="match_parent">
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/child_Status_spinner"
+                                android:layout_width="match_parent"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <View
+
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/border_color_primary"
+                            android:text="Save"
+                            android:layout_alignParentRight="true"
+                            android:id="@+id/save_pnc_data_button"
+                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/colorPrimary"
+                            android:textAllCaps="false"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_below="@+id/new_visit_input_container"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
 
         </android.support.v7.widget.CardView>
 

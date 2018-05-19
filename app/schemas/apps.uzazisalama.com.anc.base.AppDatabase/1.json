@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7a644795f9298776a2570004f6356d82",
+    "identityHash": "8639cbeac4a014ab059a598299d2d5b7",
     "entities": [
       {
         "tableName": "AncClient",
@@ -187,6 +187,196 @@
         "foreignKeys": []
       },
       {
+        "tableName": "PncClient",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `ancClientID` TEXT, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
+        "fields": [
+          {
+            "fieldPath": "pncClientID",
+            "columnName": "pncClientID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ancClientID",
+            "columnName": "ancClientID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateOfAdmission",
+            "columnName": "dateOfAdmission",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateOfDelivery",
+            "columnName": "dateOfDelivery",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kuharibikaMimba",
+            "columnName": "kuharibikaMimba",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryMethod",
+            "columnName": "deliveryMethod",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryComplications",
+            "columnName": "deliveryComplications",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "motherDischargeCondition",
+            "columnName": "motherDischargeCondition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childGender",
+            "columnName": "childGender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "childWeight",
+            "columnName": "childWeight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "apgarScore",
+            "columnName": "apgarScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childAbnomalities",
+            "columnName": "childAbnomalities",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childDischargeCondition",
+            "columnName": "childDischargeCondition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diedWithin24Hours",
+            "columnName": "diedWithin24Hours",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stillBirthTypes",
+            "columnName": "stillBirthTypes",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "pncClientID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Referral",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` TEXT NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
+        "fields": [
+          {
+            "fieldPath": "referralID",
+            "columnName": "referralID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ancClientID",
+            "columnName": "ancClientID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralUUID",
+            "columnName": "referralUUID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralReason",
+            "columnName": "referralReason",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "instanceID",
+            "columnName": "instanceID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "facilityID",
+            "columnName": "facilityID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralDate",
+            "columnName": "referralDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceProviderUUID",
+            "columnName": "serviceProviderUUID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fromFacailityID",
+            "columnName": "fromFacailityID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "otherClinicalInformation",
+            "columnName": "otherClinicalInformation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralType",
+            "columnName": "referralType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referralStatus",
+            "columnName": "referralStatus",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "referralID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
         "tableName": "RoutineVisits",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` TEXT NOT NULL, `ancClientID` TEXT, `visitNumber` INTEGER NOT NULL, `visitDate` INTEGER NOT NULL, `appointmentDate` INTEGER NOT NULL, `anaemia` INTEGER NOT NULL, `oedema` INTEGER NOT NULL, `protenuria` INTEGER NOT NULL, `highBloodPressure` INTEGER NOT NULL, `weightStagnation` INTEGER NOT NULL, `antepartumHaemorrhage` INTEGER NOT NULL, `sugarInTheUrine` INTEGER NOT NULL, `fetusLie` INTEGER NOT NULL, PRIMARY KEY(`ID`))",
         "fields": [
@@ -281,7 +471,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7a644795f9298776a2570004f6356d82\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8639cbeac4a014ab059a598299d2d5b7\")"
     ]
   }
 }

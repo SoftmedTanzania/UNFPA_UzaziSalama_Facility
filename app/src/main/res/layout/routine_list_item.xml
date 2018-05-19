@@ -175,6 +175,25 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent">
+
+            <com.uniquestudio.library.CircleCheckBox
+                android:id="@+id/fl_status"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                app:animation_duration="50"
+                app:border_color="@color/white"
+                app:tick_color="@color/card_light_text"
+                app:background_color="@color/white"
+                app:border_width="0dp"
+                app:tick_width="1dp"/>
+
+        </RelativeLayout>
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"

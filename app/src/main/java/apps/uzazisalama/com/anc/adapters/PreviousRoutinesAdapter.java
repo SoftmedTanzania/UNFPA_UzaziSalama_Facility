@@ -70,6 +70,7 @@ public class PreviousRoutinesAdapter extends RecyclerView.Adapter <RecyclerView.
         holder.ws.setChecked(routineVisits.isWeightStagnation());
         holder.ah.setChecked(routineVisits.isAntepartumHaemorrhage());
         holder.su.setChecked(routineVisits.isSugarInTheUrine());
+        holder.fl.setChecked(routineVisits.isFetusLie());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +99,7 @@ public class PreviousRoutinesAdapter extends RecyclerView.Adapter <RecyclerView.
     private class ListViewItemViewHolder extends RecyclerView.ViewHolder {
 
         TextView visitNumber, visitDate;
-        CircleCheckBox a, o, p, h, ws, ah, su;
+        CircleCheckBox a, o, p, h, ws, ah, su, fl;
         View viewItem;
 
         public ListViewItemViewHolder(View itemView){
@@ -115,6 +116,7 @@ public class PreviousRoutinesAdapter extends RecyclerView.Adapter <RecyclerView.
             ws = itemView.findViewById(R.id.ws_status);
             ah = itemView.findViewById(R.id.ah_status);
             su = itemView.findViewById(R.id.su_status);
+            fl = itemView.findViewById(R.id.fl_status);
 
         }
 

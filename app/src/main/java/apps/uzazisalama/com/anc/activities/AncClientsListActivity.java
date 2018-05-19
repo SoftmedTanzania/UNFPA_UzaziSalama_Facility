@@ -16,7 +16,7 @@ import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.adapters.ClientListAdapter;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
-import apps.uzazisalama.com.anc.viewmodels.ClientsViewModel;
+import apps.uzazisalama.com.anc.viewmodels.AncClientsViewModel;
 
 /**
  * Created by issy on 10/05/2018.
@@ -33,7 +33,7 @@ public class AncClientsListActivity extends BaseActivity {
     RecyclerView clientsListRecycler;
 
     ClientListAdapter listAdapter;
-    ClientsViewModel clientsViewModel;
+    AncClientsViewModel ancClientsViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,9 +53,9 @@ public class AncClientsListActivity extends BaseActivity {
         clientsListRecycler.setAdapter(listAdapter);
 
         //creting the viewmodel observer for the client object
-        clientsViewModel = ViewModelProviders.of(this).get(ClientsViewModel.class);
+        ancClientsViewModel = ViewModelProviders.of(this).get(AncClientsViewModel.class);
         Log.d(TAG, "Initialized the observer");
-        clientsViewModel.getAllClientsList().observe(this, new Observer<List<AncClient>>() {
+        ancClientsViewModel.getAllClientsList().observe(this, new Observer<List<AncClient>>() {
             @Override
             public void onChanged(@Nullable List<AncClient> ancClients) {
                 listAdapter.addItems(ancClients);

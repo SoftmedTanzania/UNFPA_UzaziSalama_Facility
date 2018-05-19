@@ -52,6 +52,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:background="@color/white"
+            android:paddingBottom="4dp"
             android:layout_height="match_parent">
 
             <TextView
@@ -70,160 +71,259 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="16dp"
                 android:layout_below="@+id/details_client_names">
 
-                <LinearLayout
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="0.3"
-                        android:layout_height="match_parent"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:textColor="@color/card_title_text"
-                            android:text="Age"
-                            android:fontFamily="@font/avenir_light"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:textColor="@color/card_grid_text"
-                            android:text="27"
-                            android:fontFamily="@font/avenir_light"
-                            android:layout_marginLeft="8dp" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="0.3"
-                        android:layout_height="match_parent"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/avenir_light"
-                            android:textColor="@color/card_title_text"
-                            android:text="Village"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/avenir_light"
-                            android:id="@+id/client_village_value"
-                            android:textColor="@color/card_grid_text"
-                            android:text="Kilimahewa"
-                            android:layout_marginLeft="8dp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/card_separator"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:layout_height="50dp"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp">
 
                     <View
-                        android:layout_width="0dp"
-                        android:layout_weight="0.3"
-                        android:layout_height="match_parent"/>
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_weight="1">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             android:textColor="@color/card_title_text"
-                            android:text="Spause Name"
+                            android:layout_marginLeft="16dp"
                             android:fontFamily="@font/avenir_light"
-                            android:textStyle="bold"/>
+                            android:text="Phone"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:id="@+id/client_spause_name_value"
-                            android:fontFamily="@font/avenir_light"
-                            android:textColor="@color/card_grid_text"
-                            android:text="Mrema"
-                            android:layout_marginLeft="8dp" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="0.3"
-                        android:layout_height="match_parent"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:textColor="@color/card_title_text"
-                            android:text="Phone"
-                            android:fontFamily="@font/avenir_light"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:textColor="@color/card_grid_text"
-                            android:text="+25575568878"
+                            android:textSize="16sp"
                             android:id="@+id/client_phone_value"
-                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/card_grid_text"
                             android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"/>
+                            android:fontFamily="@font/avenir_light"
+                            android:text="+255755688678"/>
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="32dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Village"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/client_village_value"
+                            android:layout_marginRight="16dp"
+                            android:textColor="@color/card_grid_text"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Kilosa"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:layout_marginLeft="16dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Age"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/client_age"
+                            android:textColor="@color/card_grid_text"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="32 Years"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="32dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Spause Name"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/client_spause_name_value"
+                            android:layout_marginRight="16dp"
+                            android:textColor="@color/card_grid_text"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Musa"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:layout_marginLeft="16dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Gravida"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/client_gravida"
+                            android:textColor="@color/card_grid_text"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="3"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="32dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="Para"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/client_para"
+                            android:layout_marginRight="16dp"
+                            android:textColor="@color/card_grid_text"
+                            android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:text="2"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/card_separator"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -362,6 +462,17 @@
                             android:fontFamily="@font/avenir_light"
                             android:gravity="center"/>
 
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="FL"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
                     </LinearLayout>
 
                     <View
@@ -471,7 +582,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="gone"
                             android:id="@+id/routine_inputs_wrap">
 
                             <LinearLayout
@@ -932,12 +1042,72 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Fetus Lie"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/fl_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/fl_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="64dp"
+                            android:visibility="gone"
                             android:id="@+id/enroll_to_pnc_container">
 
                             <TextView
@@ -969,7 +1139,6 @@
                     </LinearLayout>
 
                     <Button
-                        android:visibility="gone"
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:background="@drawable/border_color_primary"

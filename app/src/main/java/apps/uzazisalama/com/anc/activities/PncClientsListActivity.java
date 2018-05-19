@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
@@ -12,9 +13,12 @@ import java.util.List;
 
 import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.adapters.ClientListAdapter;
+import apps.uzazisalama.com.anc.adapters.PncClientsListAdapter;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
-import apps.uzazisalama.com.anc.viewmodels.ClientsViewModel;
+import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.viewmodels.AncClientsViewModel;
+import apps.uzazisalama.com.anc.viewmodels.PncClientsViewModel;
 
 /**
  * Created by issy on 10/05/2018.
@@ -29,7 +33,7 @@ public class PncClientsListActivity extends BaseActivity{
     RecyclerView clientsListRecycler;
 
     ClientListAdapter listAdapter;
-    ClientsViewModel clientsViewModel;
+    PncClientsViewModel pncClientsViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,19 +48,22 @@ public class PncClientsListActivity extends BaseActivity{
         }
 
         listAdapter = new ClientListAdapter(new ArrayList<>(), this);
-        clientsViewModel = ViewModelProviders.of(this).get(ClientsViewModel.class);
-        clientsViewModel.getAllClientsList().observe(this, new Observer<List<AncClient>>() {
+        pncClientsViewModel = ViewModelProviders.of(this).get(PncClientsViewModel.class);
+        pncClientsViewModel.getAllPncClients().observe(this, new Observer<List<PncClient>>() {
             @Override
-            public void onChanged(@Nullable List<AncClient> ancClients) {
-                listAdapter.addItems(ancClients);
+            public void onChanged(@Nullable List<PncClient> pncClients) {
+                PncClientsListAdapter adapter = new PncClientsListAdapter(PncClientsListActivity.this, pncClients);
+                clientsListRecycler.setAdapter(adapter);
             }
         });
 
-        clientsListRecycler.setAdapter(listAdapter);
 
     }
 
     void setupviews(){
-        clientsListRecycler = findViewById(R.id.clients_list_recycler);
+        clientsListRecycler = findViewById(R.id.pnc_clients_list_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        clientsListRecycler.setLayoutManager(layoutManager);
+        clientsListRecycler.setHasFixedSize(true);
     }
 }
