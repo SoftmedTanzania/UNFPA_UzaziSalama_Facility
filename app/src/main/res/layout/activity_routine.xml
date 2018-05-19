@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="apps.uzazisalama.com.anc.activities.AncClientsListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/app_bar_layout"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/routine_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/avenir_light"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:text="Client Routine Information"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/card_grid_text"
+        android:orientation="horizontal"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:background="@color/white"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/details_client_names"
+                android:textSize="24sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/avenir_light"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:text="Alice Bin Bob"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:layout_below="@+id/details_client_names">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/card_title_text"
+                            android:text="Age"
+                            android:fontFamily="@font/avenir_light"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/card_grid_text"
+                            android:text="27"
+                            android:fontFamily="@font/avenir_light"
+                            android:layout_marginLeft="8dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/card_title_text"
+                            android:text="Village"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/avenir_light"
+                            android:id="@+id/client_village_value"
+                            android:textColor="@color/card_grid_text"
+                            android:text="Kilimahewa"
+                            android:layout_marginLeft="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/card_title_text"
+                            android:text="Spause Name"
+                            android:fontFamily="@font/avenir_light"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:id="@+id/client_spause_name_value"
+                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/card_grid_text"
+                            android:text="Mrema"
+                            android:layout_marginLeft="8dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/card_title_text"
+                            android:text="Phone"
+                            android:fontFamily="@font/avenir_light"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/card_grid_text"
+                            android:text="+25575568878"
+                            android:id="@+id/client_phone_value"
+                            android:fontFamily="@font/avenir_light"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:text="Previous Visits"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/avenir_light"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/card_separator"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/card_separator"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="Visit"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="Date"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="A"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="O"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="P"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="H"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="WS"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="AH"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="SU"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_title_text"
+                            android:fontFamily="@font/avenir_light"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@color/card_separator"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/card_separator"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:id="@+id/previous_routines_recycler"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="0.3"
+            android:layout_width="0dp"
+            app:cardBackgroundColor="@color/card_separator_third"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/new_visit_input_container"
+                        android:layout_marginTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/new_visit_date"
+                                android:layout_marginLeft="16dp"
+                                android:textStyle="bold"
+                                android:text="May 12th 2018"
+                                android:textColor="@color/card_title_text"
+                                android:fontFamily="@font/avenir_light"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/card_title_text"
+                                android:layout_marginRight="16dp"
+                                android:fontFamily="@font/avenir_light"
+                                android:id="@+id/visit_title"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:text="visit"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/card_title_text"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="32dp"
+                                android:fontFamily="@font/avenir_light"
+                                android:id="@+id/visit_count"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:text="1"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:background="@color/card_separator"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:id="@+id/routine_inputs_wrap">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Indicator"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_title_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_title_text"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_title_text"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:gravity="center"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:background="@color/card_separator_sec">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Anaemia (A)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/a_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/a_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Oedema (O)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/o_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/o_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:background="@color/card_separator_sec"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Protenuria (P)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/p_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/p_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="High Blood Pressure (H)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/h_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/h_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:background="@color/card_separator_sec"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Weight stagnation (WS)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/ws_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/ws_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Antepartum Haemorrhage (AH)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/ah_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/ah_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/card_separator_sec"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:layout_marginLeft="16dp"
+                                    android:text="Sugar In the Urine (SU)"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_grid_text"
+                                    android:fontFamily="@font/avenir_light"/>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+
+                                        android:id="@+id/su_yes"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent">
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/su_no"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        app:animation_duration="50"
+                                        app:border_color="@color/card_separator"
+                                        app:tick_color="@color/card_light_text"
+                                        app:background_color="@color/card_separator_sec"
+                                        app:border_width="1dp"
+                                        app:tick_width="1dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="64dp"
+                            android:id="@+id/enroll_to_pnc_container">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:layout_centerHorizontal="true"
+                                android:text="Enroll To PNC"
+                                android:id="@+id/enroll_to_pnc"
+                                android:textColor="@color/card_title_text"
+                                android:gravity="center"
+                                android:fontFamily="@font/avenir_light"
+                                android:background="@drawable/border_one"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/green_600"
+                                android:layout_centerHorizontal="true"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:id="@+id/success_message"
+                                android:layout_below="@+id/enroll_to_pnc"
+                                android:fontFamily="@font/avenir_light"
+                                android:layout_marginTop="64dp"
+                                android:text="Enrolled Successfully"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:visibility="gone"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/border_color_primary"
+                        android:layout_alignParentRight="true"
+                        android:text="Save"
+                        android:id="@+id/save_routine_button"
+                        android:fontFamily="@font/avenir_light"
+                        android:textColor="@color/colorPrimary"
+                        android:textAllCaps="false"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_below="@+id/new_visit_input_container"/>
+
+                </RelativeLayout>
+
+            </ScrollView>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

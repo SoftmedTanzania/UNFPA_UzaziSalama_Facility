@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="apps.uzazisalama.com.anc">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="apps.uzazisalama.com.anc.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.AncClientsListActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".activities.ClientRegisterActivity"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".activities.ReferralListActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".activities.PncClientsListActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".activities.AncRoutineActivity"
+            android:parentActivityName=".activities.AncClientsListActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".activities.PncClientDetailActivity"
+            android:parentActivityName=".activities.PncClientsListActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+    </application>
+
+</manifest>

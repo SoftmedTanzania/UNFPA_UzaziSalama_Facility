@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="apps.uzazisalama.com.anc.activities.AncClientsListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/app_bar_layout"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/routine_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/avenir_light"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:text="Client Routine Information"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/card_grid_text"
+        android:orientation="horizontal"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/details_client_names"
+                android:textSize="24sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/avenir_light"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:text="Alice Bob Smith"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/card_separator"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginRight="32dp"
+                android:layout_marginLeft="32dp">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginRight="32dp"
+                android:layout_marginLeft="32dp">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginRight="32dp"
+                android:layout_marginLeft="32dp">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="Phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/card_title_text"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/avenir_light"
+                    android:text="+255755688678"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_separator"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@color/card_separator"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="0.3"
+            android:layout_width="0dp"
+            app:cardBackgroundColor="@color/card_separator_third"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/avenir_light"
+                    android:textColor="@color/black"
+                    android:text="Mother's Maternity Status"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/avenir_light"
+                        android:textColor="@color/card_title_text"
+                        android:text="Place Of Birth"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/border_one"
+                        android:layout_height="match_parent">
+
+                        <com.jaredrummler.materialspinner.MaterialSpinner
+                            android:id="@+id/height_spinner"
+                            android:layout_width="match_parent"
+                            app:ms_arrow_tint="@color/card_grid_tex"
+                            app:ms_text_color="@color/pink_400"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/avenir_light"
+                        android:textColor="@color/card_title_text"
+                        android:text="Child Status"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/border_one"
+                        android:layout_height="match_parent">
+
+                        <com.jaredrummler.materialspinner.MaterialSpinner
+                            android:id="@+id/child_Status_spinner"
+                            android:layout_width="match_parent"
+                            app:ms_arrow_tint="@color/card_grid_tex"
+                            app:ms_text_color="@color/pink_400"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/border_one"
+                        android:layout_height="match_parent">
+
+                        <com.jaredrummler.materialspinner.MaterialSpinner
+                            android:id="@+id/child_Status_spinner"
+                            android:layout_width="match_parent"
+                            app:ms_arrow_tint="@color/card_grid_tex"
+                            app:ms_text_color="@color/pink_400"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/border_color_primary"
+                        android:text="Save"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/save_routine_button"
+                        android:fontFamily="@font/avenir_light"
+                        android:textColor="@color/colorPrimary"
+                        android:textAllCaps="false"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_below="@+id/new_visit_input_container"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
