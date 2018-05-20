@@ -40,6 +40,9 @@
             android:parentActivityName=".activities.PncClientsListActivity"
             android:windowSoftInputMode="stateHidden"/>
 
+        <activity android:name=".activities.ViewPncClientActivity"
+            android:parentActivityName=".activities.PncClientsListActivity"/>
+
     </application>
 
 </manifest>

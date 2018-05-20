@@ -2,6 +2,7 @@ package apps.uzazisalama.com.anc.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.R;
+import apps.uzazisalama.com.anc.activities.PncClientDetailActivity;
+import apps.uzazisalama.com.anc.activities.ViewPncClientActivity;
 import apps.uzazisalama.com.anc.base.AppDatabase;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
@@ -48,6 +51,15 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
         final PncClient client = getItem(position);
 
         PncClientsListAdapter.ListViewItemViewHolder holder = (PncClientsListAdapter.ListViewItemViewHolder) viewHolder;
+
+        holder.viewItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ViewPncClientActivity.class);
+                intent.putExtra("currentPncClient", client);
+                context.startActivity(intent);
+            }
+        });
 
         AncClientDetails clientDetails = new AncClientDetails(BaseActivity.database, holder);
         clientDetails.execute(client.getAncClientID());

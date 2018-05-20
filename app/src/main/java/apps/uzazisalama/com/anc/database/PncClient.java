@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+
 /**
  * Created by issy on 18/05/2018.
  *
@@ -12,7 +14,7 @@ import android.support.annotation.NonNull;
  */
 
 @Entity(tableName = "PncClient")
-public class PncClient {
+public class PncClient implements Serializable {
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
@@ -48,7 +50,8 @@ public class PncClient {
      */
     private int motherDischargeCondition;
 
-    //Child's Condition
+    //######## Child's Condition ########
+
     private String childGender;
 
     private double childWeight;
