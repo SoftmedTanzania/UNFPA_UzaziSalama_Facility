@@ -37,8 +37,8 @@ public class Referral {
     private String otherClinicalInformation;
 
     /**
-     *  1
-     *  2
+     *  1 -> Chw referral
+     *  2 -> Health Facility Referrals
      */
     private int referralType;
 

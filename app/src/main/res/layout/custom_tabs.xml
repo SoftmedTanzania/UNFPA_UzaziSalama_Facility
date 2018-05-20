@@ -23,9 +23,10 @@
             android:gravity="center_vertical"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@color/card_title_text"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/avenir_light"
             android:id="@+id/title_text"
             android:text="Home"/>
 

@@ -26,7 +26,8 @@
             android:windowSoftInputMode="stateHidden"/>
 
         <activity android:name=".activities.ReferralListActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
         <activity android:name=".activities.PncClientsListActivity"
             android:parentActivityName=".MainActivity"
@@ -41,7 +42,12 @@
             android:windowSoftInputMode="stateHidden"/>
 
         <activity android:name=".activities.ViewPncClientActivity"
-            android:parentActivityName=".activities.PncClientsListActivity"/>
+            android:parentActivityName=".activities.PncClientsListActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".activities.ReferralDetailsView"
+            android:parentActivityName=".activities.ReferralListActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
     </application>
 

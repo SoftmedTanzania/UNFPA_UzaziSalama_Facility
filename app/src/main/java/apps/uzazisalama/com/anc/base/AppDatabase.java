@@ -11,6 +11,7 @@ import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.database.dao.AncClientModelDao;
 import apps.uzazisalama.com.anc.database.dao.PncClientModelDao;
+import apps.uzazisalama.com.anc.database.dao.ReferralModelDao;
 import apps.uzazisalama.com.anc.database.dao.RoutineVisitsModelDao;
 
 /**
@@ -47,5 +48,7 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract RoutineVisitsModelDao routineModelDao();
 
     public abstract PncClientModelDao pncClientModelDao();
+
+    public abstract ReferralModelDao referralModelDao();
 
 }
