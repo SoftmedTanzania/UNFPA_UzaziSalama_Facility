@@ -43,7 +43,7 @@ public class ReferralListAdapter extends RecyclerView.Adapter <RecyclerView.View
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
 
-        //Referral referral = getItem(position);
+        Referral referral = getItem(position);
 
         ListViewItemViewHolder holder = (ListViewItemViewHolder) viewHolder;
 
@@ -60,7 +60,7 @@ public class ReferralListAdapter extends RecyclerView.Adapter <RecyclerView.View
 
     @Override
     public int getItemCount() {
-        return 4;
+        return items.size();
     }
 
     private Referral getItem(int position){

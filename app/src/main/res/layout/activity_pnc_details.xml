@@ -344,7 +344,7 @@
                         android:textSize="16sp"
                         android:fontFamily="@font/avenir_light"
                         android:textColor="@color/colorPrimary"
-                        android:text="Mother's Maternity Status"/>
+                        android:text="Mother's Maternity Outcome"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"

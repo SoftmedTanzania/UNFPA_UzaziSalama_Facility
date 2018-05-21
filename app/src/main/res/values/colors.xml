@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#d81b60</color> <!-- Green 500 -->
-    <color name="colorPrimaryDark">#880e4f</color> <!-- Green 800 -->
+
+    <!--<color name="colorPrimary">#d81b60</color> &lt;!&ndash; Green 500 &ndash;&gt;-->
+    <!--<color name="colorPrimaryDark">#880e4f</color> &lt;!&ndash; Green 800 &ndash;&gt;-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <color name="colorPrimary">#e38a15</color> <!-- Green 500 -->
+    <color name="colorPrimaryDark">#ab650a</color> <!-- Green 800 -->
     <color name="colorAccent">#FF4081</color>
 
     <array name="progress_colors">

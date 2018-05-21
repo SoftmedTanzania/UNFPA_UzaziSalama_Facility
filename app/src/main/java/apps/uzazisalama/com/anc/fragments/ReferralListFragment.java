@@ -77,6 +77,7 @@ public class ReferralListFragment extends Fragment {
             referralViewModel.getChwReferrals().observe(this, new Observer<List<Referral>>() {
                 @Override
                 public void onChanged(@Nullable List<Referral> referrals) {
+                    newCount.setText("New : "+referrals.size());
                     adapter = new ReferralListAdapter(ReferralListFragment.this.getContext(), referrals);
                     referralsRecycler.setAdapter(adapter);
                 }
@@ -86,6 +87,7 @@ public class ReferralListFragment extends Fragment {
             referralViewModel.getHealthFacilityReferrals().observe(this, new Observer<List<Referral>>() {
                 @Override
                 public void onChanged(@Nullable List<Referral> referrals) {
+                    newCount.setText("New : "+referrals.size());
                     adapter = new ReferralListAdapter(ReferralListFragment.this.getContext(), referrals);
                     referralsRecycler.setAdapter(adapter);
                 }
