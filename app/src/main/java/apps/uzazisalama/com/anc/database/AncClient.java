@@ -50,13 +50,13 @@ public class AncClient implements Serializable{
     private long dateOfBirth;
 
     @SerializedName("pmtctStatus")
-    private boolean pmctcStatus; // 0 = unknown, 1 and 2
+    private int pmctcStatus; // 0 = unknown, 1 and 2
 
     @SerializedName("heightBelowAverage")
     private boolean heightBelowAverage; //true if below 150
 
     @SerializedName("levelOfEducation")
-    private String levelOfEducation; //TODO => Change to ID (int)
+    private int levelOfEducation; //TODO => Change to ID (int)
 
     @SerializedName("spouseName")
     private String spouseName;
@@ -103,7 +103,7 @@ public class AncClient implements Serializable{
      *  1 -> true
      */
     @SerializedName("pncStatus")
-    private int pncStatus;
+    private boolean pncStatus;
 
     /**
      * Year
@@ -185,11 +185,11 @@ public class AncClient implements Serializable{
         this.heightBelowAverage = heightBelowAverage;
     }
 
-    public String getLevelOfEducation() {
+    public int getLevelOfEducation() {
         return levelOfEducation;
     }
 
-    public void setLevelOfEducation(String levelOfEducation) {
+    public void setLevelOfEducation(int levelOfEducation) {
         this.levelOfEducation = levelOfEducation;
     }
 
@@ -241,11 +241,11 @@ public class AncClient implements Serializable{
         this.gestationalAgeBelow20 = gestationalAgeBelow20;
     }
 
-    public boolean isPmctcStatus() {
+    public int getPmctcStatus() {
         return pmctcStatus;
     }
 
-    public void setPmctcStatus(boolean pmctcStatus) {
+    public void setPmctcStatus(int pmctcStatus) {
         this.pmctcStatus = pmctcStatus;
     }
 
@@ -305,11 +305,11 @@ public class AncClient implements Serializable{
         this.historyOfRetainedPlacenta = historyOfRetainedPlacenta;
     }
 
-    public int getPncStatus() {
+    public boolean isPncStatus() {
         return pncStatus;
     }
 
-    public void setPncStatus(int pncStatus) {
+    public void setPncStatus(boolean pncStatus) {
         this.pncStatus = pncStatus;
     }
 

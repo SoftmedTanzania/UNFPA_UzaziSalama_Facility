@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="apps.uzazisalama.com.anc.MainActivity">
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,46 +21,52 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.LoginActivity" />
 
-        <service
-            android:name=".services.FirebaseInstanseIdService">
+        <service android:name=".services.FirebaseInstanseIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.AncClientsListActivity"
+        <activity
+            android:name=".activities.AncClientsListActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.ClientRegisterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ClientRegisterActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.ReferralListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ReferralListActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.PncClientsListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.PncClientsListActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.AncRoutineActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.AncRoutineActivity"
             android:parentActivityName=".activities.AncClientsListActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.PncClientDetailActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.PncClientDetailActivity"
             android:parentActivityName=".activities.PncClientsListActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.ViewPncClientActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ViewPncClientActivity"
             android:parentActivityName=".activities.PncClientsListActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".activities.ReferralDetailsView"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ReferralDetailsView"
             android:parentActivityName=".activities.ReferralListActivity"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
+
+        <service
+            android:name=".services.MessagingService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
 
     </application>
 

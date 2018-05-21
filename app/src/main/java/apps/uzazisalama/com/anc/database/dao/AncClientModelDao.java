@@ -26,11 +26,8 @@ public interface AncClientModelDao {
     @Query("SELECT * from AncClient")
     LiveData<List<AncClient>> getAllClients();
 
-    @Query("select * from AncClient where pncStatus = 1 ")
+    @Query("select * from AncClient where pncStatus = 0 ") //Room maps true to 1 false to 0
     LiveData<List<AncClient>> getAllAncClients();
-
-    @Query("select * from AncClient where pncStatus = 1 ")
-    LiveData<List<AncClient>> getAllPncClients();
 
     @Query("select * from AncClient where ID = :clientID")
     List<AncClient> getItemById(String clientID);

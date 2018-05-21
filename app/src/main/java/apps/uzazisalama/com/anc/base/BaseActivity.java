@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 
+import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.utils.SessionManager;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 /**
  * Created by issy on 10/05/2018.
@@ -34,4 +40,56 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Session class instance
         session = new SessionManager(getApplicationContext());
     }
+
+    public RequestBody getAncClientBody(AncClient client){
+        RequestBody body;
+        String datastream = "";
+        JSONObject object   = new JSONObject();
+
+        try {
+            //object.put("clientId", client.getID());
+            object.put("firstName", client.getFirstName());
+            object.put("middleName", client.getMiddleName());
+            object.put("surname", client.getSurname());
+            object.put("phoneNumber", client.getPhoneNumber());
+            object.put("ward", client.getWard());
+            object.put("village", client.getVillage());
+            object.put("mapCue", client.getMapCue());
+            object.put("dateOfBirth", client.getDateOfBirth());
+            object.put("heightBelowAverage", client.isHeightBelowAverage());
+            object.put("pmtctStatus", client.getPmctcStatus());
+            object.put("levelOfEducation", client.getLevelOfEducation());
+            object.put("spouseName", client.getSpouseName());
+            object.put("gravida", client.getGravida());
+            object.put("para", client.getPara());
+            object.put("lmnpDate", client.getLnmp());
+            object.put("edd", client.getEdd());
+            object.put("gestationalAgeBelow20", client.isGestationalAgeBelow20());
+            object.put("historyOfAbortion", client.isHistoryOfAbortion());
+            object.put("ageBelow20Years", client.isAgeBelow20Years());
+            object.put("lastPregnancyOver10Years", client.isLastPregnancyOver10yearsAgo());
+            object.put("pregnancyAbove35Years", client.isPregnancyAbove35Years());
+            object.put("historyOfStillBirth", client.isHistoryOfStillBirths());
+            object.put("historyOfPostmartumHaemorrhage", client.isHistoryOfPostmartumHaemorrhage());
+            object.put("historyOfRetainedPlacenta", client.isHistoryOfRetainedPlacenta());
+            object.put("pncStatus", client.isPncStatus());
+            object.put("lastChildbirthYear", client.getLastChildBirthYear());
+            object.put("lastChildbirthStatus", client.getLastChildBirthStatus());
+            object.put("healthFacilityCode", client.getHealthFacilityCode());
+
+
+            datastream = object.toString();
+
+            Log.d("PostOfficeService", datastream);
+
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+        }
+
+        return body;
+    }
+
 }

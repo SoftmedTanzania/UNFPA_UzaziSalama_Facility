@@ -1,11 +1,13 @@
 package apps.uzazisalama.com.anc.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +20,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
+import apps.uzazisalama.com.anc.MainActivity;
 import apps.uzazisalama.com.anc.R;
+import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.utils.ServiceGenerator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by issy on 10/05/2018.
@@ -46,10 +54,11 @@ public class ClientRegisterActivity extends BaseActivity {
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
     String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
+    Calendar dobCalendar;
 
     public DatePickerDialog dobDatePicker = new DatePickerDialog();
-    Calendar dobCalendar;
     final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private Endpoints.ClientService clientService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +72,11 @@ public class ClientRegisterActivity extends BaseActivity {
             setSupportActionBar(clientsRegisterToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
+                session.getUserName(),
+                session.getUserPass(),
+                session.getKeyHfid());
 
         //initialize the gestational age spinner with values
         gestationalAgeSpinner.setItems("Gestational Age", "< 20 Weeks", "20+ Weeks");
@@ -326,20 +340,42 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setLastChildBirthStatus(lastChildBirthStatus);
         ancClient.setLastChildBirthYear(lastChildBirthYear);
 
-        new AsyncTask<AncClient, Void, Void>(){
+        Call<AncClient> call = clientService.postAncClient(getAncClientBody(ancClient));
+        call.enqueue(new Callback<AncClient>() {
             @Override
-            protected Void doInBackground(AncClient... ancClients) {
-                AncClient newAncClient = ancClients[0];
-                database.clientModel().addNewClient(newAncClient);
-                return null;
+            public void onResponse(Call<AncClient> call, Response<AncClient> response) {
+
+                AncClient registeredClient = response.body();
+                if (registeredClient != null){
+                    new AsyncTask<AncClient, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(AncClient... ancClients) {
+                            AncClient newAncClient = ancClients[0];
+                            database.clientModel().addNewClient(newAncClient);
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            Snackbar.make(view,"User created Successfully", Snackbar.LENGTH_LONG).show();
+
+                            Intent intent = new Intent(ClientRegisterActivity.this, AncClientsListActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            ClientRegisterActivity.this.finish();
+
+                        }
+                    }.execute(ancClient);
+                }
+
             }
 
             @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                Snackbar.make(view,"User created Successfully", Snackbar.LENGTH_LONG).show();
+            public void onFailure(Call<AncClient> call, Throwable t) {
+
             }
-        }.execute(ancClient);
+        });
 
     }
 

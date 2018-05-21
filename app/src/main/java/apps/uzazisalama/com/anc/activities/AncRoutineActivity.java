@@ -152,7 +152,7 @@ public class AncRoutineActivity extends BaseActivity {
                     @Override
                     protected Void doInBackground(Void... voids) {
 
-                        currentAncClient.setPncStatus(1);
+                        currentAncClient.setPncStatus(true);
 
                         database.clientModel().updateClient(currentAncClient);
 
