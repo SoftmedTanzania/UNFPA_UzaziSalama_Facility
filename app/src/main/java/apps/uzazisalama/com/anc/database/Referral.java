@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by issy on 18/05/2018.
  *
@@ -16,32 +18,47 @@ public class Referral {
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
+    @SerializedName("id")
     private String referralID;
 
+    @SerializedName("ancClientId")
     private String ancClientID;
 
+    @SerializedName("referralUUID")
     private String referralUUID;
 
+    @SerializedName("referralReason")
     private String referralReason;
 
+    @SerializedName("instanceId")
     private String instanceID;
 
+    @SerializedName("facilityId")
     private String facilityID;
 
+    @SerializedName("referralDate")
     private long referralDate;
 
+    @SerializedName("serviceProviderUUID")
     private String serviceProviderUUID;
 
+    @SerializedName("fromFacilityId")
     private String fromFacailityID;
 
+    @SerializedName("referralFeedback")
+    private String referralFeedback;
+
+    @SerializedName("otherClinicalInformation")
     private String otherClinicalInformation;
 
     /**
      *  1 -> Chw referral
      *  2 -> Health Facility Referrals
      */
+    @SerializedName("referralType")
     private int referralType;
 
+    @SerializedName("referralStatus")
     private int referralStatus;
 
     public String getReferralID() {
@@ -138,5 +155,13 @@ public class Referral {
 
     public void setReferralStatus(int referralStatus) {
         this.referralStatus = referralStatus;
+    }
+
+    public String getReferralFeedback() {
+        return referralFeedback;
+    }
+
+    public void setReferralFeedback(String referralFeedback) {
+        this.referralFeedback = referralFeedback;
     }
 }

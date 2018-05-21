@@ -1,5 +1,6 @@
 package apps.uzazisalama.com.anc;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,11 +21,13 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import java.util.ArrayList;
 import java.util.List;
 
+import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.customviews.NonSwipeableViewPager;
 import apps.uzazisalama.com.anc.fragments.AncFragment;
 import apps.uzazisalama.com.anc.fragments.PncFragment;
+import apps.uzazisalama.com.anc.utils.SessionManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     TabLayout tabLayout;
     public static ViewPager viewPager;
@@ -42,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
 
+        //User Session Manager Initialization
+        SessionManager sessionManager = new SessionManager(this);
+        if (!sessionManager.isLoggedIn()){
+            sessionManager.checkLogin();
+            finish();
+        }
+
         //initialize viewpager
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -59,6 +71,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.logout){
+            session.logoutUser();
+            finish();
+        }
+
+        return true;
+    }
 
     void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());

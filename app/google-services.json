@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "378410182940",
+    "firebase_url": "https://unfpauzazisalamafacility-4b703.firebaseio.com",
+    "project_id": "unfpauzazisalamafacility-4b703",
+    "storage_bucket": "unfpauzazisalamafacility-4b703.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378410182940:android:7650b896026b6d33",
+        "android_client_info": {
+          "package_name": "apps.uzazisalama.com.anc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378410182940-sh3155aj9kuku48jgrpjid2qmm2n8uc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.uzazisalama.com.anc",
+            "certificate_hash": "b9d4379442e06ded52d6f7f4ea6d7f6c37892f6c"
+          }
+        },
+        {
+          "client_id": "378410182940-lndsskge2qnadr20cvfqnobj0jkfc6ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7_rNkvQixub3as0NG6JEoBsITtL-TY28"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378410182940-lndsskge2qnadr20cvfqnobj0jkfc6ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

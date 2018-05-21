@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8639cbeac4a014ab059a598299d2d5b7",
+    "identityHash": "174783ba7adf1bb3fedad9ae4492da55",
     "entities": [
       {
         "tableName": "AncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` TEXT NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` TEXT, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `pncStatus` INTEGER NOT NULL, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, PRIMARY KEY(`ID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` TEXT NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` TEXT, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `pncStatus` INTEGER NOT NULL, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, PRIMARY KEY(`ID`))",
         "fields": [
           {
             "fieldPath": "ID",
@@ -175,6 +175,12 @@
             "columnName": "lastChildBirthStatus",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityCode",
+            "columnName": "healthFacilityCode",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -292,7 +298,7 @@
       },
       {
         "tableName": "Referral",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` TEXT NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` TEXT NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `referralFeedback` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
         "fields": [
           {
             "fieldPath": "referralID",
@@ -345,6 +351,12 @@
           {
             "fieldPath": "fromFacailityID",
             "columnName": "fromFacailityID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralFeedback",
+            "columnName": "referralFeedback",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -471,7 +483,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8639cbeac4a014ab059a598299d2d5b7\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"174783ba7adf1bb3fedad9ae4492da55\")"
     ]
   }
 }

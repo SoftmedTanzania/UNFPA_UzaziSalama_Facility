@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Uzazi Salama :: ANC</string>
+
+    <string name="username_required">Username is Required</string>
+    <string name="password_required">Password is Required</string>
+
 </resources>

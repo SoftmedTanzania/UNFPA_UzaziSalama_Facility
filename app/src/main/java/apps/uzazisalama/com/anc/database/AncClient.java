@@ -20,76 +20,106 @@ public class AncClient implements Serializable{
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
-    @SerializedName("clientID")
+    @SerializedName("clientId")
     private String ID;
 
     //Demographic information
 
+    @SerializedName("firstName")
     private String firstName;
 
+    @SerializedName("middleName")
     private String middleName;
 
+    @SerializedName("surname")
     private String surname;
 
+    @SerializedName("phoneNumber")
     private String phoneNumber;
 
+    @SerializedName("ward")
     private String ward;
 
+    @SerializedName("village")
     private String village;
 
+    @SerializedName("mapCue")
     private String mapCue;
 
+    @SerializedName("dateOfBirth")
     private long dateOfBirth;
 
+    @SerializedName("pmtctStatus")
     private boolean pmctcStatus; // 0 = unknown, 1 and 2
 
+    @SerializedName("heightBelowAverage")
     private boolean heightBelowAverage; //true if below 150
 
+    @SerializedName("levelOfEducation")
     private String levelOfEducation; //TODO => Change to ID (int)
 
+    @SerializedName("spouseName")
     private String spouseName;
 
     //Pregnancy Details
+    @SerializedName("gravida")
     private int gravida;
 
+    @SerializedName("para")
     private int para;
 
+    @SerializedName("lmnpDate")
     private long lnmp; //Last Normal Menstrual Period Date
 
+    @SerializedName("edd")
     private long edd; //Expected Date of Delivery
 
+    @SerializedName("gestationalAgeBelow20")
     private boolean gestationalAgeBelow20;
 
+    @SerializedName("historyOfAbortion")
     private boolean historyOfAbortion;
 
+    @SerializedName("ageBelow20Years")
     private boolean ageBelow20Years;
 
+    @SerializedName("lastPregnancyOver10Years")
     private boolean lastPregnancyOver10yearsAgo;
 
+    @SerializedName("pregnancyAbove35Years")
     private boolean pregnancyAbove35Years;
 
+    @SerializedName("historyOfStillBirth")
     private boolean historyOfStillBirths;
 
+    @SerializedName("historyOfPostmartumHaemorrhage")
     private boolean historyOfPostmartumHaemorrhage;
 
+    @SerializedName("historyOfRetainedPlacenta")
     private boolean historyOfRetainedPlacenta;
 
     /**
      *  0 -> false
      *  1 -> true
      */
+    @SerializedName("pncStatus")
     private int pncStatus;
 
     /**
      * Year
      */
+    @SerializedName("lastChildbirthYear")
     private int lastChildBirthYear;
 
     /**
      *  0 -> Dead
      *  1 -> Alive
      */
+    @SerializedName("lastChildbirthStatus")
     private int lastChildBirthStatus;
+
+    @SerializedName("healthFacilityCode")
+    private String healthFacilityCode;
 
     public String getID() {
         return ID;
@@ -313,5 +343,13 @@ public class AncClient implements Serializable{
 
     public void setLastChildBirthStatus(int lastChildBirthStatus) {
         this.lastChildBirthStatus = lastChildBirthStatus;
+    }
+
+    public String getHealthFacilityCode() {
+        return healthFacilityCode;
+    }
+
+    public void setHealthFacilityCode(String healthFacilityCode) {
+        this.healthFacilityCode = healthFacilityCode;
     }
 }

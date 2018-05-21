@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.android.support:multidex-1.0.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/c1f2c62f06d61245dc57c70a12c2bbdb/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/c1f2c62f06d61245dc57c70a12c2bbdb/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/0d9d34284ab11ac3c6cee8278c583332/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/0d9d34284ab11ac3c6cee8278c583332/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

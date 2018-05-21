@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 
+import apps.uzazisalama.com.anc.utils.SessionManager;
+
 /**
  * Created by issy on 10/05/2018.
  *
@@ -21,11 +23,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static AppDatabase database;
 
+    public static SessionManager session;
+
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd yyy");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = AppDatabase.getDatabase(this);
+        // Session class instance
+        session = new SessionManager(getApplicationContext());
     }
 }
