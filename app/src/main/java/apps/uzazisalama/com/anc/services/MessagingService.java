@@ -136,7 +136,7 @@ public class MessagingService extends FirebaseMessagingService {
             Intent resultIntent = new Intent(getApplicationContext(), MainActivity.class);
             resultIntent.putExtra("message", "");
 
-            showNotificationMessage(getApplicationContext(), "HTMR", msg, null, resultIntent);
+            showNotificationMessage(getApplicationContext(), "Uzazi Salama", msg, null, resultIntent);
 
         }
     }
