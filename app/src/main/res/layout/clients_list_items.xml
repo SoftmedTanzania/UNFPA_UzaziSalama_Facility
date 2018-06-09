@@ -29,25 +29,37 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/card_title_text"
+            android:id="@+id/client_age"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/client_village"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/client_para"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/client_gravida"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginRight="16dp"
+            android:id="@+id/client_appointment_date"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 

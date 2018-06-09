@@ -17,10 +17,13 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.List;
+
 import apps.uzazisalama.com.anc.MainActivity;
 import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.Referral;
+import apps.uzazisalama.com.anc.objects.ReferralResponse;
 import apps.uzazisalama.com.anc.utils.Config;
 import apps.uzazisalama.com.anc.utils.NotificationUtils;
 
@@ -31,10 +34,6 @@ public class MessagingService extends FirebaseMessagingService {
     final String TAG = "MessagingService";
 
     private NotificationUtils notificationUtils;
-
-    public MessagingService() {
-
-    }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -68,7 +67,7 @@ public class MessagingService extends FirebaseMessagingService {
         Notification.Builder builder =
                 new Notification.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Htmr Facility")
+                        .setContentTitle("Uzazi Salama Facility")
                         .setAutoCancel(true)
                         .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0))
                         .setContentText(msg);
@@ -94,11 +93,16 @@ public class MessagingService extends FirebaseMessagingService {
                 ancClient = gson.fromJson(data.getJSONObject("AncClientDTO").toString(), AncClient.class);
                 database.clientModel().addNewClient(ancClient);
                 Log.d("handleNotification", "added a client");
-            }else if (type.equals("ClientReferral")){
+            }else if (type.equals("PatientReferral")){
                 triggerNotification("New Referral Received");
                 JSONObject referralDTO = new JSONObject(json.toString());
-                referral = gson.fromJson(referralDTO.toString(), Referral.class);
-                database.referralModelDao().addNewReferral(referral);
+                ReferralResponse referralResponse = gson.fromJson(referralDTO.toString(), ReferralResponse.class);
+                AncClient client = referralResponse.getAncClient();
+                database.clientModel().addNewClient(client);
+                List<Referral> clientReferrals = referralResponse.getClientReferrals();
+                for (Referral ref : clientReferrals){
+                    database.referralModelDao().addNewReferral(ref);
+                }
                 Log.d("handleNotification", "added Registered Patient");
 
             }else if (type.equals("ReferralFeedback")){

@@ -20,7 +20,7 @@ public class PncClient implements Serializable {
     @NonNull
     private String pncClientID;
 
-    private String ancClientID;
+    private long healthFacilityClientID;
 
     // Date that the mother was admitted to the hospital
     private long dateOfAdmission;
@@ -92,12 +92,12 @@ public class PncClient implements Serializable {
         this.pncClientID = pncClientID;
     }
 
-    public String getAncClientID() {
-        return ancClientID;
+    public long getHealthFacilityClientID() {
+        return healthFacilityClientID;
     }
 
-    public void setAncClientID(String ancClientID) {
-        this.ancClientID = ancClientID;
+    public void setHealthFacilityClientID(long healthFacilityClientID) {
+        this.healthFacilityClientID = healthFacilityClientID;
     }
 
     public long getDateOfAdmission() {

@@ -54,6 +54,11 @@ public class MainActivity extends BaseActivity {
             finish();
         }
 
+        if (session.isLoggedIn()){
+            TextView userName = findViewById(R.id.toolbar_user_name);
+            userName.setText(session.getUserName());
+        }
+
         //initialize viewpager
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);

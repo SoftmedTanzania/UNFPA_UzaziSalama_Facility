@@ -5,7 +5,7 @@
     <!--<color name="colorPrimaryDark">#880e4f</color> &lt;!&ndash; Green 800 &ndash;&gt;-->
     <!--<color name="colorAccent">#FF4081</color>-->
 
-    <color name="colorPrimary">#e38a15</color> <!-- Green 500 -->
+    <color name="colorPrimary">#ff9800</color> <!-- Green 500 -->
     <color name="colorPrimaryDark">#ab650a</color> <!-- Green 800 -->
     <color name="colorAccent">#FF4081</color>
 

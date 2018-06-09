@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "apps.uzazisalama.com.anc"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -68,6 +68,8 @@ dependencies {
     implementation('com.squareup.retrofit2:converter-simplexml:2.4.0') {
         exclude module: 'stax-api'
     }
+
+    implementation 'com.github.rey5137:material:1.2.4'
 
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.wdullaer:materialdatetimepicker:2.3.0'

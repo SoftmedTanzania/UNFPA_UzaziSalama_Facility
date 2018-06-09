@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,7 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
         });
 
         AncClientDetails clientDetails = new AncClientDetails(BaseActivity.database, holder);
-        clientDetails.execute(client.getAncClientID());
+        clientDetails.execute(client.getHealthFacilityClientID());
 
     }
 
@@ -96,7 +97,7 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
 
     }
 
-    private class AncClientDetails extends AsyncTask<String, Void, Void>{
+    private class AncClientDetails extends AsyncTask<Long, Void, Void>{
 
         ListViewItemViewHolder holder;
         AppDatabase database;
@@ -108,7 +109,7 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
         }
 
         @Override
-        protected Void doInBackground(String... args) {
+        protected Void doInBackground(Long... args) {
             List<AncClient> ancClientList = BaseActivity.database.clientModel().getItemById(args[0]);
             if (ancClientList.size() > 0){
                 ancClient = ancClientList.get(0);

@@ -19,7 +19,7 @@ import apps.uzazisalama.com.anc.database.RoutineVisits;
 public class RoutineViewModel extends AndroidViewModel {
 
     AppDatabase database;
-    String currentClientId = "";
+    long currentClientId = 0;
 
     LiveData<List<RoutineVisits>> thisClientRoutines;
 
@@ -29,7 +29,7 @@ public class RoutineViewModel extends AndroidViewModel {
         thisClientRoutines = database.routineModelDao().getRoutinesByClientId(currentClientId); //Pass AncClient ID
     }
 
-    public void setCurrentClientId(String _id){
+    public void setCurrentClientId(long _id){
         this.currentClientId = _id;
     }
 

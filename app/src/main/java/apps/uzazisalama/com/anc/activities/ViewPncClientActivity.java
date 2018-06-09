@@ -67,7 +67,7 @@ public class ViewPncClientActivity extends BaseActivity {
             protected Void doInBackground(PncClient... args) {
                 pncClient = args[0];
                 Log.d("anc_ops", "Getting client");
-                List<AncClient> ancClientsList = database.clientModel().getItemById(pncClient.getAncClientID());
+                List<AncClient> ancClientsList = database.clientModel().getItemById(pncClient.getHealthFacilityClientID());
                 if (ancClientsList.size() > 0){
                     Log.d("anc_ops", "Got a client");
                     ancClient = ancClientsList.get(0);

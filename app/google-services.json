@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "378410182940-sh3155aj9kuku48jgrpjid2qmm2n8uc6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "apps.uzazisalama.com.anc",
-            "certificate_hash": "b9d4379442e06ded52d6f7f4ea6d7f6c37892f6c"
-          }
-        },
-        {
           "client_id": "378410182940-lndsskge2qnadr20cvfqnobj0jkfc6ha.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "378410182940-lndsskge2qnadr20cvfqnobj0jkfc6ha.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

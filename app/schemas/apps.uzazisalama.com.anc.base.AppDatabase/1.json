@@ -2,16 +2,16 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "70d9672d72ce2e929d3d224a02dad23e",
+    "identityHash": "2e2599df80fcad2cff9f87c243282da0",
     "entities": [
       {
         "tableName": "AncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` TEXT NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `pncStatus` INTEGER NOT NULL, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, PRIMARY KEY(`ID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, PRIMARY KEY(`healthFacilityClientId`))",
         "fields": [
           {
-            "fieldPath": "ID",
-            "columnName": "ID",
-            "affinity": "TEXT",
+            "fieldPath": "healthFacilityClientId",
+            "columnName": "healthFacilityClientId",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -159,10 +159,16 @@
             "notNull": true
           },
           {
-            "fieldPath": "pncStatus",
-            "columnName": "pncStatus",
+            "fieldPath": "clientType",
+            "columnName": "clientType",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "cardNumber",
+            "columnName": "cardNumber",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "lastChildBirthYear",
@@ -185,7 +191,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "ID"
+            "healthFacilityClientId"
           ],
           "autoGenerate": false
         },
@@ -194,7 +200,7 @@
       },
       {
         "tableName": "PncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `ancClientID` TEXT, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
         "fields": [
           {
             "fieldPath": "pncClientID",
@@ -203,10 +209,10 @@
             "notNull": true
           },
           {
-            "fieldPath": "ancClientID",
-            "columnName": "ancClientID",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "healthFacilityClientID",
+            "columnName": "healthFacilityClientID",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "dateOfAdmission",
@@ -298,12 +304,18 @@
       },
       {
         "tableName": "Referral",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` TEXT NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `referralFeedback` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` INTEGER NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `referralFeedback` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
         "fields": [
           {
             "fieldPath": "referralID",
             "columnName": "referralID",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityClientID",
+            "columnName": "healthFacilityClientID",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -390,19 +402,25 @@
       },
       {
         "tableName": "RoutineVisits",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` TEXT NOT NULL, `ancClientID` TEXT, `visitNumber` INTEGER NOT NULL, `visitDate` INTEGER NOT NULL, `appointmentDate` INTEGER NOT NULL, `anaemia` INTEGER NOT NULL, `oedema` INTEGER NOT NULL, `protenuria` INTEGER NOT NULL, `highBloodPressure` INTEGER NOT NULL, `weightStagnation` INTEGER NOT NULL, `antepartumHaemorrhage` INTEGER NOT NULL, `sugarInTheUrine` INTEGER NOT NULL, `fetusLie` INTEGER NOT NULL, PRIMARY KEY(`ID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER NOT NULL, `healthFacilityClientId` INTEGER NOT NULL, `appointmentID` INTEGER NOT NULL, `visitNumber` INTEGER NOT NULL, `visitDate` INTEGER NOT NULL, `appointmentDate` INTEGER NOT NULL, `anaemia` INTEGER NOT NULL, `oedema` INTEGER NOT NULL, `protenuria` INTEGER NOT NULL, `highBloodPressure` INTEGER NOT NULL, `weightStagnation` INTEGER NOT NULL, `antepartumHaemorrhage` INTEGER NOT NULL, `sugarInTheUrine` INTEGER NOT NULL, `fetusLie` INTEGER NOT NULL, PRIMARY KEY(`ID`))",
         "fields": [
           {
             "fieldPath": "ID",
             "columnName": "ID",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "ancClientID",
-            "columnName": "ancClientID",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "healthFacilityClientId",
+            "columnName": "healthFacilityClientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentID",
+            "columnName": "appointmentID",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "visitNumber",
@@ -479,11 +497,67 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "ClientAppointment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appointmentID` INTEGER NOT NULL, `healthFacilityClientId` INTEGER NOT NULL, `appointmentDate` INTEGER NOT NULL, `isCancelled` INTEGER NOT NULL, `status` TEXT, `appointmentType` INTEGER NOT NULL, `visitNumber` INTEGER NOT NULL, PRIMARY KEY(`appointmentID`))",
+        "fields": [
+          {
+            "fieldPath": "appointmentID",
+            "columnName": "appointmentID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityClientId",
+            "columnName": "healthFacilityClientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentDate",
+            "columnName": "appointmentDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCancelled",
+            "columnName": "isCancelled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "appointmentType",
+            "columnName": "appointmentType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitNumber",
+            "columnName": "visitNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "appointmentID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"70d9672d72ce2e929d3d224a02dad23e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2e2599df80fcad2cff9f87c243282da0\")"
     ]
   }
 }

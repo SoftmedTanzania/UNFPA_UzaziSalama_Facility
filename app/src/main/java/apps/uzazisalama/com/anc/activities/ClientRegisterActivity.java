@@ -10,14 +10,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.uniquestudio.library.CircleCheckBox;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 import apps.uzazisalama.com.anc.MainActivity;
@@ -25,6 +29,8 @@ import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.ClientAppointment;
+import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +48,7 @@ public class ClientRegisterActivity extends BaseActivity {
     Toolbar clientsRegisterToolbar;
     MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner, lastChildBirthYearSpinner, lastChildBirthStatusSpinner;
     EditText firstName, middleName, surname, dateOfBirth, phoneNumber, village, gravidaEt, paraEt, spauseName;
-    EditText dateOfLNMP, dateOfDelivery;
+    EditText dateOfLNMP, dateOfDelivery, lastChildBirthYearEt;
     CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo;
     CircleCheckBox pregnancyWithMoreThan35YearsYes, pregnancyWithMoreThan35YearsNo, historyOfStillBirthYes, historyOfStillBirthNo, historyOfPostmartumYes, historyOfPostmartumNo;
     CircleCheckBox historyOfRetainedPlacentaYes, historyOfRetainedPlacentaNo;
@@ -54,17 +60,29 @@ public class ClientRegisterActivity extends BaseActivity {
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
     String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
+
     Calendar dobCalendar;
+    Calendar dolnmpCalendar;
+
+    List<String> gestationalAgeList, heightList, levelOfEducationList, pmctcStatusList, lastChildBirthStatusList;
 
     public DatePickerDialog dobDatePicker = new DatePickerDialog();
+    public DatePickerDialog lnmpDatePicker = new DatePickerDialog();
     final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private Endpoints.ClientService clientService;
+
+    AncClient clientZero;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_clients);
         setupviews();
+
+        if (getIntent().getExtras() != null){
+            clientZero = (AncClient) getIntent().getSerializableExtra("clientZero");
+            fillInputsWithClientZeroData(clientZero);
+        }
 
         //initialize activity's toolbar
         clientsRegisterToolbar = findViewById(R.id.register_clients_toolbar);
@@ -79,7 +97,10 @@ public class ClientRegisterActivity extends BaseActivity {
                 session.getKeyHfid());
 
         //initialize the gestational age spinner with values
-        gestationalAgeSpinner.setItems("Gestational Age", "< 20 Weeks", "20+ Weeks");
+        gestationalAgeList = new ArrayList<>();
+        gestationalAgeList.add("< 20 Weeks");
+        gestationalAgeList.add("20+ Weeks");
+        gestationalAgeSpinner.setItems(gestationalAgeList);
         gestationalAgeSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
@@ -92,7 +113,10 @@ public class ClientRegisterActivity extends BaseActivity {
         });
 
         //initializing the height spinner with values
-        heightSpinner.setItems("Height", " <150 ", " >150 ");
+        heightList = new ArrayList<>();
+        heightList.add("<150");
+        heightList.add(">150");
+        heightSpinner.setItems(heightList);
         heightSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -104,7 +128,13 @@ public class ClientRegisterActivity extends BaseActivity {
         });
 
         //initializing the level of education spinner with values
-        levelOfEducationSpinner.setItems("Level Of Education", "Primary School", "Secondary School", "High School", "University","None");
+        levelOfEducationList = new ArrayList<>();
+        levelOfEducationList.add("Primary School");
+        levelOfEducationList.add("Secondary School");
+        levelOfEducationList.add("High School");
+        levelOfEducationList.add("University");
+        levelOfEducationList.add("None");
+        levelOfEducationSpinner.setItems(levelOfEducationList);
         levelOfEducationSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -116,7 +146,11 @@ public class ClientRegisterActivity extends BaseActivity {
         });
 
         //initializing the pmtctStatus spinner with values
-        pmtctStatusSpinner.setItems("1", "2", "Unknown");
+        pmctcStatusList = new ArrayList<>();
+        pmctcStatusList.add("1");
+        pmctcStatusList.add("2");
+        pmctcStatusList.add("Unknown");
+        pmtctStatusSpinner.setItems(pmctcStatusList);
         pmtctStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -127,15 +161,10 @@ public class ClientRegisterActivity extends BaseActivity {
             }
         });
 
-        lastChildBirthYearSpinner.setItems(2017, 2016, 2015, 2014, 2013, 2012, 2011, 2009, 2008, 2007, 2006, 2005, 2004, 2003);
-        lastChildBirthYearSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                lastChildBirthYear = (Integer) item;
-            }
-        });
-
-        lastChildBirthStatusSpinner.setItems("Alive", "Died");
+        lastChildBirthStatusList = new ArrayList<>();
+        lastChildBirthStatusList.add("Alive");
+        lastChildBirthStatusList.add("Died");
+        lastChildBirthStatusSpinner.setItems(lastChildBirthStatusList);
         lastChildBirthStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
@@ -161,6 +190,31 @@ public class ClientRegisterActivity extends BaseActivity {
                         dateOfBirthValue = dobCalendar.getTimeInMillis();
                         dateOfBirthDisplay = simpleDateFormat.format(dobCalendar.getTime());
                         dateOfBirth.setText(dateOfBirthDisplay);
+                    }
+
+                });
+            }
+        });
+
+        dateOfLNMP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lnmpDatePicker.show(getFragmentManager(),"dateOfLnmp");
+                lnmpDatePicker.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                        dolnmpCalendar = Calendar.getInstance();
+                        dolnmpCalendar.set(year, monthOfYear, dayOfMonth);
+                        dateOfLNMPValue = dolnmpCalendar.getTimeInMillis();
+                        dateOfLNMPDisplay = simpleDateFormat.format(dolnmpCalendar.getTime());
+                        dateOfLNMP.setText(dateOfLNMPDisplay);
+
+                        dateOfDeliveryValue = calculateEDDFromLNMP(dateOfLNMPValue);
+                        Calendar calendar  = Calendar.getInstance();
+                        calendar.setTimeInMillis(dateOfDeliveryValue);
+                        dateOfDeliveryDisplay = simpleDateFormat.format(calendar.getTime());
+                        dateOfDelivery.setText(dateOfDeliveryDisplay);
+
                     }
 
                 });
@@ -306,6 +360,11 @@ public class ClientRegisterActivity extends BaseActivity {
 
     }
 
+    public static long calculateEDDFromLNMP(long lnmp) {
+        long day = 24 * 60 * 60 * 1000;
+        return (day * 281) + lnmp;
+    }
+
     boolean verifyInputs(){
         //From EditTexts
         fnameValue = firstName.getText().toString();
@@ -317,6 +376,7 @@ public class ClientRegisterActivity extends BaseActivity {
         gravidaValue = Integer.parseInt(gravidaEt.getText().toString());
         paraValue = Integer.parseInt(paraEt.getText().toString());
         spauseNameValue = spauseName.getText().toString();
+        lastChildBirthYear = Integer.parseInt(lastChildBirthYearEt.getText().toString());
 
         return true;
     }
@@ -324,8 +384,7 @@ public class ClientRegisterActivity extends BaseActivity {
     @SuppressLint("StaticFieldLeak")
     void createNewUserObject(View view){
         AncClient ancClient = new AncClient();
-        String userID = UUID.randomUUID().toString();
-        ancClient.setID(userID);
+
         ancClient.setFirstName(fnameValue);
         ancClient.setMiddleName(mnameValue);
         ancClient.setSurname(lnameValue);
@@ -339,19 +398,40 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setEdd(dateOfDeliveryValue);
         ancClient.setLastChildBirthStatus(lastChildBirthStatus);
         ancClient.setLastChildBirthYear(lastChildBirthYear);
+        ancClient.setClientType(1);
 
-        Call<AncClient> call = clientService.postAncClient(getAncClientBody(ancClient));
-        call.enqueue(new Callback<AncClient>() {
+        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(ancClient));
+        call.enqueue(new Callback<RegistrationResponse>() {
             @Override
-            public void onResponse(Call<AncClient> call, Response<AncClient> response) {
+            public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
 
-                AncClient registeredClient = response.body();
+                if (response != null){
+                    Log.d("savingClient", response.body().toString());
+                }
+
+                RegistrationResponse registrationResponse = response.body();
+
+                AncClient registeredClient = registrationResponse.getClient();
+                List<ClientAppointment> appointmentList = registrationResponse.getClientAppointments();
+
+                Gson gson = new Gson();
+                String responseString = gson.toJson(registeredClient);
+                Log.d("response", "Response "+responseString);
+
                 if (registeredClient != null){
                     new AsyncTask<AncClient, Void, Void>(){
                         @Override
                         protected Void doInBackground(AncClient... ancClients) {
                             AncClient newAncClient = ancClients[0];
                             database.clientModel().addNewClient(newAncClient);
+                            for (ClientAppointment appointment : appointmentList){
+                                database.clientAppointmentDao().addNewAppointment(appointment);
+                                Log.d("appointment", "Appointment ID : "+appointment.getAppointmentID());
+                            }
+
+                            List<ClientAppointment> appointmentList1 = database.clientAppointmentDao().getAppointmentsByClientId(newAncClient.getHealthFacilityClientId());
+                            Log.d("appointment", "Appointment Size : "+appointmentList1.size());
+
                             return null;
                         }
 
@@ -366,17 +446,101 @@ public class ClientRegisterActivity extends BaseActivity {
                             ClientRegisterActivity.this.finish();
 
                         }
-                    }.execute(ancClient);
+                    }.execute(registeredClient);
                 }
 
             }
 
             @Override
-            public void onFailure(Call<AncClient> call, Throwable t) {
+            public void onFailure(Call<RegistrationResponse> call, Throwable t) {
 
             }
         });
 
+    }
+
+    void fillInputsWithClientZeroData(AncClient client){
+
+        /**
+         int lastChildBirthStatus, lastChildBirthYear;
+         boolean
+         String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
+         */
+
+        Calendar calendar = Calendar.getInstance();
+
+        firstName.setText(client.getFirstName());
+        fnameValue = client.getFirstName();
+
+        middleName.setText(client.getMiddleName());
+        mnameValue = client.getMiddleName();
+
+        surname.setText(client.getSurname());
+        lnameValue = client.getSurname();
+
+        calendar.setTimeInMillis(client.getDateOfBirth());
+        dateOfBirthValue = client.getDateOfBirth();
+        dateOfBirth.setText(simpleDateFormat.format(calendar.getTime()));
+
+        phoneNumber.setText(client.getPhoneNumber());
+        phoneValue = client.getPhoneNumber();
+
+        village.setText(client.getVillage());
+        villageValue = client.getVillage();
+
+        gravidaEt.setText(client.getGravida()+"");
+        gravidaValue = client.getGravida();
+
+        paraEt.setText(client.getPara()+"");
+        paraValue = client.getPara();
+
+        spauseName.setText(client.getSpouseName());
+        spauseNameValue = client.getSpouseName();
+
+        lastChildBirthYearEt.setText(client.getLastChildBirthYear()+"");
+        lastChildBirthYear = client.getLastChildBirthYear();
+
+        calendar.setTimeInMillis(client.getLnmp());
+        dateOfLNMPValue = client.getLnmp();
+        dateOfLNMP.setText(simpleDateFormat.format(calendar.getTime()));
+
+        calendar.setTimeInMillis(client.getEdd());
+        dateOfDeliveryValue = client.getEdd();
+        dateOfDelivery.setText(simpleDateFormat.format(calendar.getTime()));
+
+        setCheckbox(historyOfAbortionYes, historyOfAbortionNo, client.isHistoryOfAbortion());
+        historyOfAbortion = client.isHistoryOfAbortion();
+
+        setCheckbox(ageBelow20Yes, ageBelow20No, client.isAgeBelow20Years());
+        ageBelow20 = client.isAgeBelow20Years();
+
+        setCheckbox(lastPregnancy10YearsYes, lastPregnancy10YearsNo, client.isLastPregnancyOver10yearsAgo());
+        lastPregnancy10Years = client.isLastPregnancyOver10yearsAgo();
+
+        setCheckbox(pregnancyWithMoreThan35YearsYes, pregnancyWithMoreThan35YearsNo, client.isPregnancyAbove35Years());
+        pregnancyWithMoreThan35Years = client.isPregnancyAbove35Years();
+
+        setCheckbox(historyOfStillBirthYes, historyOfStillBirthNo, client.isHistoryOfStillBirths());
+        historyOfStillBirths = client.isHistoryOfStillBirths();
+
+        setCheckbox(historyOfPostmartumYes, historyOfPostmartumNo, client.isHistoryOfPostmartumHaemorrhage());
+        historyOfPostmartum = client.isHistoryOfPostmartumHaemorrhage();
+
+        setCheckbox(historyOfRetainedPlacentaYes, historyOfRetainedPlacentaNo, client.isHistoryOfRetainedPlacenta());
+        historyOfRetainedPlacenta = client.isHistoryOfRetainedPlacenta();
+
+
+
+    }
+
+    void setCheckbox(CircleCheckBox checkBoxYes, CircleCheckBox checkBoxNo, boolean value){
+        if (value){
+            checkBoxYes.setChecked(true);
+            checkBoxNo.setChecked(false);
+        }else {
+            checkBoxYes.setChecked(false);
+            checkBoxNo.setChecked(true);
+        }
     }
 
     void setupviews(){
@@ -389,7 +553,6 @@ public class ClientRegisterActivity extends BaseActivity {
         heightSpinner = findViewById(R.id.height_spinner);
         levelOfEducationSpinner = findViewById(R.id.level_of_education_spinner);
         pmtctStatusSpinner = findViewById(R.id.pmtct_status_spinner);
-        lastChildBirthYearSpinner = findViewById(R.id.last_child_birth_year_spinner);
         lastChildBirthStatusSpinner = findViewById(R.id.last_child_birth_status_spinner);
 
         //EditText
@@ -407,6 +570,8 @@ public class ClientRegisterActivity extends BaseActivity {
         dateOfLNMP.setFocusableInTouchMode(false); //Prevent Soft keyboard when user clicks and open up a date picker
         dateOfDelivery = findViewById(R.id.date_of_delivery);
         dateOfDelivery.setFocusableInTouchMode(false); //Prevent Soft keyboard when user clicks and open up a date picker
+        lastChildBirthYearEt = findViewById(R.id.last_child_birth_year_et);
+
         //CircleCheckBox
         historyOfAbortionYes = findViewById(R.id.history_of_abortion_yes_checkbox);
         historyOfAbortionNo = findViewById(R.id.history_of_abortion_no_checkbox);

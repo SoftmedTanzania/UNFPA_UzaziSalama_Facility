@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -18,46 +20,67 @@ public class RoutineVisits implements Serializable{
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
-    private String ID;
+    @SerializedName("id")
+    private long ID;
 
-    private String ancClientID;
+    @SerializedName("healthFacilityClientId")
+    private long healthFacilityClientId;
 
+    @SerializedName("appointmentId")
+    private long appointmentID;
+
+    @SerializedName("visitNumber")
     private int visitNumber;
 
+    @SerializedName("visitDate")
     private long visitDate;
 
+    @SerializedName("appointmentDate")
     private long appointmentDate;
 
+    @SerializedName("anaemia")
     private boolean anaemia;
 
+    @SerializedName("oedema")
     private boolean oedema;
 
+    @SerializedName("protenuria")
     private boolean protenuria;
 
+    @SerializedName("highBloodPressure")
     private boolean highBloodPressure;
 
+    @SerializedName("weightStagnation")
     private boolean weightStagnation;
 
+    @SerializedName("antepartumHaemorrhage")
     private boolean antepartumHaemorrhage;
 
+    @SerializedName("sugarInTheUrine")
     private boolean sugarInTheUrine;
 
+    @SerializedName("fetusLie")
     private boolean fetusLie;
 
-    public String getID() {
+    @NonNull
+    public long getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(@NonNull long ID) {
         this.ID = ID;
     }
 
-    public String getAncClientID() {
-        return ancClientID;
+    public void setHealthFacilityClientId(long healthFacilityClientId) {
+        this.healthFacilityClientId = healthFacilityClientId;
     }
 
-    public void setAncClientID(String ancClientID) {
-        this.ancClientID = ancClientID;
+    public long getAppointmentID() {
+        return appointmentID;
+    }
+
+    public void setAppointmentID(long appointmentID) {
+        this.appointmentID = appointmentID;
     }
 
     public int getVisitNumber() {
@@ -148,4 +171,7 @@ public class RoutineVisits implements Serializable{
         this.fetusLie = fetusLie;
     }
 
+    public long getHealthFacilityClientId() {
+        return healthFacilityClientId;
+    }
 }

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app_ms="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/background"
+                    android:scaleType="centerCrop"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:alpha="0.9"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:background="@color/card_separator"
+                android:layout_height="0dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="52dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="16dp"/>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
+            android:paddingTop="16dp"
+            android:layout_centerInParent="true"
+            android:paddingBottom="32dp"
+            android:id="@+id/credential_card"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/lock_ico"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/lock_ico"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Login"
+                android:id="@+id/login_title"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/login_title"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Enter username and Password"
+                android:id="@+id/login_msg"
+                android:textColor="@color/card_grid_text"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_title">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="32dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:hint="Username"
+                        android:id="@+id/username_et"
+                        android:textColor="@color/card_title_text"
+                        android:textColorHint="@color/card_grid_text"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/roboto_regular"
+                        app:et_inputId="@+id/username"
+                        app:et_dividerHeight="1dp"
+                        app:et_supportTextSize="20sp"
+                        app:et_supportTextColor="@color/black"
+                        app:et_dividerColor="@color/card_grid_text"
+                        app:et_labelEnable="true"
+                        app:et_labelTextColor="@color/cyan_500" />
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="Password"
+                        android:id="@+id/password_et"
+                        android:textColor="@color/card_title_text"
+                        android:textColorHint="@color/card_grid_tex"
+                        android:textSize="24sp"
+                        android:inputType="textPassword"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_gravity="center_vertical"
+                        app:et_inputId="@+id/password"
+                        app:et_dividerHeight="1dp"
+                        app:et_supportTextSize="20sp"
+                        app:et_supportTextColor="@color/black"
+                        app:et_dividerColor="@color/card_grid_text"
+                        app:et_labelEnable="true"
+                        app:et_labelTextColor="@color/cyan_500"/>
+
+                    <com.rey.material.widget.ProgressView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="15dp"
+                        android:id="@+id/login_progress"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        app:pv_circular="true"
+                        app:pv_progressStyle="@style/Material.Drawable.CircularProgress"
+                        app:pv_progressMode="indeterminate"
+                        app:cpd_strokeColor="@color/colorPrimary"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="Login"
+                    android:id="@+id/login_button"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:background="@color/card_title_text"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="20px">
+
+                    <com.github.rahatarmanahmed.cpv.CircularProgressView
+                        android:visibility="gone"
+                        android:id="@+id/progress_view"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        app:cpv_animAutostart="true"
+                        app:cpv_indeterminate="true"
+                        app:cpv_color="@color/white" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/login_screen_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/login_screen_logo"
+            android:textSize="32sp"
+            android:text="Uzazi Salama"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/referral_text"
+            android:layout_below="@id/login_screen_logo"
+            android:layout_toRightOf="@id/login_screen_logo"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_light"
+            android:text="Referral"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/application_text"
+            android:layout_below="@id/referral_text"
+            android:layout_toRightOf="@id/login_screen_logo"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_light"
+            android:text="Application"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/messages"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/avenir_light"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:text="Logging in"
+            android:layout_below="@id/credential_card"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            >
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/unfpa_logo"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/ttcih_logo"
+                android:layout_marginLeft="16dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:alpha="0.15"
+                android:id="@+id/deloitte_logo"
+                android:layout_marginLeft="8dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/fhi_logo"
+                android:alpha="0.15"
+                android:layout_marginLeft="8dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

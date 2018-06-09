@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
         <service android:name=".services.FirebaseInstanseIdService">
             <intent-filter>
@@ -62,10 +63,10 @@
             android:parentActivityName=".activities.ReferralListActivity"
             android:windowSoftInputMode="stateHidden" />
 
-        <service
-            android:name=".services.MessagingService"
-            android:enabled="true"
-            android:exported="true">
+        <service android:name=".services.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
         </service>
 
     </application>

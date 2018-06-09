@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by issy on 18/05/2018.
  *
@@ -14,12 +16,15 @@ import com.google.gson.annotations.SerializedName;
  */
 
 @Entity(tableName = "Referral")
-public class Referral {
+public class Referral implements Serializable{
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
     @SerializedName("id")
-    private String referralID;
+    private int referralID;
+
+    @SerializedName("healthFacilityClientId")
+    private long healthFacilityClientID;
 
     @SerializedName("ancClientId")
     private String ancClientID;
@@ -61,11 +66,12 @@ public class Referral {
     @SerializedName("referralStatus")
     private int referralStatus;
 
-    public String getReferralID() {
+    @NonNull
+    public int getReferralID() {
         return referralID;
     }
 
-    public void setReferralID(String referralID) {
+    public void setReferralID(@NonNull int referralID) {
         this.referralID = referralID;
     }
 
@@ -163,5 +169,13 @@ public class Referral {
 
     public void setReferralFeedback(String referralFeedback) {
         this.referralFeedback = referralFeedback;
+    }
+
+    public long getHealthFacilityClientID() {
+        return healthFacilityClientID;
+    }
+
+    public void setHealthFacilityClientID(long healthFacilityClientID) {
+        this.healthFacilityClientID = healthFacilityClientID;
     }
 }

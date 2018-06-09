@@ -205,7 +205,7 @@ public class PncClientDetailActivity extends BaseActivity {
     boolean createPncClientObject(){
 
         createdPncClient = new PncClient();
-        createdPncClient.setAncClientID(currentAncClient.getID());
+        createdPncClient.setHealthFacilityClientID(currentAncClient.getHealthFacilityClientId());
         createdPncClient.setPncClientID(UUID.randomUUID().toString());
         if (dateOfAdmissionValue == 0){
             Toast.makeText(this, "Fill in the date of Admission", Toast.LENGTH_LONG).show();

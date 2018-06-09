@@ -185,8 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
-                android:layout_marginLeft="16dp"
+                android:gravity="center"
                 android:text="Age"
                 android:fontFamily="@font/avenir_light"
                 android:textColor="@color/black"
@@ -197,7 +196,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:layout_marginLeft="16dp"
                 android:text="Village"
                 android:fontFamily="@font/avenir_light"
                 android:textColor="@color/black"
@@ -207,7 +205,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
+                android:gravity="center"
                 android:layout_marginLeft="16dp"
                 android:text="Para"
                 android:fontFamily="@font/avenir_light"
@@ -219,11 +217,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:layout_marginLeft="16dp"
                 android:text="Gravida"
                 android:fontFamily="@font/avenir_light"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
+
+           <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="Next Appointment"
+                android:fontFamily="@font/avenir_light"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
 
             <View
                 android:layout_width="1dp"

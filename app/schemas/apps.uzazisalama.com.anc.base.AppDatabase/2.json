@@ -1,0 +1,507 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "8792c315f480c7f07f5379498d9135b4",
+    "entities": [
+      {
+        "tableName": "AncClient",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, PRIMARY KEY(`healthFacilityClientId`))",
+        "fields": [
+          {
+            "fieldPath": "healthFacilityClientId",
+            "columnName": "healthFacilityClientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "firstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "middleName",
+            "columnName": "middleName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surname",
+            "columnName": "surname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phoneNumber",
+            "columnName": "phoneNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ward",
+            "columnName": "ward",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "village",
+            "columnName": "village",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mapCue",
+            "columnName": "mapCue",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateOfBirth",
+            "columnName": "dateOfBirth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pmctcStatus",
+            "columnName": "pmctcStatus",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightBelowAverage",
+            "columnName": "heightBelowAverage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "levelOfEducation",
+            "columnName": "levelOfEducation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "spouseName",
+            "columnName": "spouseName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gravida",
+            "columnName": "gravida",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "para",
+            "columnName": "para",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lnmp",
+            "columnName": "lnmp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "edd",
+            "columnName": "edd",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gestationalAgeBelow20",
+            "columnName": "gestationalAgeBelow20",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "historyOfAbortion",
+            "columnName": "historyOfAbortion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ageBelow20Years",
+            "columnName": "ageBelow20Years",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastPregnancyOver10yearsAgo",
+            "columnName": "lastPregnancyOver10yearsAgo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pregnancyAbove35Years",
+            "columnName": "pregnancyAbove35Years",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "historyOfStillBirths",
+            "columnName": "historyOfStillBirths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "historyOfPostmartumHaemorrhage",
+            "columnName": "historyOfPostmartumHaemorrhage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "historyOfRetainedPlacenta",
+            "columnName": "historyOfRetainedPlacenta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientType",
+            "columnName": "clientType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cardNumber",
+            "columnName": "cardNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastChildBirthYear",
+            "columnName": "lastChildBirthYear",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastChildBirthStatus",
+            "columnName": "lastChildBirthStatus",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityCode",
+            "columnName": "healthFacilityCode",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "healthFacilityClientId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PncClient",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
+        "fields": [
+          {
+            "fieldPath": "pncClientID",
+            "columnName": "pncClientID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityClientID",
+            "columnName": "healthFacilityClientID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateOfAdmission",
+            "columnName": "dateOfAdmission",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateOfDelivery",
+            "columnName": "dateOfDelivery",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kuharibikaMimba",
+            "columnName": "kuharibikaMimba",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryMethod",
+            "columnName": "deliveryMethod",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryComplications",
+            "columnName": "deliveryComplications",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "motherDischargeCondition",
+            "columnName": "motherDischargeCondition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childGender",
+            "columnName": "childGender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "childWeight",
+            "columnName": "childWeight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "apgarScore",
+            "columnName": "apgarScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childAbnomalities",
+            "columnName": "childAbnomalities",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childDischargeCondition",
+            "columnName": "childDischargeCondition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diedWithin24Hours",
+            "columnName": "diedWithin24Hours",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stillBirthTypes",
+            "columnName": "stillBirthTypes",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "pncClientID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Referral",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referralID` INTEGER NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `ancClientID` TEXT, `referralUUID` TEXT, `referralReason` TEXT, `instanceID` TEXT, `facilityID` TEXT, `referralDate` INTEGER NOT NULL, `serviceProviderUUID` TEXT, `fromFacailityID` TEXT, `referralFeedback` TEXT, `otherClinicalInformation` TEXT, `referralType` INTEGER NOT NULL, `referralStatus` INTEGER NOT NULL, PRIMARY KEY(`referralID`))",
+        "fields": [
+          {
+            "fieldPath": "referralID",
+            "columnName": "referralID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityClientID",
+            "columnName": "healthFacilityClientID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ancClientID",
+            "columnName": "ancClientID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralUUID",
+            "columnName": "referralUUID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralReason",
+            "columnName": "referralReason",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "instanceID",
+            "columnName": "instanceID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "facilityID",
+            "columnName": "facilityID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralDate",
+            "columnName": "referralDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceProviderUUID",
+            "columnName": "serviceProviderUUID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fromFacailityID",
+            "columnName": "fromFacailityID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralFeedback",
+            "columnName": "referralFeedback",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "otherClinicalInformation",
+            "columnName": "otherClinicalInformation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referralType",
+            "columnName": "referralType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referralStatus",
+            "columnName": "referralStatus",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "referralID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "RoutineVisits",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER NOT NULL, `healthFacilityClientId` INTEGER NOT NULL, `appointmentID` INTEGER NOT NULL, `visitNumber` INTEGER NOT NULL, `visitDate` INTEGER NOT NULL, `appointmentDate` INTEGER NOT NULL, `anaemia` INTEGER NOT NULL, `oedema` INTEGER NOT NULL, `protenuria` INTEGER NOT NULL, `highBloodPressure` INTEGER NOT NULL, `weightStagnation` INTEGER NOT NULL, `antepartumHaemorrhage` INTEGER NOT NULL, `sugarInTheUrine` INTEGER NOT NULL, `fetusLie` INTEGER NOT NULL, PRIMARY KEY(`ID`))",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthFacilityClientId",
+            "columnName": "healthFacilityClientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentID",
+            "columnName": "appointmentID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitNumber",
+            "columnName": "visitNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitDate",
+            "columnName": "visitDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentDate",
+            "columnName": "appointmentDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anaemia",
+            "columnName": "anaemia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oedema",
+            "columnName": "oedema",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "protenuria",
+            "columnName": "protenuria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "highBloodPressure",
+            "columnName": "highBloodPressure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightStagnation",
+            "columnName": "weightStagnation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "antepartumHaemorrhage",
+            "columnName": "antepartumHaemorrhage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sugarInTheUrine",
+            "columnName": "sugarInTheUrine",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fetusLie",
+            "columnName": "fetusLie",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8792c315f480c7f07f5379498d9135b4\")"
+    ]
+  }
+}

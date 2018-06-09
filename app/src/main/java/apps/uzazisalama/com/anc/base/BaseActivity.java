@@ -12,6 +12,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.Referral;
+import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.utils.SessionManager;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -41,6 +43,78 @@ public abstract class BaseActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
     }
 
+    public RequestBody getRoutineBody(RoutineVisits visits){
+
+        RequestBody body;
+        String datastream = "";
+        JSONObject object   = new JSONObject();
+
+        try {
+            //object.put("clientId", client.getID());
+
+            object.put("healthFacilityClientId", visits.getHealthFacilityClientId());
+            object.put("appointmentId", visits.getAppointmentID());
+            object.put("visitNumber", visits.getVisitNumber());
+            object.put("visitDate", visits.getVisitDate());
+            object.put("appointmentDate", visits.getAppointmentDate());
+            object.put("anaemia", visits.isAnaemia());
+            object.put("oedema", visits.isOedema());
+            object.put("protenuria", visits.isProtenuria());
+            object.put("highBloodPressure", visits.isHighBloodPressure());
+            object.put("weightStagnation", visits.isWeightStagnation());
+            object.put("antepartumHaemorrhage", visits.isAntepartumHaemorrhage());
+            object.put("sugarInTheUrine", visits.isSugarInTheUrine());
+            object.put("fetusLie", visits.isFetusLie());
+
+            datastream = object.toString();
+
+            Log.d("PostOfficeService", datastream);
+
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+        }
+
+        return body;
+
+    }
+
+    public RequestBody getReferralFeedbackBody(Referral referral){
+        RequestBody body;
+        String datastream = "";
+        JSONObject object   = new JSONObject();
+        try{
+
+            object.put("id", referral.getReferralID());
+            object.put("ancClientId", referral.getHealthFacilityClientID());
+            object.put("referralReason", referral.getReferralReason());
+            object.put("instanceId", referral.getInstanceID());
+            object.put("referralUUID", referral.getReferralUUID());
+            object.put("serviceProviderUUID", referral.getServiceProviderUUID());
+            object.put("otherClinicalInformation", referral.getOtherClinicalInformation());
+            object.put("referralFeedback", referral.getReferralFeedback());
+            object.put("referralType", referral.getReferralType());
+            object.put("fromFacilityId", referral.getFromFacailityID());
+            object.put("referralDate", referral.getReferralDate());
+            object.put("facilityId", referral.getFacilityID());
+            object.put("referralStatus", referral.getReferralStatus());
+
+            datastream = object.toString();
+
+            Log.d("PostOfficeService", datastream);
+
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            body = RequestBody.create(MediaType.parse("application/json"), datastream);
+        }
+
+        return body;
+    }
+
     public RequestBody getAncClientBody(AncClient client){
         RequestBody body;
         String datastream = "";
@@ -64,6 +138,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             object.put("para", client.getPara());
             object.put("lmnpDate", client.getLnmp());
             object.put("edd", client.getEdd());
+            object.put("clientType", client.getClientType());
             object.put("gestationalAgeBelow20", client.isGestationalAgeBelow20());
             object.put("historyOfAbortion", client.isHistoryOfAbortion());
             object.put("ageBelow20Years", client.isAgeBelow20Years());
@@ -72,7 +147,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             object.put("historyOfStillBirth", client.isHistoryOfStillBirths());
             object.put("historyOfPostmartumHaemorrhage", client.isHistoryOfPostmartumHaemorrhage());
             object.put("historyOfRetainedPlacenta", client.isHistoryOfRetainedPlacenta());
-            object.put("pncStatus", client.isPncStatus());
+            object.put("clientType", client.getClientType());
             object.put("lastChildbirthYear", client.getLastChildBirthYear());
             object.put("lastChildbirthStatus", client.getLastChildBirthStatus());
             object.put("healthFacilityCode", client.getHealthFacilityCode());

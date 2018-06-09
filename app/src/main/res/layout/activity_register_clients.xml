@@ -73,232 +73,502 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="48dp">
+                            android:layout_height="wrap_content">
 
-                            <EditText
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:id="@+id/first_name"
                                 android:layout_marginRight="16dp"
-                                android:hint="First Name"
-                                android:fontFamily="@font/avenir_light"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:inputType="textPersonName|textCapSentences"
-                                android:textColor="@color/black"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="First Name"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/first_name"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="8dp"
+                                    android:paddingLeft="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:id="@+id/middle_name"
-                                android:hint="Middle Name"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:inputType="textPersonName|textCapSentences"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
                                 android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Middle Name"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/middle_name"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:hint="Last Name"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
                                 android:layout_marginRight="16dp"
-                                android:id="@+id/last_name"
-                                android:inputType="textPersonName|textCapSentences"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Last Name"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:id="@+id/last_name"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:hint="Date of Birth"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:fontFamily="@font/avenir_light"
-                                android:drawableLeft="@mipmap/ic_calendar"
-                                android:drawablePadding="4dp"
-                                android:textColor="@color/black"
-                                android:id="@+id/date_of_birth"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Date of Birth"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:drawableLeft="@mipmap/ic_calendar"
+                                    android:drawablePadding="4dp"
+                                    android:textColor="@color/black"
+                                    android:id="@+id/date_of_birth"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="8dp"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:orientation="horizontal">
 
-                            <EditText
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:id="@+id/phone"
-                                android:hint="Phone Number"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:inputType="number"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
                                 android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:hint="Village"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:textColor="@color/black"
-                                android:layout_marginRight="16dp"
-                                android:id="@+id/village"
-                                android:inputType="textCapSentences"
-                                android:fontFamily="@font/avenir_light"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Phone Number"
+                                    android:textColor="@color/card_title_text"/>
 
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:padding="2dp"
-                                android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent">
-
-                                <com.jaredrummler.materialspinner.MaterialSpinner
-                                    android:id="@+id/height_spinner"
+                                <EditText
                                     android:layout_width="match_parent"
-                                    app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
-                                    android:layout_height="wrap_content"/>
+                                    android:id="@+id/phone"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:inputType="number"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
 
-                            </RelativeLayout>
+                            </LinearLayout>
 
-                            <RelativeLayout
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:padding="2dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent">
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
 
-                                <com.jaredrummler.materialspinner.MaterialSpinner
-                                    android:id="@+id/level_of_education_spinner"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Village"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
                                     android:layout_width="match_parent"
-                                    app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
-                                    android:layout_height="wrap_content"/>
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="@color/black"
+                                    android:layout_marginRight="16dp"
+                                    android:id="@+id/village"
+                                    android:inputType="textCapSentences"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
 
-                            </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Height"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:padding="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp">
+
+                                    <com.jaredrummler.materialspinner.MaterialSpinner
+                                        android:id="@+id/height_spinner"
+                                        android:layout_width="match_parent"
+                                        app:ms_arrow_tint="@color/card_grid_tex"
+                                        app:ms_text_color="@color/pink_400"
+                                        android:layout_height="match_parent"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Level Of Education"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:padding="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="match_parent">
+
+                                    <com.jaredrummler.materialspinner.MaterialSpinner
+                                        android:id="@+id/level_of_education_spinner"
+                                        android:layout_width="match_parent"
+                                        app:ms_arrow_tint="@color/card_grid_tex"
+                                        app:ms_text_color="@color/pink_400"
+                                        android:layout_height="wrap_content"/>
+
+                                </RelativeLayout>
+
+
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:orientation="horizontal">
 
-                            <EditText
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:id="@+id/gravida"
-                                android:hint="Gravida"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:inputType="number"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
                                 android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Gravida"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:id="@+id/gravida"
+                                    android:inputType="number"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:hint="Para"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
                                 android:layout_marginRight="16dp"
-                                android:id="@+id/para"
-                                android:inputType="number"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Para"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginRight="16dp"
+                                    android:id="@+id/para"
+                                    android:layout_marginTop="8dp"
+                                    android:inputType="number"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:hint="Spause Name"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:textColor="@color/black"
-                                android:id="@+id/spause_name"
-                                android:inputType="textPersonName|textCapSentences"
-                                android:fontFamily="@font/avenir_light"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Spouse Name"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="@color/black"
+                                    android:id="@+id/spause_name"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:orientation="horizontal">
 
-                            <EditText
+                            <LinearLayout
                                 android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:id="@+id/date_of_lnmp"
-                                android:hint="Date of LNMP"
-                                android:drawableLeft="@mipmap/ic_calendar"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/avenir_light"
                                 android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                android:orientation="vertical">
 
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:hint="Date Of Delivery"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:textColor="@color/black"
-                                android:layout_marginRight="16dp"
-                                android:id="@+id/date_of_delivery"
-                                android:drawableLeft="@mipmap/ic_calendar"
-                                android:fontFamily="@font/avenir_light"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Date of LNMP"
+                                    android:textColor="@color/card_title_text"/>
 
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:padding="2dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="match_parent">
-
-                                <com.jaredrummler.materialspinner.MaterialSpinner
-                                    android:id="@+id/spinner"
+                                <EditText
                                     android:layout_width="match_parent"
-                                    app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
-                                    android:layout_height="wrap_content"/>
+                                    android:id="@+id/date_of_lnmp"
+                                    android:drawableLeft="@mipmap/ic_calendar"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
 
-                            </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Expected Date of Delivery"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="@color/black"
+                                    android:layout_marginRight="16dp"
+                                    android:id="@+id/date_of_delivery"
+                                    android:drawableLeft="@mipmap/ic_calendar"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:textStyle="bold"
+                                    android:text="Gestational Age"
+                                    android:textColor="@color/card_title_text"/>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:padding="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp">
+
+                                    <com.jaredrummler.materialspinner.MaterialSpinner
+                                        android:id="@+id/spinner"
+                                        android:layout_width="match_parent"
+                                        app:ms_arrow_tint="@color/card_grid_tex"
+                                        app:ms_text_color="@color/pink_400"
+                                        android:layout_height="wrap_content"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/avenir_light"
+                                android:textStyle="bold"
+                                android:text="Anc Number"
+                                android:textColor="@color/card_title_text"/>
+
+                            <EditText
+                                android:layout_width="200dp"
+                                android:id="@+id/anc_number"
+                                android:textColorHint="@color/card_grid_tex"
+                                android:paddingLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/black"
+                                android:inputType="number"
+                                android:fontFamily="@font/avenir_light"
+                                android:layout_marginRight="16dp"
+                                android:background="@drawable/border_one"
+                                android:layout_height="50dp" />
 
                         </LinearLayout>
 
@@ -369,6 +639,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:padding="2dp"
+                                android:gravity="bottom"
                                 android:layout_marginRight="8dp"
                                 android:layout_marginLeft="8dp"
                                 android:layout_height="wrap_content">
@@ -382,16 +653,19 @@
                                     android:fontFamily="@font/avenir_light"
                                     android:text="Last child birth year"/>
 
-                                <com.jaredrummler.materialspinner.MaterialSpinner
-                                    android:id="@+id/last_child_birth_year_spinner"
+                                <EditText
                                     android:layout_width="match_parent"
+                                    android:id="@+id/last_child_birth_year_et"
                                     android:layout_below="@+id/lcsy_title"
-                                    android:layout_marginTop="22dp"
+                                    android:textColorHint="@color/card_grid_tex"
+                                    android:paddingLeft="8dp"
                                     android:layout_alignParentBottom="true"
-                                    app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
-                                    app:ms_background_selector="@drawable/border_one"
-                                    android:layout_height="wrap_content"/>
+                                    android:layout_marginTop="16dp"
+                                    android:textColor="@color/black"
+                                    android:inputType="number"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:background="@drawable/border_one"
+                                    android:layout_height="50dp" />
 
                             </RelativeLayout>
 

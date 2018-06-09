@@ -5,6 +5,8 @@ import java.util.List;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
+import apps.uzazisalama.com.anc.objects.RegistrationResponse;
+import apps.uzazisalama.com.anc.objects.RoutineResponse;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -29,18 +31,27 @@ public class Endpoints {
     public interface ClientService{
 
         @POST("save-anc-client")
-        Call<AncClient> postAncClient( @Body RequestBody p );
+        Call<RegistrationResponse> postAncClient(@Body RequestBody p );
 
     }
 
     public interface ReferralService{
         @GET("get-facility-referrals/{facilityUUID}")
         Call<List<ReferralResponse>> getHealthFacilityReferrals(@Path("facilityUUID") String facilityUUID );
+
+        @POST("receive-feedback")
+        Call<String> postReferralFeedback(@Body RequestBody b);
+
     }
 
     public interface NotificationServices{
         @POST("save-push-notification-token")
         Call<String> registerDevice(@Body RequestBody u);
+    }
+
+    public interface RoutineServices{
+        @POST("save-visit")
+        Call<RoutineResponse> saveRoutineVisit(@Body RequestBody b);
     }
 
 }

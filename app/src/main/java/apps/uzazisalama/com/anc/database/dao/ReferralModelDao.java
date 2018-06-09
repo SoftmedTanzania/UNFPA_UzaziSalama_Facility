@@ -27,10 +27,10 @@ public interface ReferralModelDao  {
     @Query("SELECT * from Referral")
     LiveData<List<Referral>> getAllReferrals();
 
-    @Query("select * from Referral where referralType = 1")
+    @Query("select * from Referral where referralType = 1 and referralStatus = 0")
     LiveData<List<Referral>> getAllChwReferrals();
 
-    @Query("select * from Referral where referralType = 2")
+    @Query("select * from Referral where referralType = 2 and referralStatus = 0")
     LiveData<List<Referral>> getAllHealthFacilityReferrals();
 
     @Insert(onConflict = REPLACE)

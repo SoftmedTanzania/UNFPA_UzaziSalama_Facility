@@ -6,10 +6,12 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.database.dao.AncClientModelDao;
+import apps.uzazisalama.com.anc.database.dao.ClientAppointmentDao;
 import apps.uzazisalama.com.anc.database.dao.PncClientModelDao;
 import apps.uzazisalama.com.anc.database.dao.ReferralModelDao;
 import apps.uzazisalama.com.anc.database.dao.RoutineVisitsModelDao;
@@ -26,7 +28,8 @@ import apps.uzazisalama.com.anc.database.dao.RoutineVisitsModelDao;
                 AncClient.class,
                 PncClient.class,
                 Referral.class,
-                RoutineVisits.class
+                RoutineVisits.class,
+                ClientAppointment.class
         },
         version = 1
 )
@@ -50,5 +53,7 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract PncClientModelDao pncClientModelDao();
 
     public abstract ReferralModelDao referralModelDao();
+
+    public abstract ClientAppointmentDao clientAppointmentDao();
 
 }

@@ -13,9 +13,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -51,6 +54,8 @@ public class LoginActivity extends BaseActivity {
     Button loginButton;
     EditText usernameEt, passwordEt;
     TextView messages;
+    ImageView unfpaLogo, ttcihLogo, background;
+    CircularProgressView progressView;
 
     Endpoints.ReferralService referalService;
 
@@ -72,8 +77,13 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loginButton.setText("");
+                progressView.setVisibility(View.VISIBLE);
                 if (getAuthenticationCredentials()){
                     loginUser();
+                }else {
+                    loginButton.setText("Login");
+                    progressView.setVisibility(View.GONE);
                 }
             }
         });
@@ -111,6 +121,13 @@ public class LoginActivity extends BaseActivity {
             call.enqueue(new Callback<LoginResponse>() {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                    if (response == null){
+                        Log.d("tag", "response is null");
+                    }
+
+                    loginButton.setText("Login");
+                    progressView.setVisibility(View.GONE);
                     if (response.isSuccessful()){
                         LoginResponse loginResponse = response.body();
 
@@ -138,6 +155,8 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     t.printStackTrace();
+                    loginButton.setText("Login");
+                    progressView.setVisibility(View.GONE);
                 }
             });
         }
@@ -166,7 +185,6 @@ public class LoginActivity extends BaseActivity {
                                 if (list != null){
                                     for (ReferralResponse referralResponse : list){
                                         AncClient ancClient = referralResponse.getAncClient();
-                                        Log.d("ReferralCheck", "ANC client name"+ancClient.getFirstName()+" ID -> "+ancClient.getID());
                                         List<Referral> referrals = referralResponse.getClientReferrals();
                                         database.clientModel().addNewClient(ancClient);
                                         Log.d("ReferralCheck", "Added anc client");
@@ -203,10 +221,21 @@ public class LoginActivity extends BaseActivity {
     }
 
     void setupviews(){
+
+        progressView = findViewById(R.id.progress_view);
+
         loginButton = findViewById(R.id.login_button);
         usernameEt = findViewById(R.id.username_et);
         passwordEt = findViewById(R.id.password_et);
         messages = findViewById(R.id.messages);
+
+        background = findViewById(R.id.background);
+        Glide.with(this).load(R.drawable.bg).into(background);
+
+        unfpaLogo = findViewById(R.id.unfpa_logo);
+        Glide.with(this).load(R.drawable.unfpa_image).into(unfpaLogo);
+        ttcihLogo = findViewById(R.id.ttcih_logo);
+        Glide.with(this).load(R.drawable.ttcih_image).into(ttcihLogo);
     }
 
     private boolean isDeviceRegistered(){

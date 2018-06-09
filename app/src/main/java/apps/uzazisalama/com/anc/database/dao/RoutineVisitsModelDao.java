@@ -25,11 +25,11 @@ public interface RoutineVisitsModelDao {
     @Query("select * from RoutineVisits")
     LiveData<List<RoutineVisits>> getAllRoutines();
 
-    @Query("select * from RoutineVisits where ancClientID = :clientID")
-    LiveData<List<RoutineVisits>> getRoutinesByClientId(String clientID);
+    @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID")
+    LiveData<List<RoutineVisits>> getRoutinesByClientId(long healthFacilityClientID);
 
-    @Query("select * from RoutineVisits where ancClientID = :clientID")
-    List<RoutineVisits> getClientRoutines(String clientID);
+    @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID")
+    List<RoutineVisits> getClientRoutines(long healthFacilityClientID);
 
     @Insert(onConflict = REPLACE)
     void addRoutine(RoutineVisits routineVisits);

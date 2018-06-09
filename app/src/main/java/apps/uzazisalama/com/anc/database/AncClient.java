@@ -20,8 +20,8 @@ public class AncClient implements Serializable{
 
     @PrimaryKey(autoGenerate = false)
     @NonNull
-    @SerializedName("clientId")
-    private String ID;
+    @SerializedName("healthFacilityClientId")
+    private long healthFacilityClientId;
 
     //Demographic information
 
@@ -99,11 +99,15 @@ public class AncClient implements Serializable{
     private boolean historyOfRetainedPlacenta;
 
     /**
-     *  0 -> false
-     *  1 -> true
+     *  0 -> general
+     *  1 -> ANC
+     *  2 -> PNC
      */
-    @SerializedName("pncStatus")
-    private boolean pncStatus;
+    @SerializedName("clientType")
+    private int clientType;
+
+    @SerializedName("cardNumber")
+    private String cardNumber;
 
     /**
      * Year
@@ -121,12 +125,13 @@ public class AncClient implements Serializable{
     @SerializedName("healthFacilityCode")
     private String healthFacilityCode;
 
-    public String getID() {
-        return ID;
+    @NonNull
+    public long getHealthFacilityClientId() {
+        return healthFacilityClientId;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setHealthFacilityClientId(@NonNull long healthFacilityClientId) {
+        this.healthFacilityClientId = healthFacilityClientId;
     }
 
     public String getFirstName() {
@@ -305,14 +310,6 @@ public class AncClient implements Serializable{
         this.historyOfRetainedPlacenta = historyOfRetainedPlacenta;
     }
 
-    public boolean isPncStatus() {
-        return pncStatus;
-    }
-
-    public void setPncStatus(boolean pncStatus) {
-        this.pncStatus = pncStatus;
-    }
-
     public String getWard() {
         return ward;
     }
@@ -351,5 +348,21 @@ public class AncClient implements Serializable{
 
     public void setHealthFacilityCode(String healthFacilityCode) {
         this.healthFacilityCode = healthFacilityCode;
+    }
+
+    public int getClientType() {
+        return clientType;
+    }
+
+    public void setClientType(int clientType) {
+        this.clientType = clientType;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 }

@@ -75,7 +75,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/pink_300"
+                                android:textColor="@color/colorPrimary"
                                 android:text="PNC ancClients list"
                                 android:layout_centerInParent="true"
                                 android:textSize="16sp"
@@ -128,7 +128,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_marginLeft="16dp"
-                                    android:text="Report 1"
+                                    android:text="Mothers Maternity Outcome Report"
                                     android:textColor="@color/card_grid_text"
                                     android:textSize="16sp"
                                     android:fontFamily="@font/avenir_light"/>
@@ -152,7 +152,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_marginLeft="16dp"
-                                    android:text="Report 2"
+                                    android:text="Children Status Report"
                                     android:textColor="@color/card_grid_text"
                                     android:textSize="16sp"
                                     android:fontFamily="@font/avenir_light"/>

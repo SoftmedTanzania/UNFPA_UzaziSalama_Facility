@@ -25,11 +25,18 @@ import java.util.UUID;
 
 import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.adapters.PreviousRoutinesAdapter;
+import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.AppDatabase;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
+import apps.uzazisalama.com.anc.objects.RoutineResponse;
+import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import apps.uzazisalama.com.anc.viewmodels.RoutineViewModel;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by issy on 16/05/2018.
@@ -56,6 +63,8 @@ public class AncRoutineActivity extends BaseActivity {
     AncClient currentAncClient;
     RoutineVisits currentRoutineVisitsVisit;
 
+    private Endpoints.RoutineServices routineService;
+
     @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +83,11 @@ public class AncRoutineActivity extends BaseActivity {
             getSupportActionBar().setTitle("");
         }
 
+        routineService = ServiceGenerator.createService(Endpoints.RoutineServices.class,
+                session.getUserName(),
+                session.getUserPass(),
+                session.getKeyHfid());
+
         setCheckboxListeners();
 
         new AsyncTask<Void, Void, Void>(){
@@ -83,7 +97,7 @@ public class AncRoutineActivity extends BaseActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                thisClientsRoutineVisits = database.routineModelDao().getClientRoutines(currentAncClient.getID());
+                thisClientsRoutineVisits = database.routineModelDao().getClientRoutines(currentAncClient.getHealthFacilityClientId());
 
                 for (RoutineVisits r : thisClientsRoutineVisits){
                     if (r.getVisitNumber() > mostRecentVisit)
@@ -152,7 +166,7 @@ public class AncRoutineActivity extends BaseActivity {
                     @Override
                     protected Void doInBackground(Void... voids) {
 
-                        currentAncClient.setPncStatus(true);
+                        currentAncClient.setClientType(2);
 
                         database.clientModel().updateClient(currentAncClient);
 
@@ -369,19 +383,20 @@ public class AncRoutineActivity extends BaseActivity {
         spauseName.setText(ancClient.getSpouseName());
         newVisitDate.setText(BaseActivity.simpleDateFormat.format(new Date()));
 
+        Log.d("clientID", ancClient.getHealthFacilityClientId()+"");
+
     }
 
     boolean routineObjectCreated(){
 
-        String clientID = currentAncClient.getID();
         long todaysDate = Calendar.getInstance().getTimeInMillis();
         int visitCount = lastVisit+1;
-        String routineId = UUID.randomUUID().toString();
+
 
         RoutineVisits routineVisits = new RoutineVisits();
-        routineVisits.setID(routineId);
+        routineVisits.setID(0);
 
-        routineVisits.setAncClientID(clientID);
+        routineVisits.setHealthFacilityClientId(currentAncClient.getHealthFacilityClientId());
         routineVisits.setVisitDate(todaysDate);
         routineVisits.setVisitNumber(visitCount);
 
@@ -404,26 +419,80 @@ public class AncRoutineActivity extends BaseActivity {
         RoutineVisits routineVisits = currentRoutineVisitsVisit;
         AppDatabase db = database;
 
-        new AsyncTask<RoutineVisits, Void, Void>(){
+        new AsyncTask<Void, Void, Void>(){
+
+            long appointmentId;
+
             @Override
-            protected Void doInBackground(RoutineVisits... routineVisits) {
-                db.routineModelDao().addRoutine(routineVisits[0]);
+            protected Void doInBackground(Void... voids) {
+                List<ClientAppointment> list = database.clientAppointmentDao().getAppointmentsByClientId(
+                        routineVisits.getHealthFacilityClientId());
+                ClientAppointment visitAppointment = new ClientAppointment();
+                for (ClientAppointment a : list){
+                    if (a.getVisitNumber() == routineVisits.getVisitNumber()){
+                        visitAppointment = a;
+                        routineVisits.setAppointmentID(visitAppointment.getAppointmentID());
+                        routineVisits.setAppointmentDate(visitAppointment.getAppointmentDate());
+                    }
+                }
+                Log.d("appointment", "Appointment size : "+visitAppointment.getAppointmentID());
                 return null;
             }
 
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                Toast.makeText(
-                        AncRoutineActivity.this,
-                        "RoutineVisits Saved Successfully",
-                        Toast.LENGTH_LONG
-                ).show();
 
-                finish();
+                Call<RoutineResponse> call = routineService.saveRoutineVisit(getRoutineBody(routineVisits));
+                call.enqueue(new Callback<RoutineResponse>() {
+                    @Override
+                    public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
+
+                        try{
+                            Log.d("routineVisits", response.body().toString());
+
+                            RoutineResponse response1 = response.body();
+                            RoutineVisits visit = response1.getRoutineVisits();
+                            List<ClientAppointment> appointments = response1.getAppointments();
+
+                            new AsyncTask<RoutineVisits, Void, Void>(){
+                                @Override
+                                protected Void doInBackground(RoutineVisits... routineVisits) {
+                                    db.routineModelDao().addRoutine(routineVisits[0]);
+                                    for (ClientAppointment a : appointments){
+                                        db.clientAppointmentDao().addNewAppointment(a);
+                                    }
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onPostExecute(Void aVoid) {
+                                    super.onPostExecute(aVoid);
+                                    Toast.makeText(
+                                            AncRoutineActivity.this,
+                                            "RoutineVisits Saved Successfully",
+                                            Toast.LENGTH_LONG
+                                    ).show();
+
+                                    finish();
+
+                                }
+                            }.execute(visit);
+                        }catch (NullPointerException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<RoutineResponse> call, Throwable t) {
+
+                    }
+                });
 
             }
-        }.execute(routineVisits);
+        }.execute();
+
     }
 
 }
