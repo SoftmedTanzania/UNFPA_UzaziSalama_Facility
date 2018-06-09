@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity {
         ancIcon.setColorFilter(getResources().getColor(R.color.card_light_text));
         if (!MainActivity.this.isFinishing())
             Glide.with(this).load(R.mipmap.ic_anc).into(ancIcon);
-        ancTabTitle.setText("Anc");
+        ancTabTitle.setText("ANC");
         tabLayout.getTabAt(0).setCustomView(ancTabView);
 
         View pncTabView = getLayoutInflater().inflate(R.layout.custom_tabs, null);
@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
         pncIcon.setColorFilter(getResources().getColor(R.color.card_light_text));
         if (!MainActivity.this.isFinishing())
             Glide.with(this).load(R.mipmap.ic_pnc).into(pncIcon);
-        pncTabTitle.setText("Pnc");
+        pncTabTitle.setText("PNC");
         tabLayout.getTabAt(1).setCustomView(pncTabView);
 
     }

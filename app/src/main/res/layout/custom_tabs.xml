@@ -23,7 +23,6 @@
             android:gravity="center_vertical"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
-            android:textAllCaps="false"
             android:textStyle="bold"
             android:textColor="@color/card_title_text"
             android:fontFamily="@font/avenir_light"
