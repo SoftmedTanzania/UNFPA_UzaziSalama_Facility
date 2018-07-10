@@ -21,6 +21,7 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,6 +36,11 @@ import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static apps.uzazisalama.com.anc.utils.Constants.ABOVE_TWELVE_WEEKS;
+import static apps.uzazisalama.com.anc.utils.Constants.HEIGHT_ABOVE_ONE_FIFTY;
+import static apps.uzazisalama.com.anc.utils.Constants.HEIGHT_BELOW_ONE_FIFTY;
+import static apps.uzazisalama.com.anc.utils.Constants.LESS_THAN_TWELVE_WEEKS;
 
 /**
  * Created by issy on 10/05/2018.
@@ -58,6 +64,7 @@ public class ClientRegisterActivity extends BaseActivity {
     String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
     int gravidaValue, paraValue, lastChildBirthStatus, lastChildBirthYear;
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
+    boolean gestationalAgeBelow12Weeks, heightBelowAverage;
     String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
 
@@ -98,32 +105,32 @@ public class ClientRegisterActivity extends BaseActivity {
 
         //initialize the gestational age spinner with values
         gestationalAgeList = new ArrayList<>();
-        gestationalAgeList.add("< 20 Weeks");
-        gestationalAgeList.add("20+ Weeks");
+        gestationalAgeList.add(LESS_THAN_TWELVE_WEEKS);
+        gestationalAgeList.add(ABOVE_TWELVE_WEEKS);
         gestationalAgeSpinner.setItems(gestationalAgeList);
         gestationalAgeSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
-                if (position == 0){
-                    gestationalAge = "";
+                if (item.equals(LESS_THAN_TWELVE_WEEKS)){
+                    gestationalAgeBelow12Weeks = true;
                 }else {
-                    gestationalAge = item;
+                    gestationalAgeBelow12Weeks = false;
                 }
             }
         });
 
         //initializing the height spinner with values
         heightList = new ArrayList<>();
-        heightList.add("<150");
-        heightList.add(">150");
+        heightList.add(HEIGHT_BELOW_ONE_FIFTY);
+        heightList.add(HEIGHT_ABOVE_ONE_FIFTY);
         heightSpinner.setItems(heightList);
         heightSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
-                if (position == 0)
-                    height = "";
-                else height = item;
+                if (item.equals(HEIGHT_BELOW_ONE_FIFTY)){
+                    heightBelowAverage = true;
+                }else {
+                    heightBelowAverage = false;
+                }
             }
         });
 
@@ -376,7 +383,7 @@ public class ClientRegisterActivity extends BaseActivity {
         gravidaValue = Integer.parseInt(gravidaEt.getText().toString());
         paraValue = Integer.parseInt(paraEt.getText().toString());
         spauseNameValue = spauseName.getText().toString();
-        lastChildBirthYear = Integer.parseInt(lastChildBirthYearEt.getText().toString());
+        lastChildBirthYear = lastChildBirthYearEt.getText().toString().isEmpty()? 0 : Integer.parseInt(lastChildBirthYearEt.getText().toString());
 
         return true;
     }
@@ -399,6 +406,10 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setLastChildBirthStatus(lastChildBirthStatus);
         ancClient.setLastChildBirthYear(lastChildBirthYear);
         ancClient.setClientType(1);
+        ancClient.setGestationalAgeBelow20(gestationalAgeBelow12Weeks);
+        ancClient.setHeightBelowAverage(heightBelowAverage);
+        Date today  = new Date();
+        ancClient.setClientRegisteredDate(today.getTime());
 
         Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(ancClient));
         call.enqueue(new Callback<RegistrationResponse>() {

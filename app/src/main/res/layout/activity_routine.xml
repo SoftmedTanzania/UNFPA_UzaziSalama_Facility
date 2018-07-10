@@ -1138,20 +1138,40 @@
 
                     </LinearLayout>
 
-                    <Button
+                    <RelativeLayout
                         android:layout_width="100dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/border_color_primary"
-                        android:layout_alignParentRight="true"
-                        android:text="Save"
-                        android:id="@+id/save_routine_button"
-                        android:fontFamily="@font/avenir_light"
-                        android:textColor="@color/colorPrimary"
-                        android:textAllCaps="false"
+                        android:layout_below="@+id/new_visit_input_container"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_below="@+id/new_visit_input_container"/>
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/save_routine_button"
+                        android:background="@drawable/border_color_primary">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save"
+                            android:id="@+id/save_routines_text"
+                            android:textSize="18sp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/avenir_light"
+                            android:textColor="@color/colorPrimary"
+                            android:textAllCaps="false"/>
+
+                        <com.github.rahatarmanahmed.cpv.CircularProgressView
+                            android:id="@+id/save_routines_progress_view"
+                            android:visibility="visible"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"
+                            app:cpv_animAutostart="true"
+                            app:cpv_indeterminate="true"
+                            app:cpv_color="@color/colorPrimary" />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 

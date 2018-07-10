@@ -29,8 +29,14 @@ public interface AncClientModelDao {
     @Query("select * from AncClient where clientType = 1 ") //Room maps true to 1 false to 0
     LiveData<List<AncClient>> getAllAncClients();
 
+    @Query("select * from AncClient where clientType = 1 and gestationalAgeBelow20 = 1 ") //Room maps true to 1 false to 0
+    LiveData<List<AncClient>> getFirstVisitBelowTwelveWeeksClients();
+
     @Query("select * from AncClient where healthFacilityClientId = :clientID")
     List<AncClient> getItemById(long clientID);
+
+    @Query("select count(*) from AncClient where clientRegisteredDate >= :fromDate and clientRegisteredDate <= :toDate ")
+    LiveData<Integer> getPeriodicRegisteredWomen(long fromDate, long toDate);
 
     @Insert(onConflict = REPLACE)
     void addNewClient(AncClient ancClient);

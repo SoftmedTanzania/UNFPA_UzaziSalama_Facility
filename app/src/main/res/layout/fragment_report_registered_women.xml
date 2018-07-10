@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="All Registered Pregnant Women"
+        android:textColor="@color/card_title_text"
+        android:layout_margin="40dp"
+        android:fontFamily="@font/google_sans_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/from_date"
+            android:text="From Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="18sp"
+            android:background="@drawable/border_one"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_date"
+            android:layout_toRightOf="@id/from_date"
+            android:text="To Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="18sp"
+            android:background="@drawable/border_one"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="32dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="34sp"
+            android:id="@+id/registered_women_value"
+            android:layout_marginLeft="32dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/google_sans_medium"
+            android:textColor="@color/card_grid_text"
+            android:text="-  -  -"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

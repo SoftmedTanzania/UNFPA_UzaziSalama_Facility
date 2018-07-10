@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Women Attending First ANC visit Report"
+        android:textColor="@color/card_title_text"
+        android:layout_margin="32dp"
+        android:id="@+id/report_title"
+        android:fontFamily="@font/google_sans_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/total_value_container"
+        app:layout_constraintTop_toBottomOf="@id/report_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_title"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_regular"
+            android:layout_marginLeft="32dp"
+            android:text="Total"
+            android:textColor="@color/card_title_text"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="32dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/total_clients_value"
+            android:layout_marginLeft="32dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/google_sans_medium"
+            android:textColor="@color/card_grid_text"
+            android:text="-  -  -"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/total_value_container"
+        android:id="@+id/separator_top"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/card_separator"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/list_title_container"
+        app:layout_constraintTop_toBottomOf="@id/separator_top"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/card_separator"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_medium"
+            android:gravity="start"
+            android:text="Names"
+            android:textColor="@color/card_title_text"
+            android:id="@+id/client_name"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".7"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_medium"
+            android:gravity="start"
+            android:text="Para"
+            android:textColor="@color/card_title_text"
+            android:id="@+id/client_para"
+            android:layout_marginLeft="8dp"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".7"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_medium"
+            android:gravity="start"
+            android:text="Gravida"
+            android:textColor="@color/card_title_text"
+            android:id="@+id/client_gravida"
+            android:layout_marginLeft="8dp"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".7"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_medium"
+            android:gravity="start"
+            android:text="Phone Number"
+            android:textColor="@color/card_title_text"
+            android:id="@+id/client_phone"
+            android:layout_marginLeft="8dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/card_separator"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/list_title_container"
+        android:id="@+id/separator_bottom"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/card_separator"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:id="@+id/list_container"
+        app:layout_constraintTop_toBottomOf="@id/separator_bottom"
+        android:paddingBottom="50dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/first_anc_visit_clients_recycler"
+            android:paddingBottom="150dp"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

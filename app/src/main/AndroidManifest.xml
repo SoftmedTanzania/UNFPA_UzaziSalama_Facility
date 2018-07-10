@@ -30,6 +30,13 @@
             </intent-filter>
         </service>
 
+        <service android:name=".services.AncToPncDispatcherService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".activities.AncClientsListActivity"
             android:parentActivityName=".MainActivity"

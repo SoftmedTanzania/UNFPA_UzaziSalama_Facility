@@ -16,6 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.RetryStrategy;
+import com.firebase.jobdispatcher.Trigger;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 
 import java.util.ArrayList;
@@ -25,6 +32,8 @@ import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.customviews.NonSwipeableViewPager;
 import apps.uzazisalama.com.anc.fragments.AncFragment;
 import apps.uzazisalama.com.anc.fragments.PncFragment;
+import apps.uzazisalama.com.anc.fragments.ReportsFragment;
+import apps.uzazisalama.com.anc.services.AncToPncDispatcherService;
 import apps.uzazisalama.com.anc.utils.SessionManager;
 
 public class MainActivity extends BaseActivity {
@@ -36,11 +45,17 @@ public class MainActivity extends BaseActivity {
     CircularProgressView syncProgressBar;
     ImageView manualSync;
 
+    FirebaseJobDispatcher dispatcher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupviews();
+
+        dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+
+        scheduleBackgroundJob();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null){
@@ -76,6 +91,20 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    private void scheduleBackgroundJob(){
+        Job myJob = dispatcher.newJobBuilder()
+                .setService(AncToPncDispatcherService.class) // the JobService that will be called
+                .setTag("10002")        // uniquely identifies the job
+                .setRecurring(true)
+                .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
+                .setTrigger(Trigger.executionWindow(0, 60))
+                .setReplaceCurrent(false)
+                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+                .build();
+
+        dispatcher.mustSchedule(myJob);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -99,6 +128,7 @@ public class MainActivity extends BaseActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new AncFragment(), "ANC");
         adapter.addFragment(new PncFragment(), "PNC");
+        adapter.addFragment(new ReportsFragment(), "Reports");
         viewPager.setAdapter(adapter);
     }
 
@@ -121,6 +151,16 @@ public class MainActivity extends BaseActivity {
             Glide.with(this).load(R.mipmap.ic_pnc).into(pncIcon);
         pncTabTitle.setText("PNC");
         tabLayout.getTabAt(1).setCustomView(pncTabView);
+
+
+        View reportsTabView = getLayoutInflater().inflate(R.layout.custom_tabs, null);
+        TextView reportsTabTitle = reportsTabView.findViewById(R.id.title_text);
+        ImageView reportsIcon    = reportsTabView.findViewById(R.id.icon);
+        if (!MainActivity.this.isFinishing())
+            Glide.with(this).load(R.mipmap.ic_reports).into(reportsIcon);
+        reportsIcon.setColorFilter(getResources().getColor(R.color.card_light_text));
+        reportsTabTitle.setText("REPORTS");
+        tabLayout.getTabAt(2).setCustomView(reportsTabView);
 
     }
 

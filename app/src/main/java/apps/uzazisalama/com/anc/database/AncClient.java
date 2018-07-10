@@ -74,7 +74,7 @@ public class AncClient implements Serializable{
     @SerializedName("edd")
     private long edd; //Expected Date of Delivery
 
-    @SerializedName("gestationalAgeBelow20")
+    @SerializedName("gestationalAgeBelow20") //Todo => Refactor to "Gestational Age below 12 weeks*
     private boolean gestationalAgeBelow20;
 
     @SerializedName("historyOfAbortion")
@@ -124,6 +124,8 @@ public class AncClient implements Serializable{
 
     @SerializedName("healthFacilityCode")
     private String healthFacilityCode;
+
+    private long clientRegisteredDate;
 
     @NonNull
     public long getHealthFacilityClientId() {
@@ -364,5 +366,13 @@ public class AncClient implements Serializable{
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    public long getClientRegisteredDate() {
+        return clientRegisteredDate;
+    }
+
+    public void setClientRegisteredDate(long clientRegisteredDate) {
+        this.clientRegisteredDate = clientRegisteredDate;
     }
 }

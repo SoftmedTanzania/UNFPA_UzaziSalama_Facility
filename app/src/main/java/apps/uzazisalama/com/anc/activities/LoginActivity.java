@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,9 +52,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity {
 
-    Button loginButton;
+    RelativeLayout loginButton;
     EditText usernameEt, passwordEt;
-    TextView messages;
+    TextView messages, loginButtonText;
     ImageView unfpaLogo, ttcihLogo, background;
     CircularProgressView progressView;
 
@@ -77,12 +78,12 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginButton.setText("");
+                loginButtonText.setVisibility(View.GONE);
                 progressView.setVisibility(View.VISIBLE);
                 if (getAuthenticationCredentials()){
                     loginUser();
                 }else {
-                    loginButton.setText("Login");
+                    loginButtonText.setVisibility(View.VISIBLE);
                     progressView.setVisibility(View.GONE);
                 }
             }
@@ -126,7 +127,7 @@ public class LoginActivity extends BaseActivity {
                         Log.d("tag", "response is null");
                     }
 
-                    loginButton.setText("Login");
+                    loginButtonText.setVisibility(View.VISIBLE);
                     progressView.setVisibility(View.GONE);
                     if (response.isSuccessful()){
                         LoginResponse loginResponse = response.body();
@@ -155,7 +156,7 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     t.printStackTrace();
-                    loginButton.setText("Login");
+                    loginButtonText.setVisibility(View.VISIBLE);
                     progressView.setVisibility(View.GONE);
                 }
             });
@@ -224,6 +225,7 @@ public class LoginActivity extends BaseActivity {
 
         progressView = findViewById(R.id.progress_view);
 
+        loginButtonText = findViewById(R.id.login_button_text);
         loginButton = findViewById(R.id.login_button);
         usernameEt = findViewById(R.id.username_et);
         passwordEt = findViewById(R.id.password_et);

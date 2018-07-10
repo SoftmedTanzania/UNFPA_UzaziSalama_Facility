@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.uniquestudio.library.CircleCheckBox;
 
 import java.util.Calendar;
@@ -51,10 +52,10 @@ public class AncRoutineActivity extends BaseActivity {
     CircleCheckBox aYes, aNo, oYes, oNo, pYes, pNo, hYes, hNo, wsYes, wsNo, ahYes, ahNo, suYes, suNo;
     RecyclerView previousRoutinesRecycler;
     TextView clientNames, spauseName, phoneNumber, village, visitCount, newVisitDate, enrollToPncButton, successMessage;
-    Button saveRoutineButton;
+    TextView saveRoutinesText;
     LinearLayout routineInputsWrap;
-    RelativeLayout enrollToPncContainer;
-
+    RelativeLayout enrollToPncContainer, saveRoutinesButton;
+    CircularProgressView savingRoutinesProgressView;
     boolean a, o, p, h, ws, ah, su;
     int lastVisit = 0;
 
@@ -97,7 +98,10 @@ public class AncRoutineActivity extends BaseActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                thisClientsRoutineVisits = database.routineModelDao().getClientRoutines(currentAncClient.getHealthFacilityClientId());
+
+                if (currentAncClient != null){
+                    thisClientsRoutineVisits = database.routineModelDao().getClientRoutines(currentAncClient.getHealthFacilityClientId());
+                }
 
                 for (RoutineVisits r : thisClientsRoutineVisits){
                     if (r.getVisitNumber() > mostRecentVisit)
@@ -118,35 +122,31 @@ public class AncRoutineActivity extends BaseActivity {
                     //Enroll client to PNC
                     enrollToPncContainer.setVisibility(View.VISIBLE);
                     routineInputsWrap.setVisibility(View.GONE);
-                    saveRoutineButton.setVisibility(View.GONE);
+                    //saveRoutineButton.setVisibility(View.GONE);
                 }else {
                     enrollToPncContainer.setVisibility(View.GONE);
                     routineInputsWrap.setVisibility(View.VISIBLE);
-                    saveRoutineButton.setVisibility(View.VISIBLE);
+                    //saveRoutineButton.setVisibility(View.VISIBLE);
                 }
+
+                checkPregnancyPeriodSinceLnmp();
+
                 visitCount.setText(newVisitNumber+"");
                 adapter = new PreviousRoutinesAdapter(thisClientsRoutineVisits, AncRoutineActivity.this);
                 previousRoutinesRecycler.setAdapter(adapter);
             }
         }.execute();
 
-        //patientsListViewModel = ViewModelProviders.of(this).get(PatientsListViewModel.class);
-        /*routineViewModel = ViewModelProviders.of(this).get(RoutineViewModel.class);
-        routineViewModel.setCurrentClientId(currentAncClient.getID());
-        routineViewModel.getThisClientRoutines().observe(AncRoutineActivity.this, new Observer<List<RoutineVisits>>() {
-            @Override
-            public void onChanged(@Nullable List<RoutineVisits> routines) {
-                Log.d("midnightstaring", "Size of routines "+routines.size());
-                adapter.addItems(routines);
-                adapter.notifyDataSetChanged();
-            }
-        });*/
-
-        saveRoutineButton.setOnClickListener(new View.OnClickListener() {
+        saveRoutinesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                savingRoutinesProgressView.setVisibility(View.VISIBLE);
+                saveRoutinesText.setVisibility(View.GONE);
                 if (routineObjectCreated()){
                     saveRoutineData();
+                }else {
+                    savingRoutinesProgressView.setVisibility(View.GONE);
+                    saveRoutinesText.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -154,52 +154,42 @@ public class AncRoutineActivity extends BaseActivity {
         enrollToPncButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                new AsyncTask<Void, Void, Void>(){
-
-                    @Override
-                    protected void onPreExecute() {
-                        super.onPreExecute();
-                        successMessage.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    protected Void doInBackground(Void... voids) {
-
-                        currentAncClient.setClientType(2);
-
-                        database.clientModel().updateClient(currentAncClient);
-
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onPostExecute(Void aVoid) {
-                        super.onPostExecute(aVoid);
-                        successMessage.setVisibility(View.GONE);
-
-                        Intent intent = new Intent(AncRoutineActivity.this, PncClientDetailActivity.class);
-                        intent.putExtra("currentAncClient", currentAncClient);
-                        startActivity(intent);
-
-                    }
-                }.execute();
-
-                /**
-                 * Enroll current client to PNC from ANC
-                 *      Update AncClient Profile set PNC status true
-                 *      Create Async Task that displays client enrolled to PNC successfully for 3
-                 *          seconds then opens up PNC AncClient Details activity
-                 *      Continue to PNC client Details
-                 */
+                Intent intent = new Intent(AncRoutineActivity.this, PncClientDetailActivity.class);
+                intent.putExtra("currentAncClient", currentAncClient);
+                startActivity(intent);
             }
         });
 
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    void checkPregnancyPeriodSinceLnmp(){
+
+        long today = new Date().getTime();
+        long lnmp = currentAncClient.getLnmp();
+
+        long pregnancyPeriod = today - lnmp;
+
+        long twentyFourHours = 24*60*60*1000;
+        long oneWeek = twentyFourHours*7;
+        long twentyEightWeeks = oneWeek*28;
+
+        Log.d("JOSH", "Today - "+today);
+        Log.d("JOSH", "LNMP - "+lnmp);
+        Log.d("JOSH", "Pregnancy Period - "+pregnancyPeriod);
+        Log.d("JOSH", "28 Weeks - "+twentyEightWeeks);
+
+        if (pregnancyPeriod > twentyEightWeeks){
+
+            //Restrict Routine Information Inputs
+            enrollToPncContainer.setVisibility(View.VISIBLE);
+            routineInputsWrap.setVisibility(View.GONE);
+            saveRoutinesButton.setVisibility(View.GONE);
+
+            Intent intent = new Intent(AncRoutineActivity.this, PncClientDetailActivity.class);
+            intent.putExtra("currentAncClient", currentAncClient);
+            startActivity(intent);
+        }
     }
 
     void setupviews(){
@@ -213,6 +203,14 @@ public class AncRoutineActivity extends BaseActivity {
         //Layouts
         routineInputsWrap = findViewById(R.id.routine_inputs_wrap);
         enrollToPncContainer = findViewById(R.id.enroll_to_pnc_container);
+
+
+
+        //Progress View
+        savingRoutinesProgressView = findViewById(R.id.save_routines_progress_view);
+        savingRoutinesProgressView.setVisibility(View.GONE);
+
+        saveRoutinesButton = findViewById(R.id.save_routine_button);
 
         // Checkboxes
         aYes = findViewById(R.id.a_yes);
@@ -240,9 +238,7 @@ public class AncRoutineActivity extends BaseActivity {
         enrollToPncButton = findViewById(R.id.enroll_to_pnc);
         successMessage = findViewById(R.id.success_message);
         successMessage.setVisibility(View.GONE);
-
-        //Buttons
-        saveRoutineButton = findViewById(R.id.save_routine_button);
+        saveRoutinesText = findViewById(R.id.save_routines_text);
 
     }
 
@@ -468,6 +464,10 @@ public class AncRoutineActivity extends BaseActivity {
                                 @Override
                                 protected void onPostExecute(Void aVoid) {
                                     super.onPostExecute(aVoid);
+
+                                    savingRoutinesProgressView.setVisibility(View.GONE);
+                                    saveRoutinesText.setVisibility(View.VISIBLE);
+
                                     Toast.makeText(
                                             AncRoutineActivity.this,
                                             "RoutineVisits Saved Successfully",
@@ -480,13 +480,17 @@ public class AncRoutineActivity extends BaseActivity {
                             }.execute(visit);
                         }catch (NullPointerException e){
                             e.printStackTrace();
+                            savingRoutinesProgressView.setVisibility(View.GONE);
+                            saveRoutinesText.setVisibility(View.VISIBLE);
                         }
 
                     }
 
                     @Override
                     public void onFailure(Call<RoutineResponse> call, Throwable t) {
-
+                        Log.d("TheyCantHoldUs", t.getMessage());
+                        savingRoutinesProgressView.setVisibility(View.GONE);
+                        saveRoutinesText.setVisibility(View.VISIBLE);
                     }
                 });
 

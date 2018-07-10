@@ -241,7 +241,13 @@ public class PncClientDetailActivity extends BaseActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
+                //Saving the newly created PNC client to the database
                 db.pncClientModelDao().addNewClient(client);
+
+                //Updating the ANC client type to 2 = PNC Client
+                currentAncClient.setClientType(2);
+                db.clientModel().updateClient(currentAncClient);
+
                 return null;
             }
 

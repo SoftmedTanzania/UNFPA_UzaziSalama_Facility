@@ -242,30 +242,28 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="20px"
-                    android:text="Login"
-                    android:textAllCaps="false"
-                    android:id="@+id/login_button"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:background="@color/card_title_text"/>
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginBottom="20px">
+                    android:id="@+id/login_button"
+                    android:background="@drawable/border_round_button_fill">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:id="@+id/login_button_text"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/roboto_bold"/>
 
                     <com.github.rahatarmanahmed.cpv.CircularProgressView
-                        android:visibility="gone"
                         android:id="@+id/progress_view"
+                        android:visibility="gone"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_centerInParent="true"
