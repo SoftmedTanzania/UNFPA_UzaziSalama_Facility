@@ -1,6 +1,7 @@
 package apps.uzazisalama.com.anc.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
+import com.irozon.alertview.AlertActionStyle;
+import com.irozon.alertview.AlertStyle;
+import com.irozon.alertview.AlertView;
+import com.irozon.alertview.objects.AlertAction;
 import com.uniquestudio.library.CircleCheckBox;
 
 import java.util.Calendar;
@@ -452,10 +457,20 @@ public class AncRoutineActivity extends BaseActivity {
                             List<ClientAppointment> appointments = response1.getAppointments();
 
                             new AsyncTask<RoutineVisits, Void, Void>(){
+
+                                String nextAppointmentDate = "";
+
                                 @Override
                                 protected Void doInBackground(RoutineVisits... routineVisits) {
                                     db.routineModelDao().addRoutine(routineVisits[0]);
+
+                                    //Next Client Appointment Date
+                                    int currentVisit = routineVisits[0].getVisitNumber();
+                                    int nextVisit = currentVisit + 1;
                                     for (ClientAppointment a : appointments){
+                                        if (a.getVisitNumber() == nextVisit){
+                                            nextAppointmentDate = simpleDateFormat.format(a.getAppointmentDate());
+                                        }
                                         db.clientAppointmentDao().addNewAppointment(a);
                                     }
                                     return null;
@@ -468,13 +483,13 @@ public class AncRoutineActivity extends BaseActivity {
                                     savingRoutinesProgressView.setVisibility(View.GONE);
                                     saveRoutinesText.setVisibility(View.VISIBLE);
 
-                                    Toast.makeText(
-                                            AncRoutineActivity.this,
-                                            "RoutineVisits Saved Successfully",
-                                            Toast.LENGTH_LONG
-                                    ).show();
-
-                                    finish();
+                                    Context context = AncRoutineActivity.this;
+                                    AlertView alert = new AlertView("Routine Stored Successfully", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
+                                    alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
+                                        // Action 2 callback
+                                        finish();
+                                    }));
+                                    alert.show(AncRoutineActivity.this);
 
                                 }
                             }.execute(visit);

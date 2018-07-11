@@ -85,5 +85,7 @@ dependencies {
 
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
 
+    implementation 'com.irozon.alertview:alertview:1.0.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
