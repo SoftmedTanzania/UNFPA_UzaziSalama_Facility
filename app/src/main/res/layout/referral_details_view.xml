@@ -504,6 +504,7 @@
                         android:layout_below="@+id/new_visit_input_container"/>
 
                     <Button
+                        android:visibility="gone"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
                         android:background="@drawable/border_color_primary"
