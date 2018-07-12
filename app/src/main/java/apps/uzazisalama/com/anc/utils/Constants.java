@@ -14,4 +14,8 @@ public class Constants {
 
     public static final String HEIGHT_BELOW_ONE_FIFTY = "<150";
     public static final String HEIGHT_ABOVE_ONE_FIFTY = ">150";
+
+    public static final int HOME_DELIVERY = 1;
+    public static final int HEALTH_FACILITY_DELIVERY = 2;
+    public static final int BIRTH_BEFORE_ARRIVAL = 3;
 }

@@ -56,6 +56,16 @@ public class PncClient implements Serializable {
 
     private double childWeight;
 
+
+    /**
+     * Child place of Birth
+     * 1 - Home Delivery
+     * 2 - Health Facility
+     * 3 - Birth Before Arrival - BBA
+     */
+    private int childPlaceOfBirth;
+
+
     /**
      *  Child's five senses, each sense is 2 score
      *  1 - 10
@@ -204,4 +214,11 @@ public class PncClient implements Serializable {
         this.stillBirthTypes = stillBirthTypes;
     }
 
+    public int getChildPlaceOfBirth() {
+        return childPlaceOfBirth;
+    }
+
+    public void setChildPlaceOfBirth(int childPlaceOfBirth) {
+        this.childPlaceOfBirth = childPlaceOfBirth;
+    }
 }

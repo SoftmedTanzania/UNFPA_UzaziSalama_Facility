@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0f9590d79f61b3fb0de6091461bd4964",
+    "identityHash": "a74f62b0eef18d61e1a404faa2c6c0df",
     "entities": [
       {
         "tableName": "AncClient",
@@ -206,7 +206,7 @@
       },
       {
         "tableName": "PncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pncClientID` TEXT NOT NULL, `healthFacilityClientID` INTEGER NOT NULL, `dateOfAdmission` INTEGER NOT NULL, `dateOfDelivery` INTEGER NOT NULL, `kuharibikaMimba` INTEGER NOT NULL, `deliveryMethod` INTEGER NOT NULL, `deliveryComplications` INTEGER NOT NULL, `motherDischargeCondition` INTEGER NOT NULL, `childGender` TEXT, `childWeight` REAL NOT NULL, `childPlaceOfBirth` INTEGER NOT NULL, `apgarScore` INTEGER NOT NULL, `childAbnomalities` INTEGER NOT NULL, `childDischargeCondition` INTEGER NOT NULL, `diedWithin24Hours` INTEGER NOT NULL, `stillBirthTypes` INTEGER NOT NULL, PRIMARY KEY(`pncClientID`))",
         "fields": [
           {
             "fieldPath": "pncClientID",
@@ -266,6 +266,12 @@
             "fieldPath": "childWeight",
             "columnName": "childWeight",
             "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "childPlaceOfBirth",
+            "columnName": "childPlaceOfBirth",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -563,7 +569,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0f9590d79f61b3fb0de6091461bd4964\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a74f62b0eef18d61e1a404faa2c6c0df\")"
     ]
   }
 }

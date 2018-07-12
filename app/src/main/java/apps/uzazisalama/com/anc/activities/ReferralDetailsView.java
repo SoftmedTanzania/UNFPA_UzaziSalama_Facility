@@ -2,6 +2,7 @@ package apps.uzazisalama.com.anc.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,8 @@ import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.Referral;
+import apps.uzazisalama.com.anc.database.ReferralDetailsBinder;
+import apps.uzazisalama.com.anc.databinding.ReferralDetailsViewBinding;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,10 +48,15 @@ public class ReferralDetailsView extends BaseActivity {
     AncClient clientZero;
     Endpoints.ReferralService referralService;
 
+    ReferralDetailsViewBinding binding;
+    private ReferralDetailsBinder data = new ReferralDetailsBinder();
+
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.referral_details_view);
+        binding = DataBindingUtil.setContentView(this, R.layout.referral_details_view);
+
         setupview();
 
         if (toolbar != null){
@@ -59,8 +67,57 @@ public class ReferralDetailsView extends BaseActivity {
 
         if (getIntent().getExtras() != null){
             currentReferral = (Referral) getIntent().getSerializableExtra("currentReferral");
-            displayInformation(currentReferral);
+            data.setReferral(currentReferral);
         }
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(currentReferral.getReferralDate());
+        String referralDate = simpleDateFormat.format(calendar.getTime());
+
+        data.setReferralDate(referralDate);
+
+        new AsyncTask<Referral, Void, Void>(){
+
+            AncClient client;
+
+            @Override
+            protected Void doInBackground(Referral... referrals) {
+                List<AncClient> list = BaseActivity.database.clientModel().getItemById(referrals[0].getHealthFacilityClientID());
+                if (list.size() > 0){
+                    client = list.get(0);
+                    clientZero = client;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                Calendar now = Calendar.getInstance();
+                Calendar dob = Calendar.getInstance();
+                dob.setTimeInMillis(client.getDateOfBirth());
+
+                int year1 = now.get(Calendar.YEAR);
+                int year2 = dob.get(Calendar.YEAR);
+                int age = year1 - year2;
+
+                int month1 = now.get(Calendar.MONTH);
+                int month2 = dob.get(Calendar.MONTH);
+                if (month2 > month1) {
+                    age--;
+                } else if (month1 == month2) {
+                    int day1 = now.get(Calendar.DAY_OF_MONTH);
+                    int day2 = dob.get(Calendar.DAY_OF_MONTH);
+                    if (day2 > day1) {
+                        age--;
+                    }
+                }
+
+                data.setClient(client);
+                data.setAge(age+"");
+                binding.setData(data);
+            }
+        }.execute(currentReferral);
 
         referralService = ServiceGenerator.createService(Endpoints.ReferralService.class,
                 session.getUserName(),
@@ -110,20 +167,7 @@ public class ReferralDetailsView extends BaseActivity {
 
     void setupview(){
         toolbar = findViewById(R.id.referral_toolbar);
-        names = findViewById(R.id.details_client_names);
-        phone = findViewById(R.id.client_phone_value);
-        village = findViewById(R.id.client_village_value);
-        age = findViewById(R.id.client_age);
-        spauseName = findViewById(R.id.client_spause_name_value);
-        gravida = findViewById(R.id.client_gravida);
-        para = findViewById(R.id.client_para);
-
-        referralDate = findViewById(R.id.referral_date_value);
-        referralReasons = findViewById(R.id.referral_reasons_value);
-        otherClinicalInformation = findViewById(R.id.other_clinical_information_value);
-
         enrollClient = findViewById(R.id.referral_enroll_button);
-
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -135,35 +179,6 @@ public class ReferralDetailsView extends BaseActivity {
         referralDate.setText(simpleDateFormat.format(calendar.getTime()));
         referralReasons.setText(referral.getReferralReason());
         otherClinicalInformation.setText(referral.getOtherClinicalInformation());
-
-        new AsyncTask<Referral, Void, Void>(){
-
-            AncClient client;
-
-            @Override
-            protected Void doInBackground(Referral... referrals) {
-                List<AncClient> list = BaseActivity.database.clientModel().getItemById(referrals[0].getHealthFacilityClientID());
-                if (list.size() > 0){
-                    client = list.get(0);
-                    clientZero = client;
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-
-                names.setText(client.getFirstName()+" "+client.getMiddleName()+" "+client.getSurname());
-                phone.setText(client.getPhoneNumber());
-                village.setText(client.getVillage());
-                age.setText("");
-                spauseName.setText(client.getSpouseName());
-                gravida.setText(client.getGravida()+"");
-                para.setText(client.getPara()+"");
-
-            }
-        }.execute(referral);
     }
 
 }

@@ -56,7 +56,7 @@ public class AncRoutineActivity extends BaseActivity {
     Toolbar toolbar;
     CircleCheckBox aYes, aNo, oYes, oNo, pYes, pNo, hYes, hNo, wsYes, wsNo, ahYes, ahNo, suYes, suNo;
     RecyclerView previousRoutinesRecycler;
-    TextView clientNames, spauseName, phoneNumber, village, visitCount, newVisitDate, enrollToPncButton, successMessage;
+    TextView clientNames, spauseName, phoneNumber, village, visitCount, newVisitDate, enrollToPncButton, successMessage, clientPara, clientGravida;
     TextView saveRoutinesText;
     LinearLayout routineInputsWrap;
     RelativeLayout enrollToPncContainer, saveRoutinesButton;
@@ -244,6 +244,8 @@ public class AncRoutineActivity extends BaseActivity {
         successMessage = findViewById(R.id.success_message);
         successMessage.setVisibility(View.GONE);
         saveRoutinesText = findViewById(R.id.save_routines_text);
+        clientPara = findViewById(R.id.client_para);
+        clientGravida = findViewById(R.id.client_gravida);
 
     }
 
@@ -377,15 +379,13 @@ public class AncRoutineActivity extends BaseActivity {
     }
 
     void displayClientInformation(AncClient ancClient){
-
         clientNames.setText(ancClient.getFirstName()+" "+ ancClient.getMiddleName()+" "+ ancClient.getSurname());
         village.setText(ancClient.getVillage());
         phoneNumber.setText(ancClient.getPhoneNumber());
         spauseName.setText(ancClient.getSpouseName());
+        clientPara.setText(ancClient.getPara()+"");
+        clientGravida.setText(ancClient.getGravida()+"");
         newVisitDate.setText(BaseActivity.simpleDateFormat.format(new Date()));
-
-        Log.d("clientID", ancClient.getHealthFacilityClientId()+"");
-
     }
 
     boolean routineObjectCreated(){

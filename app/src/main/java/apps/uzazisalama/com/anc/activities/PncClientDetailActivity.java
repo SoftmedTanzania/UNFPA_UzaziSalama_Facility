@@ -35,7 +35,7 @@ public class PncClientDetailActivity extends BaseActivity {
 
     TextView clientNames, clientPhone, clientVillage, clientAge, clientSpauseName, clientGravida, clientPara;
     EditText dateOfAdmissionEt, dateOfDeliveryEt, childWeightEt, apgarScoreEt;
-    MaterialSpinner missCarriageSpinner, deliveryMethodSpinner, deliveryComplicationsSpinner, motherDischargeConditionSpinner, childGenderSpinner;
+    MaterialSpinner missCarriageSpinner, deliveryMethodSpinner, deliveryComplicationsSpinner, motherDischargeConditionSpinner, childGenderSpinner, childPlaceOfBirthSpinner;
     Button savePncData;
 
     public DatePickerDialog doaDatePicker = new DatePickerDialog();
@@ -48,7 +48,7 @@ public class PncClientDetailActivity extends BaseActivity {
     long dateOfDeliveryValue = 0;
     String admissionDateDisplay, deliveryDateDisplay, childGenderValue;
     boolean misscarriageValue;
-    int deliveryMethodValue, deliveryComplicationsValue, motherDischargedConditionValue;
+    int deliveryMethodValue, deliveryComplicationsValue, motherDischargedConditionValue, childPlaceOfBirth;
 
     AncClient currentAncClient;
     PncClient createdPncClient;
@@ -187,6 +187,24 @@ public class PncClientDetailActivity extends BaseActivity {
             }
         });
 
+        childPlaceOfBirthSpinner.setItems("Home Delivery", "Health Facility", "Birth Before Arrival");
+        childPlaceOfBirthSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                switch (position){
+                    case 0:
+                        childPlaceOfBirth = 1; //Home Delivery
+                        break;
+                    case 1:
+                        childPlaceOfBirth = 2; //Health Facility Delivery
+                        break;
+                    case 2:
+                        childPlaceOfBirth = 3; //Birth Before Arrival
+                        break;
+                }
+            }
+        });
+
         savePncData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -226,6 +244,7 @@ public class PncClientDetailActivity extends BaseActivity {
         createdPncClient.setDeliveryComplications(deliveryComplicationsValue);
         createdPncClient.setMotherDischargeCondition(motherDischargedConditionValue);
         createdPncClient.setChildGender(childGenderValue);
+        createdPncClient.setChildPlaceOfBirth(childPlaceOfBirth);
         createdPncClient.setChildWeight(Double.parseDouble(childWeightEt.getText().toString()));
         createdPncClient.setApgarScore(Integer.parseInt(apgarScoreEt.getText().toString()));
 
@@ -283,6 +302,7 @@ public class PncClientDetailActivity extends BaseActivity {
         deliveryComplicationsSpinner = findViewById(R.id.delivery_complications_spinner);
         motherDischargeConditionSpinner = findViewById(R.id.mother_discharge_condition_spinner);
         childGenderSpinner = findViewById(R.id.child_gender_spinner);
+        childPlaceOfBirthSpinner = findViewById(R.id.child_pob_spinner);
 
         //Buttons
         savePncData = findViewById(R.id.save_pnc_data_button);

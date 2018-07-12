@@ -299,15 +299,15 @@
                             android:text="Para"/>
 
                         <TextView
+                            android:id="@+id/client_para"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:id="@+id/client_para"
-                            android:layout_marginRight="16dp"
-                            android:textColor="@color/card_grid_text"
                             android:layout_marginLeft="8dp"
+                            android:layout_marginRight="16dp"
                             android:fontFamily="@font/avenir_light"
-                            android:text="2"/>
+                            android:text="2"
+                            android:textColor="@color/card_grid_text"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 

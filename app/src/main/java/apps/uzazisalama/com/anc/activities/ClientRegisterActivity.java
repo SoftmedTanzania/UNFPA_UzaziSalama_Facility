@@ -423,6 +423,9 @@ public class ClientRegisterActivity extends BaseActivity {
                 RegistrationResponse registrationResponse = response.body();
 
                 AncClient registeredClient = registrationResponse.getClient();
+                //Hack-Alert TODO: Remove once the registered date is implemented on the server side
+                registeredClient.setClientRegisteredDate(ancClient.getClientRegisteredDate());
+
                 List<ClientAppointment> appointmentList = registrationResponse.getClientAppointments();
 
                 Gson gson = new Gson();

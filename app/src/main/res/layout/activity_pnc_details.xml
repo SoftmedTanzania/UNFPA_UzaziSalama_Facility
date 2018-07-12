@@ -546,33 +546,23 @@
                         android:layout_marginTop="16dp"
                         android:orientation="horizontal">
 
-                        <RelativeLayout
+                        <EditText
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:padding="2dp"
+                            android:hint="Apgar Score"
+                            android:textColorHint="@color/card_grid_tex"
+                            android:paddingLeft="8dp"
+                            android:fontFamily="@font/avenir_light"
+                            android:drawableLeft="@mipmap/ic_calendar"
+                            android:drawablePadding="4dp"
                             android:layout_marginRight="8dp"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:id="@+id/child_gender_title"
-                                android:textColor="@color/card_grid_tex"
-                                android:fontFamily="@font/avenir_light"
-                                android:text="Child Gender"/>
-
-                            <com.jaredrummler.materialspinner.MaterialSpinner
-                                android:id="@+id/child_gender_spinner"
-                                android:layout_width="match_parent"
-                                android:layout_below="@+id/child_gender_title"
-                                android:layout_marginTop="8dp"
-                                app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
-                                app:ms_background_selector="@drawable/border_one"
-                                android:layout_height="wrap_content"/>
-
-                        </RelativeLayout>
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:inputType="number"
+                            android:id="@+id/apgar_score"
+                            android:background="@drawable/border_one"
+                            android:layout_height="wrap_content" />
 
                         <EditText
                             android:layout_width="0dp"
@@ -602,28 +592,61 @@
                         android:layout_marginTop="16dp"
                         android:orientation="horizontal">
 
-                        <EditText
+                        <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:hint="Apgar Score"
-                            android:textColorHint="@color/card_grid_tex"
-                            android:paddingLeft="8dp"
-                            android:fontFamily="@font/avenir_light"
-                            android:drawableLeft="@mipmap/ic_calendar"
-                            android:drawablePadding="4dp"
+                            android:padding="2dp"
                             android:layout_marginRight="8dp"
-                            android:layout_gravity="bottom"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:inputType="number"
-                            android:id="@+id/apgar_score"
-                            android:background="@drawable/border_one"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content">
 
-                        <View
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/child_gender_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Child Gender"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/child_gender_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/child_gender_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:id="@+id/child_pob_title"
+                                android:textColor="@color/card_grid_tex"
+                                android:fontFamily="@font/avenir_light"
+                                android:text="Place Of Birth"/>
+
+                            <com.jaredrummler.materialspinner.MaterialSpinner
+                                android:id="@+id/child_pob_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/child_pob_title"
+                                android:layout_marginTop="8dp"
+                                app:ms_arrow_tint="@color/card_grid_tex"
+                                app:ms_text_color="@color/pink_400"
+                                app:ms_background_selector="@drawable/border_one"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
