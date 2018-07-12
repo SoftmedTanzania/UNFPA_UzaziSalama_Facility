@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.R;
@@ -38,10 +39,15 @@ import apps.uzazisalama.com.anc.database.RoutineVisits;
 
 public class WomenAttendingFirstAncReport extends DialogFragment {
 
-    private TextView totalClientsValue;
+    private TextView totalClientsValue, fromDate, toDate;
     private RecyclerView clientsListRecycler;
 
     private AppDatabase database;
+    private DatePickerDialog fromDatePickerDialog = new DatePickerDialog();
+    private DatePickerDialog toDatePickerDialog = new DatePickerDialog();
+    private Calendar cal;
+    private long dateFromInMillis, dateToInMillis;
+    private boolean otherDateSelected = false;
 
     public WomenAttendingFirstAncReport(){}
 
@@ -67,6 +73,60 @@ public class WomenAttendingFirstAncReport extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         setupViews(view);
 
+        fromDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() != null){
+                    fromDatePickerDialog.show(getActivity().getFragmentManager(),"fromDateRange");
+                }
+                fromDatePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                        fromDate.setText((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth) + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : monthOfYear + 1) + "-" + year);
+                        cal = Calendar.getInstance();
+                        cal.set(year, monthOfYear, dayOfMonth);
+                        dateFromInMillis = cal.getTimeInMillis();
+
+                        if (otherDateSelected){
+                            getReportData();
+                        }else {
+                            otherDateSelected = true;
+                        }
+
+                    }
+
+                });
+            }
+        });
+
+        toDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() != null){
+                    toDatePickerDialog.show(getActivity().getFragmentManager(),"fromDateRange");
+                }
+                toDatePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                        toDate.setText((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth) + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : monthOfYear + 1) + "-" + year);
+                        cal = Calendar.getInstance();
+                        cal.set(year, monthOfYear, dayOfMonth);
+                        dateToInMillis = cal.getTimeInMillis();
+
+                        if (otherDateSelected){
+                            getReportData();
+                        }else {
+                            otherDateSelected = true;
+                        }
+                    }
+
+                });
+            }
+        });
+
+    }
+
+    private void getReportData(){
         LiveData<List<AncClient>> clients = database.clientModel().getAllAncClients();
         clients.observe(this, new Observer<List<AncClient>>() {
             @SuppressLint("StaticFieldLeak")
@@ -82,20 +142,10 @@ public class WomenAttendingFirstAncReport extends DialogFragment {
 
                         for (AncClient client : ancClients){
                             Log.d("ThriftStore", "Client : "+client.getFirstName());
-                            List<RoutineVisits> routines = database.routineModelDao().getClientRoutines(client.getHealthFacilityClientId());
-                            boolean firstVisitRoutineOnly = true;
-                            boolean hasRoutines = false;
-                            for (RoutineVisits visits : routines){
-                                hasRoutines = true;
-                                Log.d("ThriftStore", "Client : Has Routine "+visits.getVisitNumber());
-                                if (visits.getVisitNumber() > 1){
-                                    firstVisitRoutineOnly = false;
-                                    Log.d("ThriftStore", "Client : Routine "+visits.getVisitNumber());
-                                }
-                            }
-                            if (hasRoutines && firstVisitRoutineOnly){
+                            //Get the first visit of this client
+                            List<RoutineVisits> fitstVisitroutines = database.routineModelDao().getVisitOneClientRoutines(client.getHealthFacilityClientId(), dateFromInMillis, dateToInMillis);
+                            if (fitstVisitroutines.size() > 0){
                                 firstVisitClients.add(client);
-                                Log.d("ThriftStore", "Client : Added!");
                             }
                         }
 
@@ -118,7 +168,6 @@ public class WomenAttendingFirstAncReport extends DialogFragment {
 
             }
         });
-
     }
 
     @Override
@@ -131,6 +180,8 @@ public class WomenAttendingFirstAncReport extends DialogFragment {
 
     private void setupViews(View view){
         totalClientsValue = view.findViewById(R.id.total_clients_value);
+        fromDate = view.findViewById(R.id.from_date);
+        toDate = view.findViewById(R.id.to_date);
         clientsListRecycler = view.findViewById(R.id.first_anc_visit_clients_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         clientsListRecycler.setLayoutManager(layoutManager);

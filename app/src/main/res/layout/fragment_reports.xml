@@ -37,13 +37,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="Registered Pregnant Women"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
+                    android:fontFamily="@font/google_sans_regular"/>
 
             </RelativeLayout>
 
@@ -70,13 +70,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="Womens Attending First ANC"
                     android:layout_centerInParent="true"
                     android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
+                    android:fontFamily="@font/google_sans_regular"/>
 
             </RelativeLayout>
 
@@ -103,13 +103,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="ANC Visit at 12th Week and Before"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
+                    android:fontFamily="@font/google_sans_regular"/>
 
             </RelativeLayout>
 
@@ -152,46 +152,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="Women Attending Four or More times"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
-
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"/>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/women_diagnosed_with_danger_signs"
-            android:layout_margin="4dp"
-            app:cardBackgroundColor="@color/white">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
-                    android:text="Women Diagnosed with Any of the Danger Signs"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
+                    android:fontFamily="@font/google_sans_regular"/>
 
             </RelativeLayout>
 
@@ -218,17 +185,53 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="All Women Delivering at the Facility"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/google_sans_regular"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/women_diagnosed_with_danger_signs"
+            android:layout_margin="4dp"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/card_title_text"
+                    android:text="Women Diagnosed with Any of the Danger Signs"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/avenir_light"/>
 
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
+
 
         <View
             android:layout_width="0dp"

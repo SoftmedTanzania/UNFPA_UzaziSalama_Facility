@@ -23,29 +23,38 @@
             android:gravity="start"
             android:layout_marginLeft="8dp"
             android:textColor="@color/card_title_text"
+            android:fontFamily="@font/google_sans_regular"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/client_para"
+            android:fontFamily="@font/google_sans_regular"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/client_gravida"
+            android:fontFamily="@font/google_sans_regular"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/client_phone"
+            android:fontFamily="@font/google_sans_regular"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/client_village"
+            android:fontFamily="@font/google_sans_regular"
             android:textColor="@color/card_title_text"
             android:layout_height="wrap_content"/>
 

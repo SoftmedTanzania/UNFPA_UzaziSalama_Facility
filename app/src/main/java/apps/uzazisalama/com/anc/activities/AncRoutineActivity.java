@@ -454,6 +454,7 @@ public class AncRoutineActivity extends BaseActivity {
 
                             RoutineResponse response1 = response.body();
                             RoutineVisits visit = response1.getRoutineVisits();
+                            visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
                             List<ClientAppointment> appointments = response1.getAppointments();
 
                             new AsyncTask<RoutineVisits, Void, Void>(){

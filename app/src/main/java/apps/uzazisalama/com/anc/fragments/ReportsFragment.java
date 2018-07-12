@@ -117,7 +117,16 @@ public class ReportsFragment extends Fragment implements View.OnClickListener{
     }
 
     public void attendingFourOrMoreTimesReport(){
+        //fourOrMoreVisitsClients
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("fourOrMoreVisits");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
 
+        DialogFragment dialogFragment = new WomenAttendingFourOrMoreVisitsReport();
+        dialogFragment.show(ft, "fourOrMoreVisits");
     }
 
     public void diagnosedWithDangerSignsReport(){
@@ -126,6 +135,15 @@ public class ReportsFragment extends Fragment implements View.OnClickListener{
 
     public void womenDeliveringAtTheFacilityReport(){
 
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("deliveredAtFacility");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        DialogFragment dialogFragment = new AllWomenDeliveredAtTheFacility();
+        dialogFragment.show(ft, "deliveredAtFacility");
     }
 
 }

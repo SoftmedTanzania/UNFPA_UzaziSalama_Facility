@@ -83,7 +83,7 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
 
     private class ListViewItemViewHolder extends RecyclerView.ViewHolder {
 
-        TextView clientNames;
+        TextView clientNames, clientPara, clientGravida, clientPhone, clientVillage;
         View viewItem;
         AncClient pncClient;
 
@@ -92,6 +92,10 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
             this.viewItem   = itemView;
 
             clientNames = itemView.findViewById(R.id.client_list_names);
+            clientPara = itemView.findViewById(R.id.client_para);
+            clientGravida = itemView.findViewById(R.id.client_gravida);
+            clientPhone = itemView.findViewById(R.id.client_phone);
+            clientVillage = itemView.findViewById(R.id.client_village);
 
         }
 
@@ -121,7 +125,10 @@ public class PncClientsListAdapter extends RecyclerView.Adapter <RecyclerView.Vi
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             holder.clientNames.setText(ancClient.getFirstName()+" "+ancClient.getMiddleName()+" "+ancClient.getSurname());
-            //Other Details
+            holder.clientPara.setText(ancClient.getPara()+"");
+            holder.clientGravida.setText(ancClient.getGravida()+"");
+            holder.clientPhone.setText(ancClient.getPhoneNumber());
+            holder.clientVillage.setText(ancClient.getVillage());
         }
     }
 

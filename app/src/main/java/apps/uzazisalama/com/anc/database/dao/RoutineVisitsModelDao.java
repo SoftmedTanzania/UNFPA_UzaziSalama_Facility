@@ -31,6 +31,12 @@ public interface RoutineVisitsModelDao {
     @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID")
     List<RoutineVisits> getClientRoutines(long healthFacilityClientID);
 
+    @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID and visitNumber = 1 and visitDate between :fromDate and :dateTo")
+    List<RoutineVisits> getVisitOneClientRoutines(long healthFacilityClientID, long fromDate, long dateTo);
+
+    @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID and visitNumber >= 4 and visitDate between :fromDate and :dateTo")
+    List<RoutineVisits> getVisitFourAndAboveClientRoutines(long healthFacilityClientID, long fromDate, long dateTo);
+
     @Insert(onConflict = REPLACE)
     void addRoutine(RoutineVisits routineVisits);
 

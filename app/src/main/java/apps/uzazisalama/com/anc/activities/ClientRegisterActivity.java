@@ -64,7 +64,8 @@ public class ClientRegisterActivity extends BaseActivity {
     String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
     int gravidaValue, paraValue, lastChildBirthStatus, lastChildBirthYear;
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
-    boolean gestationalAgeBelow12Weeks, heightBelowAverage;
+    boolean gestationalAgeBelow12Weeks = true;
+    boolean heightBelowAverage = true;
     String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
 

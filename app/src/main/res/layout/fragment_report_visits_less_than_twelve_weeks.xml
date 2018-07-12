@@ -19,7 +19,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:id="@+id/total_value_container"
@@ -61,6 +61,48 @@
             android:fontFamily="@font/google_sans_medium"
             android:textColor="@color/card_grid_text"
             android:text="-  -  -"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/from_date"
+            android:text="From Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="14sp"
+            android:background="@drawable/border_one"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_date"
+            android:layout_toRightOf="@id/from_date"
+            android:text="To Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="14sp"
+            android:background="@drawable/border_one"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
 
     </LinearLayout>
 

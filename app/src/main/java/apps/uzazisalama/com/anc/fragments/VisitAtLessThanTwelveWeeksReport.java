@@ -16,6 +16,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+
+import java.util.Calendar;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.R;
@@ -35,7 +38,12 @@ import static apps.uzazisalama.com.anc.utils.Constants.LESS_THAN_TWELVE_WEEKS;
 public class VisitAtLessThanTwelveWeeksReport extends DialogFragment {
 
     private RecyclerView clientsListRecycler;
-    private TextView totalClientsCount;
+    private TextView totalClientsCount, fromDate, toDate;
+    private DatePickerDialog fromDatePickerDialog = new DatePickerDialog();
+    private DatePickerDialog toDatePickerDialog = new DatePickerDialog();
+    private Calendar cal;
+    private long dateFromInMillis, dateToInMillis;
+    private boolean otherDateSelected = false;
 
     private AppDatabase database;
 
@@ -62,7 +70,61 @@ public class VisitAtLessThanTwelveWeeksReport extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         setupViews(view);
 
-        LiveData<List<AncClient>> clients = database.clientModel().getFirstVisitBelowTwelveWeeksClients();
+        fromDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() != null){
+                    fromDatePickerDialog.show(getActivity().getFragmentManager(),"fromDateRange");
+                }
+                fromDatePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                        fromDate.setText((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth) + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : monthOfYear + 1) + "-" + year);
+                        cal = Calendar.getInstance();
+                        cal.set(year, monthOfYear, dayOfMonth);
+                        dateFromInMillis = cal.getTimeInMillis();
+
+                        if (otherDateSelected){
+                            getReportData();
+                        }else {
+                            otherDateSelected = true;
+                        }
+
+                    }
+
+                });
+            }
+        });
+
+        toDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() != null){
+                    toDatePickerDialog.show(getActivity().getFragmentManager(),"fromDateRange");
+                }
+                toDatePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                        toDate.setText((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth) + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : monthOfYear + 1) + "-" + year);
+                        cal = Calendar.getInstance();
+                        cal.set(year, monthOfYear, dayOfMonth);
+                        dateToInMillis = cal.getTimeInMillis();
+
+                        if (otherDateSelected){
+                            getReportData();
+                        }else {
+                            otherDateSelected = true;
+                        }
+                    }
+
+                });
+            }
+        });
+
+    }
+
+    private void getReportData(){
+        LiveData<List<AncClient>> clients = database.clientModel().getFirstVisitBelowTwelveWeeksClients(dateFromInMillis, dateToInMillis);
         Log.d("ThriftStore", "Client : Has Routine ");
         clients.observe(this, new Observer<List<AncClient>>() {
             @Override
@@ -74,7 +136,6 @@ public class VisitAtLessThanTwelveWeeksReport extends DialogFragment {
                 clientsListRecycler.setAdapter(adapter);
             }
         });
-
     }
 
     @Override
@@ -91,6 +152,8 @@ public class VisitAtLessThanTwelveWeeksReport extends DialogFragment {
         clientsListRecycler.setLayoutManager(layoutManager);
         clientsListRecycler.setHasFixedSize(false);
         totalClientsCount = view.findViewById(R.id.total_clients_value);
+        fromDate = view.findViewById(R.id.from_date);
+        toDate = view.findViewById(R.id.to_date);
     }
 
 }

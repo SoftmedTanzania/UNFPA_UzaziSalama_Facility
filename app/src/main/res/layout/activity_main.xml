@@ -58,6 +58,7 @@
                         android:layout_toStartOf="@+id/manual_sync_loader"
                         android:fontFamily="@font/roboto_condensed_italic"
                         android:text="Sync Data"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
