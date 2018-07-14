@@ -31,6 +31,7 @@ import apps.uzazisalama.com.anc.R;
 import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
@@ -176,7 +177,6 @@ public class LoginActivity extends BaseActivity {
                     if (response!=null){
 
                         List<ReferralResponse> responses = response.body();
-                        Log.d("ReferralCheck", response.toString());
 
                         new AsyncTask<List<ReferralResponse>, Void, Void>(){
                             @Override
@@ -187,12 +187,17 @@ public class LoginActivity extends BaseActivity {
                                     for (ReferralResponse referralResponse : list){
                                         AncClient ancClient = referralResponse.getAncClient();
                                         List<Referral> referrals = referralResponse.getClientReferrals();
+                                        List<ClientAppointment> appointments = referralResponse.getClientAppointments();
                                         database.clientModel().addNewClient(ancClient);
                                         Log.d("ReferralCheck", "Added anc client");
                                         for (Referral referral : referrals){
                                             database.referralModelDao().addNewReferral(referral);
-                                            Log.d("ReferralCheck", "Added anc client");
                                         }
+
+                                        for (ClientAppointment appointment : appointments){
+                                            database.clientAppointmentDao().addNewAppointment(appointment);
+                                        }
+
                                     }
                                 }
 

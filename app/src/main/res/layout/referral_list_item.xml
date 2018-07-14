@@ -36,7 +36,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.6"
                 android:text="+255755688678"
                 android:textSize="16sp"
                 android:fontFamily="@font/avenir_light"

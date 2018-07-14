@@ -92,7 +92,6 @@ public class MessagingService extends FirebaseMessagingService {
                 triggerNotification("New Client Registered");
                 ancClient = gson.fromJson(data.getJSONObject("AncClientDTO").toString(), AncClient.class);
                 database.clientModel().addNewClient(ancClient);
-                Log.d("handleNotification", "added a client");
             }else if (type.equals("PatientReferral")){
                 triggerNotification("New Referral Received");
                 JSONObject referralDTO = new JSONObject(json.toString());

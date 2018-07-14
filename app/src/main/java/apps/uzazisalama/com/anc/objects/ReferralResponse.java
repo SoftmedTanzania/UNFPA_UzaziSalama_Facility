@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.Referral;
 
 /**
@@ -23,6 +24,9 @@ public class ReferralResponse implements Serializable{
     @SerializedName("patientReferralsList")
     private List<Referral> clientReferrals;
 
+    @SerializedName("patientsAppointmentsDTOS")
+    private List<ClientAppointment> clientAppointments;
+
     public AncClient getAncClient() {
         return ancClient;
     }
@@ -37,5 +41,13 @@ public class ReferralResponse implements Serializable{
 
     public void setClientReferrals(List<Referral> clientReferrals) {
         this.clientReferrals = clientReferrals;
+    }
+
+    public List<ClientAppointment> getClientAppointments() {
+        return clientAppointments;
+    }
+
+    public void setClientAppointments(List<ClientAppointment> clientAppointments) {
+        this.clientAppointments = clientAppointments;
     }
 }
