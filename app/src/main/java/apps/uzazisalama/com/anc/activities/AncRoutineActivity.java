@@ -23,6 +23,7 @@ import com.irozon.alertview.AlertStyle;
 import com.irozon.alertview.AlertView;
 import com.irozon.alertview.objects.AlertAction;
 import com.uniquestudio.library.CircleCheckBox;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -68,6 +69,10 @@ public class AncRoutineActivity extends BaseActivity {
     RoutineViewModel routineViewModel;
     AncClient currentAncClient;
     RoutineVisits currentRoutineVisitsVisit;
+
+    private DatePickerDialog visitDatePickerDialog = new DatePickerDialog();
+    private Calendar cal;
+    private long visitDate = Calendar.getInstance().getTimeInMillis();
 
     private Endpoints.RoutineServices routineService;
 
@@ -195,6 +200,20 @@ public class AncRoutineActivity extends BaseActivity {
             intent.putExtra("currentAncClient", currentAncClient);
             startActivity(intent);
         }
+    }
+
+    public void selectVisitDate(View view){
+        visitDatePickerDialog.show(this.getFragmentManager(),"fromDateRange");
+        visitDatePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                newVisitDate.setText((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth) + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : monthOfYear + 1) + "-" + year);
+                cal = Calendar.getInstance();
+                cal.set(year, monthOfYear, dayOfMonth);
+                visitDate = cal.getTimeInMillis();
+            }
+
+        });
     }
 
     void setupviews(){
@@ -390,7 +409,6 @@ public class AncRoutineActivity extends BaseActivity {
 
     boolean routineObjectCreated(){
 
-        long todaysDate = Calendar.getInstance().getTimeInMillis();
         int visitCount = lastVisit+1;
 
 
@@ -398,7 +416,7 @@ public class AncRoutineActivity extends BaseActivity {
         routineVisits.setID(0);
 
         routineVisits.setHealthFacilityClientId(currentAncClient.getHealthFacilityClientId());
-        routineVisits.setVisitDate(todaysDate);
+        routineVisits.setVisitDate(visitDate);
         routineVisits.setVisitNumber(visitCount);
 
         routineVisits.setAnaemia(a);

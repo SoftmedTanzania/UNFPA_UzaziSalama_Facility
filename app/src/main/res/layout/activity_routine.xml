@@ -536,6 +536,10 @@
                                 android:id="@+id/new_visit_date"
                                 android:layout_marginLeft="16dp"
                                 android:textStyle="bold"
+                                android:padding="8dp"
+                                android:onClick="selectVisitDate"
+                                android:drawableRight="@mipmap/ic_calendar"
+                                android:gravity="center_vertical"
                                 android:text="May 12th 2018"
                                 android:textColor="@color/card_title_text"
                                 android:fontFamily="@font/avenir_light"/>
