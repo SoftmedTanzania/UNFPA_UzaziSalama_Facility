@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="Women Diagnosed with Danger Signs"
+        android:textColor="@color/card_title_text"
+        android:layout_margin="32dp"
+        android:id="@+id/report_title"
+        android:fontFamily="@font/google_sans_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/total_value_container"
+        app:layout_constraintTop_toBottomOf="@id/report_title">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:padding="2dp"
+            android:layout_marginLeft="32dp"
+            android:background="@drawable/border_one"
+            android:layout_height="wrap_content">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/signs_spinner"
+                android:layout_width="match_parent"
+                app:ms_arrow_tint="@color/card_grid_tex"
+                app:ms_text_color="@color/pink_400"
+                android:textSize="12sp"
+                android:layout_height="45dp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_title"
+            android:textSize="18sp"
+            android:fontFamily="@font/google_sans_regular"
+            android:layout_marginLeft="16dp"
+            android:text="Total Instances"
+            android:textColor="@color/card_title_text"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="8dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/card_light_text"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/total_clients_value"
+            android:layout_marginLeft="8dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/google_sans_medium"
+            android:textColor="@color/card_grid_text"
+            android:text="-  -  -"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/from_date"
+            android:text="From Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="14sp"
+            android:background="@drawable/border_one"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_date"
+            android:layout_toRightOf="@id/from_date"
+            android:text="To Date"
+            android:textColor="@color/card_title_text"
+            android:textSize="14sp"
+            android:background="@drawable/border_one"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/google_sans_regular"
+            android:drawableRight="@mipmap/ic_calendar"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="32dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/report_body"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/total_value_container">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="400dp"
+            android:layout_margin="4dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="32dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/card_separator_sec">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Client Names"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:textColor="@color/card_grid_text"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:text="Phone"
+                    android:textColor="@color/card_grid_text"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="ANC Number"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:textColor="@color/card_grid_text"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Number"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:textColor="@color/card_grid_text"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="4dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/clients_Recycler"/>
+
+                <com.github.rahatarmanahmed.cpv.CircularProgressView
+                    android:visibility="gone"
+                    android:id="@+id/progress_view"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    app:cpv_animAutostart="true"
+                    app:cpv_indeterminate="true"
+                    app:cpv_color="@color/colorPrimaryDark" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:paddingRight="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:padding="4dp"
+            app:cardBackgroundColor="@color/card_separator_sec"
+            android:layout_height="match_parent">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/danger_signs_pie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

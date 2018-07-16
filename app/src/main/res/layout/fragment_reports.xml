@@ -209,7 +209,6 @@
             android:layout_weight="1"
             android:id="@+id/women_diagnosed_with_danger_signs"
             android:layout_margin="4dp"
-            android:visibility="invisible"
             app:cardBackgroundColor="@color/white">
 
             <RelativeLayout
@@ -220,13 +219,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/card_title_text"
+                    android:textColor="@color/colorPrimary"
                     android:text="Women Diagnosed with Any of the Danger Signs"
                     android:layout_centerInParent="true"
                     android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/avenir_light"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 

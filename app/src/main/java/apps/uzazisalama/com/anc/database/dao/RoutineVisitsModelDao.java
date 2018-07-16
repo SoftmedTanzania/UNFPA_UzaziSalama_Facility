@@ -31,6 +31,9 @@ public interface RoutineVisitsModelDao {
     @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID")
     List<RoutineVisits> getClientRoutines(long healthFacilityClientID);
 
+    @Query("select * from RoutineVisits where visitDate between :fromDate and :dateTo")
+    LiveData<List<RoutineVisits>> getRoutinesOnDateRange(long fromDate, long dateTo);
+
     @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID and visitNumber = 1 and visitDate between :fromDate and :dateTo")
     List<RoutineVisits> getVisitOneClientRoutines(long healthFacilityClientID, long fromDate, long dateTo);
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white" android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/names"
+        android:fontFamily="@font/google_sans_regular"
+        android:textColor="@color/card_grid_text"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:fontFamily="@font/google_sans_regular"
+        android:textColor="@color/card_grid_text"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/anc_number"
+        android:fontFamily="@font/google_sans_regular"
+        android:textColor="@color/card_grid_text"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/visit_number"
+        android:gravity="center"
+        android:fontFamily="@font/google_sans_regular"
+        android:textColor="@color/card_grid_text"
+        android:textSize="12sp"/>
+
+</LinearLayout>

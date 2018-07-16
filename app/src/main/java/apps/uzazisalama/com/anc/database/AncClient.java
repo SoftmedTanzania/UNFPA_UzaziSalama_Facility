@@ -125,7 +125,8 @@ public class AncClient implements Serializable{
     @SerializedName("healthFacilityCode")
     private String healthFacilityCode;
 
-    private long clientRegisteredDate;
+    @SerializedName("createdAt")
+    private long createdAt;
 
     @NonNull
     public long getHealthFacilityClientId() {
@@ -368,11 +369,11 @@ public class AncClient implements Serializable{
         this.cardNumber = cardNumber;
     }
 
-    public long getClientRegisteredDate() {
-        return clientRegisteredDate;
+    public long getCreatedAt() {
+        return createdAt;
     }
 
-    public void setClientRegisteredDate(long clientRegisteredDate) {
-        this.clientRegisteredDate = clientRegisteredDate;
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
     }
 }

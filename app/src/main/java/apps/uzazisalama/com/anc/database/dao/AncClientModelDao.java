@@ -36,10 +36,10 @@ public interface AncClientModelDao {
     List<AncClient> getItemById(long clientID);
 
     //Report Helpers
-    @Query("select count(*) from AncClient where clientRegisteredDate >= :fromDate and clientRegisteredDate <= :toDate ")
+    @Query("select count(*) from AncClient where createdAt >= :fromDate and createdAt <= :toDate ")
     LiveData<Integer> getPeriodicRegisteredWomen(long fromDate, long toDate);
 
-    @Query("select * from AncClient where clientType = 1 and gestationalAgeBelow20 = 1 and clientRegisteredDate between :fromDate and :toDate") //Room maps true to 1 false to 0
+    @Query("select * from AncClient where clientType = 1 and gestationalAgeBelow20 = 1 and createdAt between :fromDate and :toDate") //Room maps true to 1 false to 0
     LiveData<List<AncClient>> getFirstVisitBelowTwelveWeeksClients(long fromDate, long toDate);
 
     @Insert(onConflict = REPLACE)

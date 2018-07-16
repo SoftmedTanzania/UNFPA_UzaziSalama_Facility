@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a74f62b0eef18d61e1a404faa2c6c0df",
+    "identityHash": "d59920c32011dea59c05ba60b087587c",
     "entities": [
       {
         "tableName": "AncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, `clientRegisteredDate` INTEGER NOT NULL, PRIMARY KEY(`healthFacilityClientId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`healthFacilityClientId`))",
         "fields": [
           {
             "fieldPath": "healthFacilityClientId",
@@ -189,8 +189,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "clientRegisteredDate",
-            "columnName": "clientRegisteredDate",
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -569,7 +569,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a74f62b0eef18d61e1a404faa2c6c0df\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d59920c32011dea59c05ba60b087587c\")"
     ]
   }
 }

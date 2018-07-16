@@ -33,6 +33,7 @@ import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.Referral;
+import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
 import apps.uzazisalama.com.anc.utils.Config;
@@ -188,6 +189,7 @@ public class LoginActivity extends BaseActivity {
                                         AncClient ancClient = referralResponse.getAncClient();
                                         List<Referral> referrals = referralResponse.getClientReferrals();
                                         List<ClientAppointment> appointments = referralResponse.getClientAppointments();
+                                        List<RoutineVisits> routines = referralResponse.getRoutineVisits();
                                         database.clientModel().addNewClient(ancClient);
                                         Log.d("ReferralCheck", "Added anc client");
                                         for (Referral referral : referrals){
@@ -196,6 +198,10 @@ public class LoginActivity extends BaseActivity {
 
                                         for (ClientAppointment appointment : appointments){
                                             database.clientAppointmentDao().addNewAppointment(appointment);
+                                        }
+
+                                        for (RoutineVisits r : routines){
+                                            database.routineModelDao().addRoutine(r);
                                         }
 
                                     }

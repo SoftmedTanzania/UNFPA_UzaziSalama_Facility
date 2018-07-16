@@ -410,7 +410,7 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setGestationalAgeBelow20(gestationalAgeBelow12Weeks);
         ancClient.setHeightBelowAverage(heightBelowAverage);
         Date today  = new Date();
-        ancClient.setClientRegisteredDate(today.getTime());
+        ancClient.setCreatedAt(today.getTime());
 
         Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(ancClient));
         call.enqueue(new Callback<RegistrationResponse>() {
@@ -425,7 +425,7 @@ public class ClientRegisterActivity extends BaseActivity {
 
                 AncClient registeredClient = registrationResponse.getClient();
                 //Hack-Alert TODO: Remove once the registered date is implemented on the server side
-                registeredClient.setClientRegisteredDate(ancClient.getClientRegisteredDate());
+                registeredClient.setCreatedAt(ancClient.getCreatedAt());
 
                 List<ClientAppointment> appointmentList = registrationResponse.getClientAppointments();
 

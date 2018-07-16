@@ -130,7 +130,15 @@ public class ReportsFragment extends Fragment implements View.OnClickListener{
     }
 
     public void diagnosedWithDangerSignsReport(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dangerSigns");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
 
+        DialogFragment dialogFragment = new DangerSignsReport();
+        dialogFragment.show(ft, "dangerSigns");
     }
 
     public void womenDeliveringAtTheFacilityReport(){
