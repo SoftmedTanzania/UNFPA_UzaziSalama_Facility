@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,9 +8,9 @@
     tools:context="apps.uzazisalama.com.anc.activities.ClientRegisterActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -28,9 +27,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,14 +61,14 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/personal_details_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_below="@id/personal_details_title"
-                        android:id="@+id/personal_details_container"
-                        android:layout_marginTop="32dp"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginRight="32dp">
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="32dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -78,120 +77,120 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="First Name"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
                                     android:id="@+id/first_name"
-                                    android:fontFamily="@font/avenir_light"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:inputType="textPersonName|textCapSentences"
-                                    android:textColor="@color/black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_marginTop="8dp"
-                                    android:paddingLeft="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Middle Name"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
                                     android:id="@+id/middle_name"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:inputType="textPersonName|textCapSentences"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Last Name"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
                                     android:id="@+id/last_name"
-                                    android:inputType="textPersonName|textCapSentences"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Date of Birth"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
+                                    android:id="@+id/date_of_birth"
                                     android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
                                     android:drawableLeft="@mipmap/ic_calendar"
                                     android:drawablePadding="4dp"
+                                    android:fontFamily="@font/avenir_light"
                                     android:textColor="@color/black"
-                                    android:id="@+id/date_of_birth"
-                                    android:background="@drawable/border_one"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="8dp"/>
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
@@ -206,95 +205,95 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Phone Number"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
                                     android:id="@+id/phone"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:inputType="number"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="number"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Village"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:textColor="@color/black"
-                                    android:layout_marginRight="16dp"
                                     android:id="@+id/village"
-                                    android:inputType="textCapSentences"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="textCapSentences"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Height"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
-                                    android:padding="2dp"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_height="50dp"
                                     android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp">
+                                    android:padding="2dp">
 
                                     <com.jaredrummler.materialspinner.MaterialSpinner
                                         android:id="@+id/height_spinner"
                                         android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
                                         app:ms_arrow_tint="@color/card_grid_tex"
-                                        app:ms_text_color="@color/pink_400"
-                                        android:layout_height="match_parent"/>
+                                        app:ms_text_color="@color/pink_400" />
 
                                 </RelativeLayout>
 
@@ -303,32 +302,32 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Level Of Education"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
-                                    android:padding="2dp"
+                                    android:layout_height="match_parent"
                                     android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="match_parent">
+                                    android:padding="2dp">
 
                                     <com.jaredrummler.materialspinner.MaterialSpinner
                                         android:id="@+id/level_of_education_spinner"
                                         android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
                                         app:ms_arrow_tint="@color/card_grid_tex"
-                                        app:ms_text_color="@color/pink_400"
-                                        android:layout_height="wrap_content"/>
+                                        app:ms_text_color="@color/pink_400" />
 
                                 </RelativeLayout>
 
@@ -346,92 +345,92 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Gravida"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
                                     android:id="@+id/gravida"
-                                    android:inputType="number"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="number"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Para"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginRight="16dp"
                                     android:id="@+id/para"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="16dp"
                                     android:layout_marginTop="8dp"
-                                    android:inputType="number"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="number"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Spouse Name"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:textColor="@color/black"
                                     android:id="@+id/spause_name"
-                                    android:inputType="textPersonName|textCapSentences"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="textPersonName|textCapSentences"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
@@ -446,94 +445,94 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Date of LNMP"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
                                     android:id="@+id/date_of_lnmp"
-                                    android:drawableLeft="@mipmap/ic_calendar"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:drawableLeft="@mipmap/ic_calendar"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Expected Date of Delivery"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:textColor="@color/black"
-                                    android:layout_marginRight="16dp"
                                     android:id="@+id/date_of_delivery"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
                                     android:drawableLeft="@mipmap/ic_calendar"
                                     android:fontFamily="@font/avenir_light"
-                                    android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
                                     android:fontFamily="@font/avenir_light"
-                                    android:textStyle="bold"
                                     android:text="Gestational Age"
-                                    android:textColor="@color/card_title_text"/>
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
-                                    android:padding="2dp"
+                                    android:layout_height="50dp"
                                     android:layout_marginTop="8dp"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp">
+                                    android:padding="2dp">
 
                                     <com.jaredrummler.materialspinner.MaterialSpinner
                                         android:id="@+id/spinner"
                                         android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
                                         app:ms_arrow_tint="@color/card_grid_tex"
-                                        app:ms_text_color="@color/pink_400"
-                                        android:layout_height="wrap_content"/>
+                                        app:ms_text_color="@color/pink_400" />
 
                                 </RelativeLayout>
 
@@ -542,58 +541,200 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="200dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:layout_marginRight="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="vertical">
+                            android:layout_marginTop="16dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/avenir_light"
-                                android:textStyle="bold"
-                                android:text="Anc Number"
-                                android:textColor="@color/card_title_text"/>
-
-                            <EditText
-                                android:layout_width="200dp"
-                                android:id="@+id/anc_number"
-                                android:textColorHint="@color/card_grid_tex"
-                                android:paddingLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:textColor="@color/black"
-                                android:inputType="number"
-                                android:fontFamily="@font/avenir_light"
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_marginRight="16dp"
-                                android:background="@drawable/border_one"
-                                android:layout_height="50dp" />
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/google_sans_regular"
+                                    android:text="Anc Number"
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"/>
+
+                                <EditText
+                                    android:id="@+id/anc_number"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="number"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="16dp"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:id="@+id/uses_fp_yes_checkbox_container"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="8dp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginRight="16dp"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/uses_fp_yes_checkbox"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
+                                        app:animation_duration="50"
+                                        app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
+                                        app:border_width="1dp"
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/uses_fp_no_checkbox_container"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/uses_fp_yes_checkbox_container"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginRight="16dp"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <com.uniquestudio.library.CircleCheckBox
+                                        android:id="@+id/uses_fp_no_checkbox"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
+                                        app:animation_duration="50"
+                                        app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
+                                        app:border_width="1dp"
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="4dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_toLeftOf="@id/uses_fp_yes_checkbox_container"
+                                    android:fontFamily="@font/google_sans_regular"
+                                    android:text="Uses Family Planning"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
+
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="16dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/google_sans_regular"
+                                    android:text="Family planning method"
+                                    android:textColor="@color/card_title_text"
+                                    android:textSize="14sp"/>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/border_one"
+                                    android:padding="2dp">
+
+                                    <com.jaredrummler.materialspinner.MaterialSpinner
+                                        android:id="@+id/fp_method_spinner"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        app:ms_arrow_tint="@color/card_grid_tex"
+                                        app:ms_text_color="@color/pink_400" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/additional_details_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Additional Details"
-                        android:textColor="@color/colorPrimary"
+                        android:layout_below="@id/personal_details_container"
                         android:layout_marginLeft="32dp"
                         android:layout_marginTop="32dp"
-                        android:id="@+id/additional_details_title"
-                        android:layout_below="@id/personal_details_container"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/avenir_light"
+                        android:text="Additional Details"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
-                        android:fontFamily="@font/avenir_light"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/additional_details_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_below="@id/additional_details_title"
                         android:layout_margin="32dp"
-                        android:id="@+id/additional_details_container"
-                        android:layout_below="@id/additional_details_title">
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -602,322 +743,322 @@
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:padding="2dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginRight="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_weight="1"
+                                android:padding="2dp">
 
                                 <TextView
+                                    android:id="@+id/pmctc_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
-                                    android:id="@+id/pmctc_title"
-                                    android:textColor="@color/card_grid_tex"
                                     android:fontFamily="@font/avenir_light"
-                                    android:text="PMTCT Status"/>
+                                    android:text="PMTCT Status"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="14sp" />
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
                                     android:id="@+id/pmtct_status_spinner"
                                     android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_below="@+id/pmctc_title"
                                     android:layout_marginTop="22dp"
                                     app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
                                     app:ms_background_selector="@drawable/border_one"
-                                    android:layout_height="wrap_content"/>
+                                    app:ms_text_color="@color/pink_400" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:padding="2dp"
-                                android:gravity="bottom"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1"
+                                android:gravity="bottom"
+                                android:padding="2dp">
 
                                 <TextView
+                                    android:id="@+id/lcsy_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="16sp"
-                                    android:id="@+id/lcsy_title"
-                                    android:textColor="@color/card_grid_tex"
                                     android:fontFamily="@font/avenir_light"
-                                    android:text="Last child birth year"/>
+                                    android:text="Last child birth year"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                                 <EditText
-                                    android:layout_width="match_parent"
                                     android:id="@+id/last_child_birth_year_et"
-                                    android:layout_below="@+id/lcsy_title"
-                                    android:textColorHint="@color/card_grid_tex"
-                                    android:paddingLeft="8dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
                                     android:layout_alignParentBottom="true"
+                                    android:layout_below="@+id/lcsy_title"
                                     android:layout_marginTop="16dp"
-                                    android:textColor="@color/black"
-                                    android:inputType="number"
-                                    android:fontFamily="@font/avenir_light"
                                     android:background="@drawable/border_one"
-                                    android:layout_height="50dp" />
+                                    android:fontFamily="@font/avenir_light"
+                                    android:inputType="number"
+                                    android:paddingLeft="8dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/card_grid_tex" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:padding="2dp"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1"
+                                android:padding="2dp">
 
                                 <TextView
+                                    android:id="@+id/lcbs_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="14sp"
-                                    android:id="@+id/lcbs_title"
-                                    android:textColor="@color/card_grid_tex"
                                     android:fontFamily="@font/avenir_light"
-                                    android:text="Last child birth status Status"/>
+                                    android:text="Last child birth status Status"
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="14sp" />
 
                                 <com.jaredrummler.materialspinner.MaterialSpinner
                                     android:id="@+id/last_child_birth_status_spinner"
                                     android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_below="@+id/lcbs_title"
                                     android:layout_marginTop="8dp"
                                     app:ms_arrow_tint="@color/card_grid_tex"
-                                    app:ms_text_color="@color/pink_400"
                                     app:ms_background_selector="@drawable/border_one"
-                                    android:layout_height="wrap_content"/>
+                                    app:ms_text_color="@color/pink_400" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/history_of_abortion_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/history_of_abortion_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/history_of_abortion_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/history_of_abortion_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/history_of_abortion_yes_checkbox_container"
                                     android:layout_marginBottom="8dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/history_of_abortion_no_checkbox_container"
-                                    android:layout_below="@id/history_of_abortion_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/history_of_abortion_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="4dp"
                                     android:layout_marginTop="8dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="History Of Abortion"
-                                    android:layout_marginRight="4dp"
-                                    android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox_container"
-                                    android:layout_marginLeft="8dp"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/age_below_20_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/age_below_20_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/age_below_20_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/age_below_20_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/age_below_20_yes_checkbox_container"
                                     android:layout_marginBottom="8dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/age_below_20_no_checkbox_container"
-                                    android:layout_below="@id/age_below_20_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/age_below_20_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_marginLeft="8dp"
                                     android:layout_marginRight="4dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:layout_marginTop="8dp"
                                     android:layout_toLeftOf="@id/age_below_20_no_checkbox_container"
+                                    android:fontFamily="@font/avenir_light"
                                     android:text="Age Below 20 Years"
-                                    android:layout_marginLeft="8dp"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
@@ -926,10 +1067,10 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/card_separator"
                             android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"/>
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/card_separator" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -939,532 +1080,532 @@
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/pregnancy_morethan35years_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/pregnancy_morethan35years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/pregnancy_morethan35years_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/pregnancy_morethan35years_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/pregnancy_morethan35years_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/pregnancy_morethan35years_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/pregnancy_morethan35years_yes_checkbox_container"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/pregnancy_morethan35years_no_checkbox_container"
-                                    android:layout_below="@id/pregnancy_morethan35years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/pregnancy_morethan35years_no_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/pregnancy_morethan35years_no_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/pregnancy_morethan35years_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginRight="4dp"
                                     android:layout_marginTop="8dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_toLeftOf="@id/pregnancy_morethan35years_no_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="Pregrancy with > 35 years"
-                                    android:layout_marginRight="4dp"
-                                    android:layout_toLeftOf="@id/pregnancy_morethan35years_no_checkbox_container"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/last_pregnancy_10_years_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/last_pregnancy_10_years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/last_pregnancy_10_years_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/last_pregnancy_10_years_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/last_pregnancy_10_years_yes_checkbox_container"
                                     android:layout_marginBottom="8dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/last_pregnancy_10_years_no_checkbox_container"
-                                    android:layout_below="@id/last_pregnancy_10_years_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/last_pregnancy_10_years_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_marginLeft="8dp"
                                     android:layout_marginRight="4dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_toLeftOf="@id/last_pregnancy_10_years_no_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="Last pregnancy 10 years ago"
-                                    android:layout_toLeftOf="@id/last_pregnancy_10_years_no_checkbox_container"
-                                    android:layout_marginLeft="8dp"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/history_of_stillbirth_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/history_of_stillbirth_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/history_of_stillbirth_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/history_of_stillbirth_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/history_of_stillbirth_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/history_of_stillbirth_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/history_of_stillbirth_yes_checkbox_container"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/history_of_stillbirth_no_checkbox_container"
-                                    android:layout_below="@id/history_of_stillbirth_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/history_of_stillbirth_no_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/history_of_stillbirth_no_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/history_of_stillbirth_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
                                     android:layout_marginLeft="8dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_marginRight="4dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_toLeftOf="@id/history_of_stillbirth_no_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="History of stillbirths"
-                                    android:layout_marginRight="4dp"
-                                    android:layout_toLeftOf="@id/history_of_stillbirth_no_checkbox_container"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/postpartum_haemorrhage_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/postpartum_haemorrhage_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/postpartum_haemorrhage_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/postpartum_haemorrhage_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/postpartum_haemorrhage_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/postpartum_haemorrhage_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/postpartum_haemorrhage_yes_checkbox_container"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/postpartum_haemorrhage_no_checkbox_container"
-                                    android:layout_below="@id/postpartum_haemorrhage_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/postpartum_haemorrhage_no_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/postpartum_haemorrhage_no_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/postpartum_haemorrhage_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
                                     android:layout_marginLeft="8dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_marginRight="4dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_toLeftOf="@id/postpartum_haemorrhage_no_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="History of postmartum haemorrhage"
-                                    android:layout_marginRight="4dp"
-                                    android:layout_toLeftOf="@id/postpartum_haemorrhage_no_checkbox_container"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@color/card_separator"/>
+                                android:layout_marginTop="16dp"
+                                android:background="@color/card_separator" />
 
                             <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_marginRight="8dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
-                                android:layout_height="wrap_content">
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1">
 
                                 <LinearLayout
+                                    android:id="@+id/retained_placenta_yes_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/retained_placenta_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/red_200"
-                                        android:text="Yes"
+                                        android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
                                         android:layout_marginTop="4dp"
-                                        android:layout_marginBottom="4dp"
-                                        android:textStyle="bold"
-                                        android:layout_toLeftOf="@id/retained_placenta_yes_checkbox"/>
+                                        android:layout_toLeftOf="@id/retained_placenta_yes_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="Yes"
+                                        android:textColor="@color/red_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/retained_placenta_yes_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/red_200"
-                                        app:tick_color="@color/red_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/red_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/red_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/retained_placenta_no_checkbox_container"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center_vertical"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@id/retained_placenta_yes_checkbox_container"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginRight="8dp"
-                                    android:padding="4dp"
-                                    android:id="@+id/retained_placenta_no_checkbox_container"
-                                    android:layout_below="@id/retained_placenta_yes_checkbox_container"
-                                    android:layout_alignParentRight="true">
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/avenir_light"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/green_200"
-                                        android:text="No"
-                                        android:textStyle="bold"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
                                         android:layout_marginRight="16dp"
-                                        android:layout_toLeftOf="@id/retained_placenta_no_checkbox"/>
+                                        android:layout_marginTop="4dp"
+                                        android:layout_toLeftOf="@id/retained_placenta_no_checkbox"
+                                        android:fontFamily="@font/avenir_light"
+                                        android:text="No"
+                                        android:textColor="@color/green_200"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
 
                                     <com.uniquestudio.library.CircleCheckBox
                                         android:id="@+id/retained_placenta_no_checkbox"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
                                         android:layout_alignParentRight="true"
-                                        android:layout_marginTop="4dp"
                                         android:layout_marginBottom="4dp"
+                                        android:layout_marginTop="4dp"
                                         app:animation_duration="50"
-                                        app:border_color="@color/green_200"
-                                        app:tick_color="@color/green_200"
                                         app:background_color="@color/white"
+                                        app:border_color="@color/green_200"
                                         app:border_width="1dp"
-                                        app:tick_width="1dp"/>
+                                        app:tick_color="@color/green_200"
+                                        app:tick_width="1dp" />
 
                                 </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
                                     android:layout_marginLeft="8dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/card_grid_tex"
+                                    android:layout_marginRight="4dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_toLeftOf="@id/retained_placenta_no_checkbox_container"
                                     android:fontFamily="@font/avenir_light"
                                     android:text="History of retained placenta"
-                                    android:layout_marginRight="4dp"
-                                    android:layout_toLeftOf="@id/retained_placenta_no_checkbox_container"/>
+                                    android:textColor="@color/card_grid_tex"
+                                    android:textSize="16sp" />
 
                             </RelativeLayout>
 
@@ -1473,36 +1614,36 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/registered_client_save_button"
                         android:layout_width="140dp"
                         android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/additional_details_container"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="32dp"
                         android:background="@drawable/border_fill_color_primary"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
                         android:fontFamily="@font/avenir_light"
                         android:text="save"
                         android:textAllCaps="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/additional_details_container"
-                        android:layout_marginRight="32dp"
-                        android:layout_marginBottom="16dp"
-                        android:id="@+id/registered_client_save_button"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/registered_client_cancel_button"
                         android:layout_width="140dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/border_color_primary"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16sp"
                         android:layout_below="@id/additional_details_container"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_toLeftOf="@id/registered_client_save_button"
+                        android:background="@drawable/border_color_primary"
                         android:fontFamily="@font/avenir_light"
                         android:text="cancel"
                         android:textAllCaps="false"
-                        android:layout_toLeftOf="@id/registered_client_save_button"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:id="@+id/registered_client_cancel_button"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
 
                 </RelativeLayout>
