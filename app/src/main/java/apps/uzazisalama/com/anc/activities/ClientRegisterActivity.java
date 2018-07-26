@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -52,13 +53,14 @@ import static apps.uzazisalama.com.anc.utils.Constants.LESS_THAN_TWELVE_WEEKS;
 public class ClientRegisterActivity extends BaseActivity {
 
     Toolbar clientsRegisterToolbar;
-    MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner, lastChildBirthYearSpinner, lastChildBirthStatusSpinner;
+    MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner, lastChildBirthYearSpinner, lastChildBirthStatusSpinner, familyPlanningMethodSpinner;
     EditText firstName, middleName, surname, dateOfBirth, phoneNumber, village, gravidaEt, paraEt, spauseName;
     EditText dateOfLNMP, dateOfDelivery, lastChildBirthYearEt;
-    CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo;
+    CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo, usesFamilyPlanningNo, usesFamilyPlanningYes;
     CircleCheckBox pregnancyWithMoreThan35YearsYes, pregnancyWithMoreThan35YearsNo, historyOfStillBirthYes, historyOfStillBirthNo, historyOfPostmartumYes, historyOfPostmartumNo;
     CircleCheckBox historyOfRetainedPlacentaYes, historyOfRetainedPlacentaNo;
     Button cancelButton, saveButton;
+    LinearLayout familyPlanningMethodContainer;
 
     //ValueHolders
     String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
@@ -72,7 +74,7 @@ public class ClientRegisterActivity extends BaseActivity {
     Calendar dobCalendar;
     Calendar dolnmpCalendar;
 
-    List<String> gestationalAgeList, heightList, levelOfEducationList, pmctcStatusList, lastChildBirthStatusList;
+    List<String> gestationalAgeList, heightList, levelOfEducationList, pmctcStatusList, lastChildBirthStatusList, familyPlanningMethods;
 
     public DatePickerDialog dobDatePicker = new DatePickerDialog();
     public DatePickerDialog lnmpDatePicker = new DatePickerDialog();
@@ -146,12 +148,37 @@ public class ClientRegisterActivity extends BaseActivity {
         levelOfEducationSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
+                //Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
                 if (position == 0)
                     levelOfEducation = "";
                 else levelOfEducation = item;
             }
         });
+
+        familyPlanningMethods = new ArrayList<>();
+        familyPlanningMethods.add("Condoms");
+        familyPlanningMethods.add("Pills");
+        familyPlanningMethods.add("Calendar");
+        familyPlanningMethodSpinner.setItems(familyPlanningMethods);
+        familyPlanningMethodSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                switch (position){
+                    case 0:
+                        //Uses Condom;
+                        break;
+                    case 1:
+                        //uses Birth control pills
+                        break;
+                    case 2:
+                        //Uses Calendar
+                        break;
+                    default:
+                        //Nothing
+                }
+            }
+        });
+
 
         //initializing the pmtctStatus spinner with values
         pmctcStatusList = new ArrayList<>();
@@ -353,6 +380,27 @@ public class ClientRegisterActivity extends BaseActivity {
                 if (isChecked){
                     historyOfRetainedPlacentaYes.setChecked(false);
                     historyOfRetainedPlacenta = false;
+                }
+            }
+        });
+
+
+        usesFamilyPlanningYes.setListener(new CircleCheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(boolean isChecked) {
+                if (isChecked){
+                    usesFamilyPlanningNo.setChecked(false);
+                    familyPlanningMethodContainer.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        usesFamilyPlanningNo.setListener(new CircleCheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(boolean isChecked) {
+                if (isChecked){
+                    usesFamilyPlanningYes.setChecked(false);
+                    familyPlanningMethodContainer.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -569,6 +617,7 @@ public class ClientRegisterActivity extends BaseActivity {
         levelOfEducationSpinner = findViewById(R.id.level_of_education_spinner);
         pmtctStatusSpinner = findViewById(R.id.pmtct_status_spinner);
         lastChildBirthStatusSpinner = findViewById(R.id.last_child_birth_status_spinner);
+        familyPlanningMethodSpinner = findViewById(R.id.fp_method_spinner);
 
         //EditText
         firstName = findViewById(R.id.first_name);
@@ -602,11 +651,15 @@ public class ClientRegisterActivity extends BaseActivity {
         historyOfPostmartumNo = findViewById(R.id.postpartum_haemorrhage_no_checkbox);
         historyOfRetainedPlacentaYes = findViewById(R.id.retained_placenta_yes_checkbox);
         historyOfRetainedPlacentaNo = findViewById(R.id.retained_placenta_no_checkbox);
+        usesFamilyPlanningNo = findViewById(R.id.uses_fp_no_checkbox);
+        usesFamilyPlanningYes = findViewById(R.id.uses_fp_yes_checkbox);
 
         //Button
         cancelButton = findViewById(R.id.cancel);
         saveButton = findViewById(R.id.registered_client_save_button);
 
+        //LinearLayouts
+        familyPlanningMethodContainer = findViewById(R.id.family_planning_method_container);
     }
 
 }

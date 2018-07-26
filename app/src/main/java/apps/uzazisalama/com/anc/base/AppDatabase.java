@@ -8,11 +8,13 @@ import android.content.Context;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.database.PostBox;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.database.dao.AncClientModelDao;
 import apps.uzazisalama.com.anc.database.dao.ClientAppointmentDao;
 import apps.uzazisalama.com.anc.database.dao.PncClientModelDao;
+import apps.uzazisalama.com.anc.database.dao.PostBoxModelDao;
 import apps.uzazisalama.com.anc.database.dao.ReferralModelDao;
 import apps.uzazisalama.com.anc.database.dao.RoutineVisitsModelDao;
 
@@ -29,7 +31,8 @@ import apps.uzazisalama.com.anc.database.dao.RoutineVisitsModelDao;
                 PncClient.class,
                 Referral.class,
                 RoutineVisits.class,
-                ClientAppointment.class
+                ClientAppointment.class,
+                PostBox.class
         },
         version = 1
 )
@@ -55,5 +58,7 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract ReferralModelDao referralModelDao();
 
     public abstract ClientAppointmentDao clientAppointmentDao();
+
+    public abstract PostBoxModelDao postBoxModelDao();
 
 }

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d59920c32011dea59c05ba60b087587c",
+    "identityHash": "181eb2c725a672cf9be3ff5f30f1649f",
     "entities": [
       {
         "tableName": "AncClient",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`healthFacilityClientId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`healthFacilityClientId` INTEGER NOT NULL, `firstName` TEXT, `middleName` TEXT, `surname` TEXT, `phoneNumber` TEXT, `ward` TEXT, `village` TEXT, `mapCue` TEXT, `dateOfBirth` INTEGER NOT NULL, `pmctcStatus` INTEGER NOT NULL, `heightBelowAverage` INTEGER NOT NULL, `levelOfEducation` INTEGER NOT NULL, `spouseName` TEXT, `gravida` INTEGER NOT NULL, `para` INTEGER NOT NULL, `lnmp` INTEGER NOT NULL, `edd` INTEGER NOT NULL, `gestationalAgeBelow20` INTEGER NOT NULL, `historyOfAbortion` INTEGER NOT NULL, `ageBelow20Years` INTEGER NOT NULL, `lastPregnancyOver10yearsAgo` INTEGER NOT NULL, `pregnancyAbove35Years` INTEGER NOT NULL, `historyOfStillBirths` INTEGER NOT NULL, `historyOfPostmartumHaemorrhage` INTEGER NOT NULL, `historyOfRetainedPlacenta` INTEGER NOT NULL, `familyPlanningMethod` INTEGER NOT NULL, `clientType` INTEGER NOT NULL, `cardNumber` TEXT, `lastChildBirthYear` INTEGER NOT NULL, `lastChildBirthStatus` INTEGER NOT NULL, `healthFacilityCode` TEXT, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`healthFacilityClientId`))",
         "fields": [
           {
             "fieldPath": "healthFacilityClientId",
@@ -155,6 +155,12 @@
           {
             "fieldPath": "historyOfRetainedPlacenta",
             "columnName": "historyOfRetainedPlacenta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "familyPlanningMethod",
+            "columnName": "familyPlanningMethod",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -565,11 +571,43 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "PostBox",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`postBoxId` TEXT NOT NULL, `postDataType` INTEGER NOT NULL, `syncStatus` INTEGER NOT NULL, PRIMARY KEY(`postBoxId`))",
+        "fields": [
+          {
+            "fieldPath": "postBoxId",
+            "columnName": "postBoxId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postDataType",
+            "columnName": "postDataType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncStatus",
+            "columnName": "syncStatus",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "postBoxId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d59920c32011dea59c05ba60b087587c\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"181eb2c725a672cf9be3ff5f30f1649f\")"
     ]
   }
 }

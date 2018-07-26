@@ -92,6 +92,7 @@ dependencies {
     implementation 'com.irozon.alertview:alertview:1.0.1'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation 'com.treebo:internetavailabilitychecker:1.0.1'
 
 }
 apply plugin: 'com.google.gms.google-services'

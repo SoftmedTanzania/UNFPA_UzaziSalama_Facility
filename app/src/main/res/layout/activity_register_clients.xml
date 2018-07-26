@@ -84,7 +84,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="First Name"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -114,7 +114,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Middle Name"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -144,7 +144,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Last Name"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -174,7 +174,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Date of Birth"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -212,7 +212,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Phone Number"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -243,7 +243,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Village"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -274,7 +274,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Height"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -309,7 +309,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Level Of Education"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -352,7 +352,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Gravida"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -383,7 +383,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Para"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -414,7 +414,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Spouse Name"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -452,7 +452,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Date of LNMP"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -483,7 +483,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Expected Date of Delivery"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -514,7 +514,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/avenir_light"
+                                    android:fontFamily="@font/google_sans_regular"
                                     android:text="Gestational Age"
                                     android:textColor="@color/card_title_text"
                                     android:textSize="14sp"
@@ -602,7 +602,7 @@
                                         android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
                                         android:fontFamily="@font/avenir_light"
                                         android:text="Yes"
-                                        android:textColor="@color/red_200"
+                                        android:textColor="@color/card_grid_text"
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
 
@@ -615,9 +615,9 @@
                                         android:layout_marginTop="4dp"
                                         app:animation_duration="50"
                                         app:background_color="@color/white"
-                                        app:border_color="@color/red_200"
+                                        app:border_color="@color/card_grid_text"
                                         app:border_width="1dp"
-                                        app:tick_color="@color/red_200"
+                                        app:tick_color="@color/card_grid_text"
                                         app:tick_width="1dp" />
 
                                 </LinearLayout>
@@ -643,7 +643,7 @@
                                         android:layout_toLeftOf="@id/history_of_abortion_yes_checkbox"
                                         android:fontFamily="@font/avenir_light"
                                         android:text="No"
-                                        android:textColor="@color/green_200"
+                                        android:textColor="@color/card_grid_text"
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
 
@@ -656,9 +656,9 @@
                                         android:layout_marginTop="4dp"
                                         app:animation_duration="50"
                                         app:background_color="@color/white"
-                                        app:border_color="@color/green_200"
+                                        app:border_color="@color/card_grid_text"
                                         app:border_width="1dp"
-                                        app:tick_color="@color/green_200"
+                                        app:tick_color="@color/card_grid_text"
                                         app:tick_width="1dp" />
 
                                 </LinearLayout>
@@ -682,6 +682,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="16dp"
                                 android:layout_weight="1"
+                                android:id="@+id/family_planning_method_container"
                                 android:orientation="vertical">
 
                                 <TextView

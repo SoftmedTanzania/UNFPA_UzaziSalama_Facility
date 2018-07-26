@@ -1,11 +1,17 @@
 package apps.uzazisalama.com.anc.base;
 
 import android.arch.persistence.room.Database;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import com.treebo.internetavailabilitychecker.InternetAvailabilityChecker;
+import com.treebo.internetavailabilitychecker.InternetConnectivityListener;
 
 import org.json.JSONObject;
 
@@ -25,7 +31,7 @@ import okhttp3.RequestBody;
  * On Project ANC
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements InternetConnectivityListener {
 
     //This is the base activity to be subclassed by all activities created on the application
 
@@ -35,12 +41,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd yyy");
 
+    public static boolean networkStatus = false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = AppDatabase.getDatabase(this);
         // Session class instance
         session = new SessionManager(getApplicationContext());
+
+        InternetAvailabilityChecker.init(this);
+
     }
 
     public RequestBody getRoutineBody(RoutineVisits visits){
@@ -165,6 +175,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         return body;
+    }
+
+    @Override
+    public void onInternetConnectivityChanged(boolean isConnected) {
+        //do something based on connectivity
+        networkStatus = isConnected;
+        Log.d("OMUNYA", "Network changed : "+networkStatus);
     }
 
 }

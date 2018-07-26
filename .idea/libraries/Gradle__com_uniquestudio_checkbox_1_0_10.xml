@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.uniquestudio:checkbox-1.0.10">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/checkbox-1.0.10.aar/9f4481ae26572c713d1f6a2e6c3021e0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/checkbox-1.0.10.aar/9f4481ae26572c713d1f6a2e6c3021e0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.uniquestudio/checkbox/1.0.10/5268df293688b160a157a92bcbce262a6203f9f1/checkbox-1.0.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

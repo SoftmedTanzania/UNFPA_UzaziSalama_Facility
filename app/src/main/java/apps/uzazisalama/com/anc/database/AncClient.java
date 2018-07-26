@@ -99,6 +99,14 @@ public class AncClient implements Serializable{
     private boolean historyOfRetainedPlacenta;
 
     /**
+     *  0 -> None
+     *  1 -> Condoms
+     *  2 -> Pills
+     *  3 -> Calendar
+     */
+    private int familyPlanningMethod;
+
+    /**
      *  0 -> general
      *  1 -> ANC
      *  2 -> PNC
@@ -353,6 +361,14 @@ public class AncClient implements Serializable{
         this.healthFacilityCode = healthFacilityCode;
     }
 
+    public int getFamilyPlanningMethod() {
+        return familyPlanningMethod;
+    }
+
+    public void setFamilyPlanningMethod(int familyPlanningMethod) {
+        this.familyPlanningMethod = familyPlanningMethod;
+    }
+
     public int getClientType() {
         return clientType;
     }
@@ -376,4 +392,7 @@ public class AncClient implements Serializable{
     public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
+
+
+
 }
