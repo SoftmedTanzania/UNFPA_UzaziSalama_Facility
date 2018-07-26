@@ -1614,6 +1614,40 @@
 
                     </LinearLayout>
 
+                    <RelativeLayout
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/save_client_button"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/additional_details_container"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="32dp"
+                        android:background="@drawable/border_fill_color_primary">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save"
+                            android:id="@+id/save_client_text"
+                            android:textSize="18sp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/google_sans_bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textAllCaps="false"/>
+
+                        <com.github.rahatarmanahmed.cpv.CircularProgressView
+                            android:id="@+id/save_client_progress_view"
+                            android:visibility="visible"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"
+                            app:cpv_animAutostart="true"
+                            app:cpv_indeterminate="true"
+                            app:cpv_color="@color/white" />
+
+
+                    </RelativeLayout>
+
                     <Button
                         android:id="@+id/registered_client_save_button"
                         android:layout_width="140dp"

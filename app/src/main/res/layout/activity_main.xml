@@ -45,6 +45,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:id="@+id/manual_sync"
+                        android:src="@mipmap/ic_action_sync"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="8dp"
                         android:layout_alignParentRight="true"/>
@@ -58,7 +59,6 @@
                         android:layout_toStartOf="@+id/manual_sync_loader"
                         android:fontFamily="@font/roboto_condensed_italic"
                         android:text="Sync Data"
-                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 

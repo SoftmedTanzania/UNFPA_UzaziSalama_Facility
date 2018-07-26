@@ -18,4 +18,13 @@ public class Constants {
     public static final int HOME_DELIVERY = 1;
     public static final int HEALTH_FACILITY_DELIVERY = 2;
     public static final int BIRTH_BEFORE_ARRIVAL = 3;
+
+    public static final int POST_BOX_DATA_ANC_CLIENT = 1;
+    public static final int POST_BOX_DATA_PNC_CLIENT = 2;
+    public static final int POST_BOX_DATA_APPOINTMENT = 3;
+    public static final int POST_BOX_DATA_ROUTINE_VISIT = 4;
+
+    public static final int POST_DATA_UNSYNCED = 0;
+    public static final int POST_DATA_SYNCED = 1;
+
 }

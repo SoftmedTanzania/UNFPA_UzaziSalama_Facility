@@ -1,7 +1,10 @@
 package apps.uzazisalama.com.anc.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,7 +16,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.google.gson.Gson;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.uniquestudio.library.CircleCheckBox;
@@ -32,6 +38,7 @@ import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
+import apps.uzazisalama.com.anc.database.PostBox;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import retrofit2.Call;
@@ -42,6 +49,8 @@ import static apps.uzazisalama.com.anc.utils.Constants.ABOVE_TWELVE_WEEKS;
 import static apps.uzazisalama.com.anc.utils.Constants.HEIGHT_ABOVE_ONE_FIFTY;
 import static apps.uzazisalama.com.anc.utils.Constants.HEIGHT_BELOW_ONE_FIFTY;
 import static apps.uzazisalama.com.anc.utils.Constants.LESS_THAN_TWELVE_WEEKS;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ANC_CLIENT;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_DATA_UNSYNCED;
 
 /**
  * Created by issy on 10/05/2018.
@@ -59,8 +68,11 @@ public class ClientRegisterActivity extends BaseActivity {
     CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo, usesFamilyPlanningNo, usesFamilyPlanningYes;
     CircleCheckBox pregnancyWithMoreThan35YearsYes, pregnancyWithMoreThan35YearsNo, historyOfStillBirthYes, historyOfStillBirthNo, historyOfPostmartumYes, historyOfPostmartumNo;
     CircleCheckBox historyOfRetainedPlacentaYes, historyOfRetainedPlacentaNo;
-    Button cancelButton, saveButton;
+    Button cancelButton;
     LinearLayout familyPlanningMethodContainer;
+    RelativeLayout saveButton;
+    CircularProgressView saveClientProgress;
+    TextView saveClientText;
 
     //ValueHolders
     String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
@@ -460,8 +472,23 @@ public class ClientRegisterActivity extends BaseActivity {
         Date today  = new Date();
         ancClient.setCreatedAt(today.getTime());
 
-        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(ancClient));
+        if (isNetworkAvailable()){
+            //ShowProgressView
+            saveClientProgress.setVisibility(View.VISIBLE);
+            saveClientText.setVisibility(View.GONE);
+            sendClientToServer(ancClient, view);
+        } else {
+            //Store locally
+            saveClientLocally(ancClient, view);
+        }
+
+    }
+
+    private void sendClientToServer(AncClient client, View view){
+        //Send to Server
+        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(client));
         call.enqueue(new Callback<RegistrationResponse>() {
+            @SuppressLint("StaticFieldLeak")
             @Override
             public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
 
@@ -470,10 +497,9 @@ public class ClientRegisterActivity extends BaseActivity {
                 }
 
                 RegistrationResponse registrationResponse = response.body();
-
                 AncClient registeredClient = registrationResponse.getClient();
                 //Hack-Alert TODO: Remove once the registered date is implemented on the server side
-                registeredClient.setCreatedAt(ancClient.getCreatedAt());
+                registeredClient.setCreatedAt(client.getCreatedAt());
 
                 List<ClientAppointment> appointmentList = registrationResponse.getClientAppointments();
 
@@ -501,13 +527,14 @@ public class ClientRegisterActivity extends BaseActivity {
                         @Override
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
-                            Snackbar.make(view,"User created Successfully", Snackbar.LENGTH_LONG).show();
+                            //HideProgressView
+                            saveClientProgress.setVisibility(View.GONE);
+                            saveClientText.setVisibility(View.VISIBLE);
 
                             Intent intent = new Intent(ClientRegisterActivity.this, AncClientsListActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             ClientRegisterActivity.this.finish();
-
                         }
                     }.execute(registeredClient);
                 }
@@ -516,10 +543,46 @@ public class ClientRegisterActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<RegistrationResponse> call, Throwable t) {
+                //HideProgressView
+                saveClientProgress.setVisibility(View.GONE);
+                saveClientText.setVisibility(View.VISIBLE);
 
+                //User Registration Failed Show message and save locally
+                Snackbar.make(view,"Network Error, saving client locally",Snackbar.LENGTH_LONG).show();
+                saveClientLocally(client, view);
             }
         });
+    }
 
+    @SuppressLint("StaticFieldLeak")
+    private void saveClientLocally(AncClient client, View view){
+        //ShowProgress
+        saveClientProgress.setVisibility(View.VISIBLE);
+        saveClientText.setVisibility(View.GONE);
+        new AsyncTask<Void, Void, Void>(){
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                database.clientModel().addNewClient(client);
+
+                PostBox postBox = new PostBox();
+                postBox.setPostBoxId(client.getHealthFacilityClientId()+"");
+                postBox.setPostDataType(POST_BOX_DATA_ANC_CLIENT);
+                postBox.setSyncStatus(POST_DATA_UNSYNCED);
+                database.postBoxModelDao().AddNewPost(postBox);
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                //ShowProgress
+                saveClientProgress.setVisibility(View.VISIBLE);
+                saveClientText.setVisibility(View.GONE);
+            }
+        }.execute();
     }
 
     void fillInputsWithClientZeroData(AncClient client){
@@ -611,6 +674,10 @@ public class ClientRegisterActivity extends BaseActivity {
         //setup date picker dialogue
         dobDatePicker.setAccentColor(getResources().getColor(R.color.colorPrimary));
 
+        //TextView
+        saveClientText = findViewById(R.id.save_client_text);
+        saveClientText.setVisibility(View.VISIBLE);
+
         //MaterialSpinner
         gestationalAgeSpinner = findViewById(R.id.spinner);
         heightSpinner = findViewById(R.id.height_spinner);
@@ -656,10 +723,23 @@ public class ClientRegisterActivity extends BaseActivity {
 
         //Button
         cancelButton = findViewById(R.id.cancel);
-        saveButton = findViewById(R.id.registered_client_save_button);
+
+        //RelativeLayouts
+        saveButton = findViewById(R.id.save_client_button);
 
         //LinearLayouts
         familyPlanningMethodContainer = findViewById(R.id.family_planning_method_container);
+
+        saveClientProgress = findViewById(R.id.save_client_progress_view);
+        saveClientProgress.setVisibility(View.GONE);
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }
