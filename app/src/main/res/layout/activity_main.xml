@@ -84,7 +84,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Uzazi Salama"
+                                android:text="Nilinde Nikulinde"
                                 android:textColor="@color/white"
                                 android:layout_marginRight="8dp"
                                 android:layout_marginLeft="4dp"
@@ -101,7 +101,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/facility_name"
-                                android:text="Berega Facility"
+                                android:text=""
                                 android:textColor="@color/white"
                                 android:layout_marginRight="8dp"
                                 android:layout_marginLeft="4dp"

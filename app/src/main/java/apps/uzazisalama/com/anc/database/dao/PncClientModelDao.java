@@ -30,6 +30,9 @@ public interface PncClientModelDao {
     @Query("select * from PncClient where childPlaceOfBirth = 2 and dateOfDelivery >= :fromDate and dateOfDelivery <= :toDate")
     LiveData<List<PncClient>> clientsDeliveredAtFacility(long fromDate, long toDate);
 
+    @Query("select * from PncClient where pncClientID = :clientId")
+    PncClient getClientByID(String clientId);
+
     @Insert(onConflict = REPLACE)
     void addNewClient(PncClient pncClient);
 

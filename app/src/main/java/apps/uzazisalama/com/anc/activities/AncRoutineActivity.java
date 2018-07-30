@@ -3,6 +3,8 @@ package apps.uzazisalama.com.anc.activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,6 +39,7 @@ import apps.uzazisalama.com.anc.base.AppDatabase;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
+import apps.uzazisalama.com.anc.database.PostBox;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.objects.RoutineResponse;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
@@ -44,6 +47,9 @@ import apps.uzazisalama.com.anc.viewmodels.RoutineViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ROUTINE_VISIT;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_DATA_UNSYNCED;
 
 /**
  * Created by issy on 16/05/2018.
@@ -101,6 +107,9 @@ public class AncRoutineActivity extends BaseActivity {
 
         setCheckboxListeners();
 
+        /**
+         * Load previous visits
+         */
         new AsyncTask<Void, Void, Void>(){
 
             List<RoutineVisits> thisClientsRoutineVisits;
@@ -438,99 +447,146 @@ public class AncRoutineActivity extends BaseActivity {
         RoutineVisits routineVisits = currentRoutineVisitsVisit;
         AppDatabase db = database;
 
-        new AsyncTask<Void, Void, Void>(){
+        if (isNetworkAvailable()){
+            new AsyncTask<Void, Void, Void>(){
 
-            long appointmentId;
+                long appointmentId;
 
-            @Override
-            protected Void doInBackground(Void... voids) {
-                List<ClientAppointment> list = database.clientAppointmentDao().getAppointmentsByClientId(
-                        routineVisits.getHealthFacilityClientId());
-                ClientAppointment visitAppointment = new ClientAppointment();
-                for (ClientAppointment a : list){
-                    if (a.getVisitNumber() == routineVisits.getVisitNumber()){
-                        visitAppointment = a;
-                        routineVisits.setAppointmentID(visitAppointment.getAppointmentID());
-                        routineVisits.setAppointmentDate(visitAppointment.getAppointmentDate());
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    List<ClientAppointment> list = database.clientAppointmentDao().getAppointmentsByClientId(
+                            routineVisits.getHealthFacilityClientId());
+                    ClientAppointment visitAppointment = new ClientAppointment();
+                    for (ClientAppointment a : list){
+                        if (a.getVisitNumber() == routineVisits.getVisitNumber()){
+                            visitAppointment = a;
+                            routineVisits.setAppointmentID(visitAppointment.getAppointmentID());
+                            routineVisits.setAppointmentDate(visitAppointment.getAppointmentDate());
+                        }
                     }
+                    Log.d("appointment", "Appointment size : "+visitAppointment.getAppointmentID());
+                    return null;
                 }
-                Log.d("appointment", "Appointment size : "+visitAppointment.getAppointmentID());
-                return null;
-            }
 
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
 
-                Call<RoutineResponse> call = routineService.saveRoutineVisit(getRoutineBody(routineVisits));
-                call.enqueue(new Callback<RoutineResponse>() {
-                    @Override
-                    public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
+                    Call<RoutineResponse> call = routineService.saveRoutineVisit(getRoutineBody(routineVisits));
+                    call.enqueue(new Callback<RoutineResponse>() {
+                        @Override
+                        public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
 
-                        try{
-                            Log.d("routineVisits", response.body().toString());
+                            try{
+                                Log.d("routineVisits", response.body().toString());
 
-                            RoutineResponse response1 = response.body();
-                            RoutineVisits visit = response1.getRoutineVisits();
-                            visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
-                            List<ClientAppointment> appointments = response1.getAppointments();
+                                RoutineResponse response1 = response.body();
+                                RoutineVisits visit = response1.getRoutineVisits();
+                                visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
+                                List<ClientAppointment> appointments = response1.getAppointments();
 
-                            new AsyncTask<RoutineVisits, Void, Void>(){
+                                new AsyncTask<RoutineVisits, Void, Void>(){
 
-                                String nextAppointmentDate = "";
+                                    String nextAppointmentDate = "";
 
-                                @Override
-                                protected Void doInBackground(RoutineVisits... routineVisits) {
-                                    db.routineModelDao().addRoutine(routineVisits[0]);
+                                    @Override
+                                    protected Void doInBackground(RoutineVisits... routineVisits) {
+                                        db.routineModelDao().addRoutine(routineVisits[0]);
 
-                                    //Next Client Appointment Date
-                                    int currentVisit = routineVisits[0].getVisitNumber();
-                                    int nextVisit = currentVisit + 1;
-                                    for (ClientAppointment a : appointments){
-                                        if (a.getVisitNumber() == nextVisit){
-                                            nextAppointmentDate = simpleDateFormat.format(a.getAppointmentDate());
+                                        //Next Client Appointment Date
+                                        int currentVisit = routineVisits[0].getVisitNumber();
+                                        int nextVisit = currentVisit + 1;
+                                        for (ClientAppointment a : appointments){
+                                            if (a.getVisitNumber() == nextVisit){
+                                                nextAppointmentDate = simpleDateFormat.format(a.getAppointmentDate());
+                                            }
+                                            db.clientAppointmentDao().addNewAppointment(a);
                                         }
-                                        db.clientAppointmentDao().addNewAppointment(a);
+                                        return null;
                                     }
-                                    return null;
-                                }
 
-                                @Override
-                                protected void onPostExecute(Void aVoid) {
-                                    super.onPostExecute(aVoid);
+                                    @Override
+                                    protected void onPostExecute(Void aVoid) {
+                                        super.onPostExecute(aVoid);
 
-                                    savingRoutinesProgressView.setVisibility(View.GONE);
-                                    saveRoutinesText.setVisibility(View.VISIBLE);
+                                        savingRoutinesProgressView.setVisibility(View.GONE);
+                                        saveRoutinesText.setVisibility(View.VISIBLE);
 
-                                    Context context = AncRoutineActivity.this;
-                                    AlertView alert = new AlertView("Routine Stored Successfully", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
-                                    alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
-                                        // Action 2 callback
-                                        finish();
-                                    }));
-                                    alert.show(AncRoutineActivity.this);
+                                        Context context = AncRoutineActivity.this;
+                                        AlertView alert = new AlertView("Routine Stored Successfully", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
+                                        alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
+                                            // Action 2 callback
+                                            finish();
+                                        }));
+                                        alert.show(AncRoutineActivity.this);
 
-                                }
-                            }.execute(visit);
-                        }catch (NullPointerException e){
-                            e.printStackTrace();
+                                    }
+                                }.execute(visit);
+                            }catch (NullPointerException e){
+                                e.printStackTrace();
+                                savingRoutinesProgressView.setVisibility(View.GONE);
+                                saveRoutinesText.setVisibility(View.VISIBLE);
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<RoutineResponse> call, Throwable t) {
+                            Log.d("TheyCantHoldUs", t.getMessage());
                             savingRoutinesProgressView.setVisibility(View.GONE);
                             saveRoutinesText.setVisibility(View.VISIBLE);
                         }
+                    });
 
-                    }
+                }
+            }.execute();
+        }else {
+            //Save locally and at to postBox
+            new AsyncTask<Void, Void, Void>(){
 
-                    @Override
-                    public void onFailure(Call<RoutineResponse> call, Throwable t) {
-                        Log.d("TheyCantHoldUs", t.getMessage());
-                        savingRoutinesProgressView.setVisibility(View.GONE);
-                        saveRoutinesText.setVisibility(View.VISIBLE);
-                    }
-                });
+                String nextAppointmentDate = "";
 
-            }
-        }.execute();
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    db.routineModelDao().addRoutine(routineVisits);
 
+                    PostBox postBox = new PostBox();
+                    postBox.setSyncStatus(POST_DATA_UNSYNCED);
+                    postBox.setPostDataType(POST_BOX_DATA_ROUTINE_VISIT);
+                    postBox.setPostBoxId(routineVisits.getID()+"");
+
+                    db.postBoxModelDao().AddNewPost(postBox);
+
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+
+                    savingRoutinesProgressView.setVisibility(View.GONE);
+                    saveRoutinesText.setVisibility(View.VISIBLE);
+
+                    Context context = AncRoutineActivity.this;
+                    AlertView alert = new AlertView("Routine Stored Successfully", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
+                    alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
+                        // Action 2 callback
+                        finish();
+                    }));
+                    alert.show(AncRoutineActivity.this);
+
+                }
+            }.execute();
+
+        }
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

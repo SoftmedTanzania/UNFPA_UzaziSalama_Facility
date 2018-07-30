@@ -25,6 +25,9 @@ public interface RoutineVisitsModelDao {
     @Query("select * from RoutineVisits")
     LiveData<List<RoutineVisits>> getAllRoutines();
 
+    @Query("select * from RoutineVisits where ID = :id")
+    RoutineVisits getRoutineById(long id);
+
     @Query("select * from RoutineVisits where healthFacilityClientId = :healthFacilityClientID")
     LiveData<List<RoutineVisits>> getRoutinesByClientId(long healthFacilityClientID);
 
