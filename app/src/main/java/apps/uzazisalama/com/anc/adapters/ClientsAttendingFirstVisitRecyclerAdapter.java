@@ -53,7 +53,7 @@ public class ClientsAttendingFirstVisitRecyclerAdapter extends RecyclerView.Adap
 
     private class ListViewItemViewHolder extends RecyclerView.ViewHolder {
 
-        TextView clientNames, clientPara, clientGravida, clientPhoneNumber;
+        TextView clientNames, ancNumber, clientVillage, clientPhoneNumber;
         View viewItem;
 
         public ListViewItemViewHolder(View itemView){
@@ -61,15 +61,15 @@ public class ClientsAttendingFirstVisitRecyclerAdapter extends RecyclerView.Adap
             this.viewItem   = itemView;
 
             clientNames = itemView.findViewById(R.id.client_name_value);
-            clientPara = itemView.findViewById(R.id.client_para_value);
-            clientGravida = itemView.findViewById(R.id.client_gravida_value);
+            ancNumber = itemView.findViewById(R.id.client_anc_number);
+            clientVillage = itemView.findViewById(R.id.client_village_value);
             clientPhoneNumber = itemView.findViewById(R.id.client_phone_value);
         }
 
         void bindItem(AncClient client){
             clientNames.setText(client.getFirstName()+" "+client.getSurname());
-            clientPara.setText(client.getPara()+"");
-            clientGravida.setText(client.getGravida()+"");
+            ancNumber.setText(client.getAncNumber() == "" ? "-" : client.getAncNumber());
+            clientVillage.setText(client.getVillage());
             clientPhoneNumber.setText(client.getPhoneNumber());
         }
 

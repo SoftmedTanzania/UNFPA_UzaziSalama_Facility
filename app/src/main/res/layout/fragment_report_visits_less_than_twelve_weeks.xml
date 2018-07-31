@@ -150,7 +150,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/google_sans_medium"
             android:gravity="start"
-            android:text="Para"
+            android:text="ANC Number"
             android:textColor="@color/card_title_text"
             android:id="@+id/client_para"
             android:layout_marginLeft="8dp"/>
@@ -163,7 +163,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/google_sans_medium"
             android:gravity="start"
-            android:text="Gravida"
+            android:text="Village"
             android:textColor="@color/card_title_text"
             android:id="@+id/client_gravida"
             android:layout_marginLeft="8dp"/>

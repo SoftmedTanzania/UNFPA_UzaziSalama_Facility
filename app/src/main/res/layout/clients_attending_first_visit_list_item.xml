@@ -36,9 +36,9 @@
             android:textSize="18sp"
             android:fontFamily="@font/google_sans_regular"
             android:gravity="start"
-            android:text="Para"
+            android:text="Anc Number"
             android:textColor="@color/card_grid_tex"
-            android:id="@+id/client_para_value"
+            android:id="@+id/client_anc_number"
             android:layout_marginLeft="8dp"/>
 
 
@@ -49,9 +49,9 @@
             android:textSize="18sp"
             android:fontFamily="@font/google_sans_regular"
             android:gravity="start"
-            android:text="Gravida"
+            android:text="Village"
             android:textColor="@color/card_grid_tex"
-            android:id="@+id/client_gravida_value"
+            android:id="@+id/client_village_value"
             android:layout_marginLeft="8dp"/>
 
 
