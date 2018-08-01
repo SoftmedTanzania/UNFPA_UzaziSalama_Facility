@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.treebo.internetavailabilitychecker.InternetAvailabilityChecker;
 import com.treebo.internetavailabilitychecker.InternetConnectivityListener;
 
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.utils.SessionManager;
@@ -174,6 +176,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Internet
             body = RequestBody.create(MediaType.parse("application/json"), datastream);
         }
 
+        return body;
+    }
+
+    public RequestBody getPncClientBody(PncClient client){
+        RequestBody body;
+        String datastream = "";
+        Gson gson = new Gson();
+        datastream = gson.toJson(client);
+        body = RequestBody.create(MediaType.parse("application/json"), datastream);
         return body;
     }
 

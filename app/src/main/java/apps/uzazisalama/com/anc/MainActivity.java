@@ -74,13 +74,15 @@ public class MainActivity extends BaseActivity {
     private TabLayout tabLayout;
     public static ViewPager viewPager;
     private Toolbar toolbar;
-    private TextView toolbarTitle, unsynced;
+    private TextView toolbarTitle, unsynced, facilityName;
     private CircularProgressView syncProgressBar;
     private ImageView manualSync;
 
     private FirebaseJobDispatcher dispatcher;
     private Endpoints.ClientService clientService;
     private Endpoints.RoutineServices routineService;
+    private Endpoints.ReferralService referralService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +98,7 @@ public class MainActivity extends BaseActivity {
         if (session.isLoggedIn()){
             TextView userName = findViewById(R.id.toolbar_user_name);
             userName.setText(session.getUserName());
+            facilityName.setText(session.getKeyHfid());
         }
         dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
         clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
@@ -159,7 +162,7 @@ public class MainActivity extends BaseActivity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
 
-                if (postBoxSize >= 0){
+                if (postBoxSize > 0){
                     unsynced.setTextColor(getResources().getColor(R.color.red_500));
                     manualSync.setColorFilter(getResources().getColor(R.color.red_500));
                 }
@@ -249,6 +252,7 @@ public class MainActivity extends BaseActivity {
 
         manualSync = findViewById(R.id.manual_sync);
 
+        facilityName = findViewById(R.id.facility_name);
         toolbarTitle = findViewById(R.id.toolbar_user_name);
         unsynced = findViewById(R.id.unsynced);
 
@@ -292,7 +296,8 @@ public class MainActivity extends BaseActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
                 syncProgressBar.setVisibility(View.VISIBLE);
-                manualSync.setVisibility(View.GONE);
+                manualSync.setVisibility(View.INVISIBLE);
+                unsynced.setText("Syncing...");
             }
 
             @Override
@@ -352,8 +357,13 @@ public class MainActivity extends BaseActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                syncProgressBar.setVisibility(View.GONE);
+                syncProgressBar.setVisibility(View.INVISIBLE);
                 manualSync.setVisibility(View.VISIBLE);
+                unsynced.setText("Sync Data");
+
+                unsynced.setTextColor(getResources().getColor(R.color.white));
+                manualSync.setColorFilter(getResources().getColor(R.color.white));
+
             }
         }.execute();
     }

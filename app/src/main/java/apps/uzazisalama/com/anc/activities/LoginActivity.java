@@ -32,6 +32,7 @@ import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
+import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
@@ -61,6 +62,7 @@ public class LoginActivity extends BaseActivity {
     CircularProgressView progressView;
 
     Endpoints.ReferralService referalService;
+    Endpoints.ClientService clientService;
 
     // Session Manager Class
     private SessionManager session;
@@ -147,6 +149,7 @@ public class LoginActivity extends BaseActivity {
                                 facilityUUID);
 
                         referalService = ServiceGenerator.createService(Endpoints.ReferralService.class, session.getUserName(), session.getUserPass(), session.getKeyHfid());
+                        clientService = ServiceGenerator.createService(Endpoints.ClientService.class, session.getUserName(), session.getUserPass(), session.getKeyHfid());
 
                         sendRegistrationToServer(deviceRegistrationId,
                                 loginResponse.getUser().getAttributes().getPersonUUID(),
@@ -213,7 +216,7 @@ public class LoginActivity extends BaseActivity {
                             @Override
                             protected void onPostExecute(Void aVoid) {
                                 super.onPostExecute(aVoid);
-
+                                callPncClients(session.getKeyHfid());
                             }
                         }.execute(responses);
                     }
@@ -225,10 +228,50 @@ public class LoginActivity extends BaseActivity {
                 }
             });
 
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            LoginActivity.this.finish();
+
+        }
+    }
+
+    void callPncClients(String facilityUUID){
+        if (session.isLoggedIn()){
+            Call<List<PncClient>> call = clientService.getPncClients(facilityUUID);
+            call.enqueue(new Callback<List<PncClient>>() {
+                @SuppressLint("StaticFieldLeak")
+                @Override
+                public void onResponse(Call<List<PncClient>> call, Response<List<PncClient>> response) {
+                    if (response!=null){
+                        List<PncClient> pncClients = response.body();
+                        new AsyncTask<List<PncClient>, Void, Void>(){
+                            @Override
+                            protected Void doInBackground(List<PncClient>... lists) {
+                                List<PncClient> clientList = lists[0];
+                                if (clientList != null){
+                                    for (PncClient client : clientList){
+                                        database.pncClientModelDao().addNewClient(client);
+                                    }
+                                }
+                                return null;
+                            }
+
+                            @Override
+                            protected void onPostExecute(Void aVoid) {
+                                super.onPostExecute(aVoid);
+
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                startActivity(intent);
+                                LoginActivity.this.finish();
+
+                            }
+                        }.execute(pncClients);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<PncClient>> call, Throwable t) {
+
+                }
+            });
         }
     }
 
