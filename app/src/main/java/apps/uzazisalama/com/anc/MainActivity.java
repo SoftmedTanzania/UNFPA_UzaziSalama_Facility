@@ -2,17 +2,14 @@ package apps.uzazisalama.com.anc;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
 import com.firebase.jobdispatcher.GooglePlayDriver;
 import com.firebase.jobdispatcher.Job;
@@ -32,21 +28,13 @@ import com.firebase.jobdispatcher.RetryStrategy;
 import com.firebase.jobdispatcher.Trigger;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.google.gson.Gson;
-import com.irozon.alertview.AlertActionStyle;
-import com.irozon.alertview.AlertStyle;
-import com.irozon.alertview.AlertView;
-import com.irozon.alertview.objects.AlertAction;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import apps.uzazisalama.com.anc.activities.AncClientsListActivity;
-import apps.uzazisalama.com.anc.activities.AncRoutineActivity;
-import apps.uzazisalama.com.anc.activities.ClientRegisterActivity;
 import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.BaseActivity;
-import apps.uzazisalama.com.anc.customviews.NonSwipeableViewPager;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.PncClient;
@@ -55,9 +43,10 @@ import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.fragments.AncFragment;
 import apps.uzazisalama.com.anc.fragments.PncFragment;
 import apps.uzazisalama.com.anc.fragments.ReportsFragment;
+import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.objects.RoutineResponse;
-import apps.uzazisalama.com.anc.services.AncToPncDispatcherService;
+import apps.uzazisalama.com.anc.services.PostBoxWatcherService;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import apps.uzazisalama.com.anc.utils.SessionManager;
 import retrofit2.Call;
@@ -174,7 +163,7 @@ public class MainActivity extends BaseActivity {
 
     private void scheduleBackgroundJob(){
         Job myJob = dispatcher.newJobBuilder()
-                .setService(AncToPncDispatcherService.class) // the JobService that will be called
+                .setService(PostBoxWatcherService.class) // the JobService that will be called
                 .setTag("10002")        // uniquely identifies the job
                 .setRecurring(true)
                 .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
@@ -384,33 +373,30 @@ public class MainActivity extends BaseActivity {
             public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
 
                 if (response != null){
-                    Log.d("savingClient", response.body().toString());
-                }
+                    RegistrationResponse registrationResponse = response.body();
 
-                RegistrationResponse registrationResponse = response.body();
-                AncClient registeredClient = registrationResponse.getClient();
-                //Hack-Alert TODO: Remove once the registered date is implemented on the server side
-                registeredClient.setCreatedAt(client.getCreatedAt());
+                    PostAncWrapper wrapper = new PostAncWrapper();
+                    wrapper.setResponse(registrationResponse);
+                    wrapper.setBoxItem(postBoxData);
+                    wrapper.setClient(client);
 
-                List<ClientAppointment> appointmentList = registrationResponse.getClientAppointments();
-
-                Gson gson = new Gson();
-                String responseString = gson.toJson(registeredClient);
-                Log.d("response", "Response "+responseString);
-
-                if (registeredClient != null){
-                    new AsyncTask<AncClient, Void, Void>(){
+                    new AsyncTask<PostAncWrapper, Void, Void>(){
                         @Override
-                        protected Void doInBackground(AncClient... ancClients) {
-                            AncClient newAncClient = ancClients[0];
-                            database.clientModel().addNewClient(newAncClient);
+                        protected Void doInBackground(PostAncWrapper... postAncWrappers) {
+
+                            //Get response object from the wrapper
+                            PostAncWrapper mWrapper = postAncWrappers[0];
+                            RegistrationResponse mResponse = mWrapper.getResponse();
+                            AncClient oldClientObject = mWrapper.getClient();
+                            AncClient registeredClient = mResponse.getClient();
+                            //Hack-Alert TODO: Remove once the registered date is implemented on the server side
+                            registeredClient.setCreatedAt(oldClientObject.getCreatedAt());
+                            List<ClientAppointment> appointmentList = mResponse.getClientAppointments();
+
+                            database.clientModel().addNewClient(registeredClient);
                             for (ClientAppointment appointment : appointmentList){
                                 database.clientAppointmentDao().addNewAppointment(appointment);
-                                Log.d("appointment", "Appointment ID : "+appointment.getAppointmentID());
                             }
-
-                            List<ClientAppointment> appointmentList1 = database.clientAppointmentDao().getAppointmentsByClientId(newAncClient.getHealthFacilityClientId());
-                            Log.d("appointment", "Appointment Size : "+appointmentList1.size());
 
                             return null;
                         }
@@ -418,8 +404,11 @@ public class MainActivity extends BaseActivity {
                         @Override
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
+                            /**
+                             * Client already saved
+                             */
                         }
-                    }.execute(registeredClient);
+                    }.execute(wrapper);
                 }
 
             }
@@ -432,7 +421,58 @@ public class MainActivity extends BaseActivity {
     }
 
     private void postPncClient(PncClient client, PostBox postBox){
+        Call<PncClientPostResponce> call = clientService.postPncClient(getPncClientBody(client));
+        call.enqueue(new Callback<PncClientPostResponce>() {
+            @SuppressLint("StaticFieldLeak")
+            @Override
+            public void onResponse(Call<PncClientPostResponce> call, Response<PncClientPostResponce> response) {
+                if (response != null){
 
+                    PncClientPostResponce pncClientPostResponce = response.body();
+
+                    /**
+                     * Wrap response and postBox data together to pass to the background class
+                     */
+                    PostPncWrapper postPncWrapper = new PostPncWrapper();
+                    postPncWrapper.setPostBox(postBox);
+                    postPncWrapper.setResponce(pncClientPostResponce);
+
+                    new AsyncTask<PostPncWrapper, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(PostPncWrapper... wrappers) {
+                            PncClientPostResponce response = wrappers[0].getResponce();
+                            PncClient receivedClient = response.getPncClient();
+                            AncClient receivedAncClient = response.getAncClient();
+                            List<RoutineVisits> visits = response.getRoutineVisits();
+
+                            database.pncClientModelDao().addNewClient(receivedClient);
+                            database.clientModel().addNewClient(receivedAncClient);
+
+                            for (RoutineVisits v : visits){
+                                database.routineModelDao().addRoutine(v);
+                            }
+
+                            //Get PostBox From the wrapper
+                            PostBox boxItem = wrappers[0].getPostBox();
+                            database.postBoxModelDao().deletePostItem(boxItem);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                        }
+                    }.execute(postPncWrapper);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PncClientPostResponce> call, Throwable t) {
+
+            }
+        });
     }
 
     private void postRoutineData(RoutineVisits routineVisits, PostBox postBox){
@@ -443,39 +483,37 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
 
-                try{
-                    Log.d("routineVisits", response.body().toString());
+                RoutineResponse routineResponse = response.body();
+                if (routineResponse != null){
+                    /**
+                     * Wrapp the response and postBox object together
+                     *
+                     */
+                    PostRoutineWrapper wrapper = new PostRoutineWrapper();
+                    wrapper.setResponse(routineResponse);
+                    wrapper.setPostBox(postBox);
 
-                    RoutineResponse response1 = response.body();
-                    RoutineVisits visit = response1.getRoutineVisits();
-                    if (visit.getVisitDate() == 0){
-                        visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
-                    }
-
-                    List<ClientAppointment> appointments = response1.getAppointments();
-
-                    if (visit != null) {
-                        //Delete the old routine entry from the database
-                        database.routineModelDao().deleteRoutine(routineVisits);
-                    }
-
-                    new AsyncTask<RoutineVisits, Void, Void>(){
-
-                        String nextAppointmentDate = "";
-
+                    new AsyncTask<PostRoutineWrapper, Void, Void>(){
                         @Override
-                        protected Void doInBackground(RoutineVisits... routineVisits) {
-                            database.routineModelDao().addRoutine(routineVisits[0]);
+                        protected Void doInBackground(PostRoutineWrapper... postRoutineWrappers) {
 
-                            //Next Client Appointment Date
-                            int currentVisit = routineVisits[0].getVisitNumber();
-                            int nextVisit = currentVisit + 1;
+                            //Get the response object from the wrapper
+                            PostRoutineWrapper mWrapper = postRoutineWrappers[0];
+                            RoutineResponse mResponse = mWrapper.getResponse();
+                            RoutineVisits oldRoutineVisit = mWrapper.getOldRoutineVisit();
+                            RoutineVisits visit = mResponse.getRoutineVisits();
+                            if (visit.getVisitDate() == 0){
+                                visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
+                            }
+                            List<ClientAppointment> appointments = mResponse.getAppointments();
+                            if (visit != null){
+                                database.routineModelDao().deleteRoutine(oldRoutineVisit);
+                            }
+                            database.routineModelDao().addRoutine(visit);
                             for (ClientAppointment a : appointments){
-                                if (a.getVisitNumber() == nextVisit){
-                                    nextAppointmentDate = simpleDateFormat.format(a.getAppointmentDate());
-                                }
                                 database.clientAppointmentDao().addNewAppointment(a);
                             }
+
                             return null;
                         }
 
@@ -483,10 +521,7 @@ public class MainActivity extends BaseActivity {
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
                         }
-                    }.execute(visit);
-                }catch (NullPointerException e){
-                    e.printStackTrace();
-
+                    }.execute(wrapper);
                 }
 
             }
@@ -496,6 +531,87 @@ public class MainActivity extends BaseActivity {
                 Log.d("TheyCantHoldUs", t.getMessage());
             }
         });
+    }
+
+    class PostPncWrapper{
+
+        PncClientPostResponce responce;
+
+        PostBox postBox;
+
+        public PostPncWrapper(){}
+
+        public PncClientPostResponce getResponce() {
+            return responce;
+        }
+
+        public void setResponce(PncClientPostResponce responce) {
+            this.responce = responce;
+        }
+
+        public PostBox getPostBox() {
+            return postBox;
+        }
+
+        public void setPostBox(PostBox postBox) {
+            this.postBox = postBox;
+        }
+    }
+
+    class PostAncWrapper{
+        private RegistrationResponse response;
+        private PostBox boxItem;
+        private AncClient client;
+        public PostAncWrapper(){ }
+        public RegistrationResponse getResponse() {
+            return response;
+        }
+        public void setResponse(RegistrationResponse response) {
+            this.response = response;
+        }
+        public PostBox getBoxItem() {
+            return boxItem;
+        }
+        public void setBoxItem(PostBox boxItem) {
+            this.boxItem = boxItem;
+        }
+        public AncClient getClient() {
+            return client;
+        }
+        public void setClient(AncClient client) {
+            this.client = client;
+        }
+    }
+
+    class PostRoutineWrapper{
+        private RoutineResponse response;
+        private PostBox postBox;
+        private RoutineVisits oldRoutineVisit;
+        public PostRoutineWrapper(){}
+
+        public RoutineResponse getResponse() {
+            return response;
+        }
+
+        public void setResponse(RoutineResponse response) {
+            this.response = response;
+        }
+
+        public PostBox getPostBox() {
+            return postBox;
+        }
+
+        public void setPostBox(PostBox postBox) {
+            this.postBox = postBox;
+        }
+
+        public RoutineVisits getOldRoutineVisit() {
+            return oldRoutineVisit;
+        }
+
+        public void setOldRoutineVisit(RoutineVisits oldRoutineVisit) {
+            this.oldRoutineVisit = oldRoutineVisit;
+        }
     }
 
 }

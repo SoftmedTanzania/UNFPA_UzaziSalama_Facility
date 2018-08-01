@@ -133,9 +133,6 @@ public class AncClient implements Serializable{
     @SerializedName("healthFacilityCode")
     private String healthFacilityCode;
 
-    @SerializedName("ancNumber")
-    private String ancNumber;
-
     @SerializedName("createdAt")
     private long createdAt;
 
@@ -396,11 +393,4 @@ public class AncClient implements Serializable{
         this.createdAt = createdAt;
     }
 
-    public String getAncNumber() {
-        return ancNumber;
-    }
-
-    public void setAncNumber(String ancNumber) {
-        this.ancNumber = ancNumber;
-    }
 }

@@ -68,7 +68,7 @@ public class ClientsAttendingFirstVisitRecyclerAdapter extends RecyclerView.Adap
 
         void bindItem(AncClient client){
             clientNames.setText(client.getFirstName()+" "+client.getSurname());
-            ancNumber.setText(client.getAncNumber() == "" ? "-" : client.getAncNumber());
+            ancNumber.setText(client.getCardNumber() == "" ? "-" : client.getCardNumber());
             clientVillage.setText(client.getVillage());
             clientPhoneNumber.setText(client.getPhoneNumber());
         }

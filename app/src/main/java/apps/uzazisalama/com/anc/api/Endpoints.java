@@ -5,6 +5,7 @@ import java.util.List;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
+import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.objects.RoutineResponse;
@@ -36,7 +37,7 @@ public class Endpoints {
         Call<RegistrationResponse> postAncClient(@Body RequestBody p );
 
         @POST("save-pnc-client")
-        Call<PncClient> savePncClient(@Body RequestBody p);
+        Call<PncClientPostResponce> postPncClient(@Body RequestBody p);
 
         @POST("get-facility-pnc-clients/{facilityUUID}")
         Call<List<PncClient>> getPncClients(@Path("facilityUUID") String facilityUUID);
