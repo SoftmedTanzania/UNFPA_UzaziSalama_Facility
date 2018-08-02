@@ -56,7 +56,7 @@ public class AncClient implements Serializable{
     private boolean heightBelowAverage; //true if below 150
 
     @SerializedName("levelOfEducation")
-    private int levelOfEducation; //TODO => Change to ID (int)
+    private int levelOfEducation;
 
     @SerializedName("spouseName")
     private String spouseName;

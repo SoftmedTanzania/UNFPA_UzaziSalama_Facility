@@ -420,7 +420,6 @@ public class AncRoutineActivity extends BaseActivity {
 
         int visitCount = lastVisit+1;
 
-
         RoutineVisits routineVisits = new RoutineVisits();
         routineVisits.setID(0);
 

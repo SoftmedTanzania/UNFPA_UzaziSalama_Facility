@@ -21,16 +21,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" afterPath="$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/apps.uzazisalama.com.anc.base.AppDatabase/1.json" afterPath="$PROJECT_DIR$/app/schemas/apps.uzazisalama.com.anc.base.AppDatabase/1.json" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/AncToPncDispatcherService.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +51,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="318" column="39" lean-forward="true" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="39" />
+            <state relative-caret-position="3810">
+              <caret line="318" column="39" lean-forward="false" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="39" />
               <folding>
                 <element signature="e#5077#5078#0" expanded="true" />
                 <element signature="e#5126#5127#0" expanded="true" />
@@ -104,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AncRoutineActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AncRoutineActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="458" column="81" lean-forward="true" selection-start-line="458" selection-start-column="81" selection-end-line="458" selection-end-column="81" />
+            <state relative-caret-position="874">
+              <caret line="495" column="74" lean-forward="false" selection-start-line="495" selection-start-column="74" selection-end-line="495" selection-end-column="74" />
               <folding>
                 <element signature="class#4047:5860" expanded="false" />
               </folding>
@@ -116,11 +110,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostBoxWatcherService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientRegisterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="556" column="30" lean-forward="false" selection-start-line="556" selection-start-column="30" selection-end-line="556" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_register_clients.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="44" column="16" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostBoxWatcherService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-708">
-              <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
+            <state relative-caret-position="157">
+              <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
               <folding>
                 <element signature="method#postAncClient#0;class#PostBoxWatcherService#0" expanded="false" />
                 <element signature="e#10714#10715#0" expanded="true" />
@@ -154,6 +171,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PostBox.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/PostBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#455#456#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PostBoxModelDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -164,54 +194,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PncClientPostResponce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/PncClientPostResponce.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#635#636#0" expanded="true" />
-                <element signature="e#667#668#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-                <element signature="e#762#763#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#833#834#0" expanded="true" />
-                <element signature="e#886#887#0" expanded="true" />
-                <element signature="e#928#929#0" expanded="true" />
-                <element signature="e#981#982#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AncClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1624">
-              <caret line="394" column="0" lean-forward="false" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientsAttendingFirstVisitRecyclerAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReferralResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/ReferralResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="161">
+              <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding>
+                <element signature="e#3302#3303#0" expanded="true" />
+                <element signature="e#3347#3348#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -219,7 +210,7 @@
       <file leaf-file-name="Endpoints.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="360">
               <caret line="39" column="71" lean-forward="false" selection-start-line="39" selection-start-column="71" selection-end-line="39" selection-end-column="71" />
               <folding />
             </state>
@@ -229,7 +220,7 @@
       <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
+            <state relative-caret-position="960">
               <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
               <folding />
             </state>
@@ -249,6 +240,7 @@
     <findStrings>
       <find>retr</find>
       <find>ancNu</find>
+      <find>level</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2195,13 +2187,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/PncClientPostResponce.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" />
       </list>
     </option>
   </component>
@@ -2226,7 +2221,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -2372,6 +2366,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2379,9 +2374,9 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1533065363126" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1533215123487" />
     <property name="device.picker.selection" value="5203405f528f9400" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/somaapps/Development/Android/UNFPA_UzaziSalama_Facility/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/somaapps/Development/Android/UNFPA_UzaziSalama_Facility/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2572,11 +2567,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18617614" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18617614" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26198438" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18617614" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4214047" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2595,7 +2591,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2609,6 +2604,179 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3810">
+          <caret line="318" column="39" lean-forward="false" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="39" />
+          <folding>
+            <element signature="e#5077#5078#0" expanded="true" />
+            <element signature="e#5126#5127#0" expanded="true" />
+            <element signature="method#postAncClient#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#18880#18881#0" expanded="true" />
+            <element signature="e#18962#18963#0" expanded="true" />
+            <element signature="e#21511#21512#0" expanded="true" />
+            <element signature="e#21593#21594#0" expanded="true" />
+            <element signature="class#PostPncWrapper#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#22038#22039#0" expanded="true" />
+            <element signature="e#22077#22078#0" expanded="true" />
+            <element signature="e#22144#22145#0" expanded="true" />
+            <element signature="e#22192#22193#0" expanded="true" />
+            <element signature="e#22231#22232#0" expanded="true" />
+            <element signature="e#22269#22270#0" expanded="true" />
+            <element signature="e#22320#22321#0" expanded="true" />
+            <element signature="e#22366#22367#0" expanded="true" />
+            <element signature="class#PostAncWrapper#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#22600#22601#0" expanded="true" />
+            <element signature="e#22639#22640#0" expanded="true" />
+            <element signature="e#22704#22705#0" expanded="true" />
+            <element signature="e#22752#22753#0" expanded="true" />
+            <element signature="e#22790#22791#0" expanded="true" />
+            <element signature="e#22828#22829#0" expanded="true" />
+            <element signature="e#22878#22879#0" expanded="true" />
+            <element signature="e#22924#22925#0" expanded="true" />
+            <element signature="e#22963#22964#0" expanded="true" />
+            <element signature="e#23000#23001#0" expanded="true" />
+            <element signature="e#23050#23051#0" expanded="true" />
+            <element signature="e#23094#23095#0" expanded="true" />
+            <element signature="e#23339#23340#0" expanded="true" />
+            <element signature="e#23378#23379#0" expanded="true" />
+            <element signature="e#23439#23440#0" expanded="true" />
+            <element signature="e#23487#23488#0" expanded="true" />
+            <element signature="e#23526#23527#0" expanded="true" />
+            <element signature="e#23564#23565#0" expanded="true" />
+            <element signature="e#23615#23616#0" expanded="true" />
+            <element signature="e#23661#23662#0" expanded="true" />
+            <element signature="e#23714#23715#0" expanded="true" />
+            <element signature="e#23760#23761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
+          <folding>
+            <element signature="method#postAncClient#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#10714#10715#0" expanded="true" />
+            <element signature="e#10796#10797#0" expanded="true" />
+            <element signature="e#11179#11180#0" expanded="true" />
+            <element signature="e#11207#11208#0" expanded="true" />
+            <element signature="class#PostPncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#12606#12607#0" expanded="true" />
+            <element signature="e#12645#12646#0" expanded="true" />
+            <element signature="e#12712#12713#0" expanded="true" />
+            <element signature="e#12760#12761#0" expanded="true" />
+            <element signature="e#12799#12800#0" expanded="true" />
+            <element signature="e#12837#12838#0" expanded="true" />
+            <element signature="e#12888#12889#0" expanded="true" />
+            <element signature="e#12934#12935#0" expanded="true" />
+            <element signature="class#PostAncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#13168#13169#0" expanded="true" />
+            <element signature="e#13207#13208#0" expanded="true" />
+            <element signature="e#13272#13273#0" expanded="true" />
+            <element signature="e#13320#13321#0" expanded="true" />
+            <element signature="e#13358#13359#0" expanded="true" />
+            <element signature="e#13396#13397#0" expanded="true" />
+            <element signature="e#13446#13447#0" expanded="true" />
+            <element signature="e#13492#13493#0" expanded="true" />
+            <element signature="e#13531#13532#0" expanded="true" />
+            <element signature="e#13568#13569#0" expanded="true" />
+            <element signature="e#13618#13619#0" expanded="true" />
+            <element signature="e#13662#13663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/PncClientPostResponce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#635#636#0" expanded="false" />
+            <element signature="e#667#668#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#762#763#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+            <element signature="e#833#834#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#928#929#0" expanded="false" />
+            <element signature="e#981#982#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="394" column="0" lean-forward="false" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
+          <folding>
+            <element signature="e#3302#3303#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/ReferralResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="39" column="71" lean-forward="false" selection-start-line="39" selection-start-column="71" selection-end-line="39" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5505">
+          <caret line="460" column="24" lean-forward="false" selection-start-line="460" selection-start-column="24" selection-end-line="460" selection-end-column="24" />
+          <folding>
+            <element signature="class#4047:5860" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2661,19 +2829,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1695">
           <caret line="113" column="33" lean-forward="false" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java">
@@ -2728,13 +2894,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/clients_attending_first_visit_list_item.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/fragments/WomenAttendingFourOrMoreVisitsReport.java">
@@ -2746,13 +2912,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_more_than_four_visits.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="38" selection-end-line="160" selection-end-column="38" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/fragments/WomenAttendingFirstAncReport.java">
@@ -2764,33 +2930,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_women_attending_first_anc.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="162" column="35" lean-forward="false" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_visits_less_than_twelve_weeks.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_visits_less_than_twelve_weeks.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="165" column="33" lean-forward="false" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_registered_women.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_registered_women.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/fragments/DangerSignsReport.java">
@@ -2802,13 +2968,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_danger_signs.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/fragments/AllWomenDeliveredAtTheFacility.java">
@@ -2820,13 +2986,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_report_delivered_at_the_facility.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="158" column="17" lean-forward="false" selection-start-line="158" selection-start-column="17" selection-end-line="158" selection-end-column="17" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/fragments/TotalRegisteredPregnantWomenReport.java">
@@ -2849,19 +3015,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1695">
           <caret line="113" column="33" lean-forward="false" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java">
@@ -2891,17 +3055,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1624">
-          <caret line="394" column="0" lean-forward="false" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="690">
           <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
           <folding />
         </state>
@@ -2909,27 +3065,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/PncClientPostResponce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="255">
           <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#635#636#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#886#887#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#635#636#0" expanded="false" />
+            <element signature="e#667#668#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#762#763#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+            <element signature="e#833#834#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#928#929#0" expanded="false" />
+            <element signature="e#981#982#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="360">
           <caret line="39" column="71" lean-forward="false" selection-start-line="39" selection-start-column="71" selection-end-line="39" selection-end-column="71" />
           <folding />
         </state>
@@ -2945,45 +3101,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
+        <state relative-caret-position="960">
           <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-708">
-          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
-          <folding>
-            <element signature="method#postAncClient#0;class#PostBoxWatcherService#0" expanded="false" />
-            <element signature="e#10714#10715#0" expanded="true" />
-            <element signature="e#10796#10797#0" expanded="true" />
-            <element signature="e#11179#11180#0" expanded="true" />
-            <element signature="e#11207#11208#0" expanded="true" />
-            <element signature="class#PostPncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#12645#12646#0" expanded="true" />
-            <element signature="e#12712#12713#0" expanded="true" />
-            <element signature="e#12760#12761#0" expanded="true" />
-            <element signature="e#12799#12800#0" expanded="true" />
-            <element signature="e#12837#12838#0" expanded="true" />
-            <element signature="e#12888#12889#0" expanded="true" />
-            <element signature="e#12934#12935#0" expanded="true" />
-            <element signature="class#PostAncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
-            <element signature="e#13168#13169#0" expanded="true" />
-            <element signature="e#13207#13208#0" expanded="true" />
-            <element signature="e#13272#13273#0" expanded="true" />
-            <element signature="e#13320#13321#0" expanded="true" />
-            <element signature="e#13358#13359#0" expanded="true" />
-            <element signature="e#13396#13397#0" expanded="true" />
-            <element signature="e#13446#13447#0" expanded="true" />
-            <element signature="e#13492#13493#0" expanded="true" />
-            <element signature="e#13531#13532#0" expanded="true" />
-            <element signature="e#13568#13569#0" expanded="true" />
-            <element signature="e#13618#13619#0" expanded="true" />
-            <element signature="e#13662#13663#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2991,14 +3111,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="318" column="39" lean-forward="true" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="39" />
+        <state relative-caret-position="3810">
+          <caret line="318" column="39" lean-forward="false" selection-start-line="318" selection-start-column="39" selection-end-line="318" selection-end-column="39" />
           <folding>
             <element signature="e#5077#5078#0" expanded="true" />
             <element signature="e#5126#5127#0" expanded="true" />
@@ -3045,10 +3164,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="458" column="81" lean-forward="true" selection-start-line="458" selection-start-column="81" selection-end-line="458" selection-end-column="81" />
+        <state relative-caret-position="874">
+          <caret line="495" column="74" lean-forward="false" selection-start-line="495" selection-start-column="74" selection-end-line="495" selection-end-column="74" />
           <folding>
             <element signature="class#4047:5860" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="44" column="16" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/PostBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding>
+            <element signature="e#3302#3303#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="556" column="30" lean-forward="false" selection-start-line="556" selection-start-column="30" selection-end-line="556" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+          <folding>
+            <element signature="method#postAncClient#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#10714#10715#0" expanded="true" />
+            <element signature="e#10796#10797#0" expanded="true" />
+            <element signature="e#11179#11180#0" expanded="true" />
+            <element signature="e#11207#11208#0" expanded="true" />
+            <element signature="class#PostPncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#12606#12607#0" expanded="true" />
+            <element signature="e#12645#12646#0" expanded="true" />
+            <element signature="e#12712#12713#0" expanded="true" />
+            <element signature="e#12760#12761#0" expanded="true" />
+            <element signature="e#12799#12800#0" expanded="true" />
+            <element signature="e#12837#12838#0" expanded="true" />
+            <element signature="e#12888#12889#0" expanded="true" />
+            <element signature="e#12934#12935#0" expanded="true" />
+            <element signature="class#PostAncWrapper#0;class#PostBoxWatcherService#0" expanded="false" />
+            <element signature="e#13168#13169#0" expanded="true" />
+            <element signature="e#13207#13208#0" expanded="true" />
+            <element signature="e#13272#13273#0" expanded="true" />
+            <element signature="e#13320#13321#0" expanded="true" />
+            <element signature="e#13358#13359#0" expanded="true" />
+            <element signature="e#13396#13397#0" expanded="true" />
+            <element signature="e#13446#13447#0" expanded="true" />
+            <element signature="e#13492#13493#0" expanded="true" />
+            <element signature="e#13531#13532#0" expanded="true" />
+            <element signature="e#13568#13569#0" expanded="true" />
+            <element signature="e#13618#13619#0" expanded="true" />
+            <element signature="e#13662#13663#0" expanded="true" />
           </folding>
         </state>
       </provider>
