@@ -29,6 +29,9 @@ public interface AncClientModelDao {
     @Query("select * from AncClient where healthFacilityClientId = :clientId")
     AncClient getClientById(long clientId );
 
+    @Query("select * from AncClient where healthFacilityClientId = :clientId")
+    LiveData<AncClient> getLiveAncClient(long clientId);
+
     @Query("select * from AncClient where clientType = 1 ") //Room maps true to 1 false to 0
     LiveData<List<AncClient>> getAllAncClients();
 

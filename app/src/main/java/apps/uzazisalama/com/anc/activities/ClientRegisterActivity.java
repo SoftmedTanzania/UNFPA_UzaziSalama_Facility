@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import apps.uzazisalama.com.anc.MainActivity;
@@ -80,7 +81,19 @@ public class ClientRegisterActivity extends BaseActivity {
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
     boolean gestationalAgeBelow12Weeks = true;
     boolean heightBelowAverage = true;
-    String gestationalAge, height, levelOfEducation, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
+    boolean usesFamilyPlanning = true;
+
+    int familyPlanningMethod = 1;
+
+    /**
+     *  0 - No Education
+     *  1 - Primary School
+     *  2 - Secondary School
+     *  3 - High School
+     *  4 - Higher Education
+     */
+    int levelOfEducation = 1;
+    String gestationalAge, height, pmCtcStatus, dateOfBirthDisplay, dateOfLNMPDisplay, dateOfDeliveryDisplay;
     long dateOfBirthValue, dateOfLNMPValue, dateOfDeliveryValue;
 
     Calendar dobCalendar;
@@ -151,19 +164,18 @@ public class ClientRegisterActivity extends BaseActivity {
 
         //initializing the level of education spinner with values
         levelOfEducationList = new ArrayList<>();
+        levelOfEducationList.add("None");
         levelOfEducationList.add("Primary School");
         levelOfEducationList.add("Secondary School");
         levelOfEducationList.add("High School");
         levelOfEducationList.add("University");
-        levelOfEducationList.add("None");
+
         levelOfEducationSpinner.setItems(levelOfEducationList);
         levelOfEducationSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 //Snackbar.make(view, "Clicked " + item +" Position "+position, Snackbar.LENGTH_LONG).show();
-                if (position == 0)
-                    levelOfEducation = "";
-                else levelOfEducation = item;
+                levelOfEducation = position;
             }
         });
 
@@ -177,16 +189,20 @@ public class ClientRegisterActivity extends BaseActivity {
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                 switch (position){
                     case 0:
-                        //Uses Condom;
+                        //Uses Condom
+                        familyPlanningMethod = 1;
                         break;
                     case 1:
                         //uses Birth control pills
+                        familyPlanningMethod = 2;
                         break;
                     case 2:
                         //Uses Calendar
+                        familyPlanningMethod = 3;
                         break;
                     default:
                         //Nothing
+                        familyPlanningMethod = 0;
                 }
             }
         });
@@ -403,6 +419,7 @@ public class ClientRegisterActivity extends BaseActivity {
                 if (isChecked){
                     usesFamilyPlanningNo.setChecked(false);
                     familyPlanningMethodContainer.setVisibility(View.VISIBLE);
+                    familyPlanningMethod = 1;
                 }
             }
         });
@@ -413,6 +430,7 @@ public class ClientRegisterActivity extends BaseActivity {
                 if (isChecked){
                     usesFamilyPlanningYes.setChecked(false);
                     familyPlanningMethodContainer.setVisibility(View.INVISIBLE);
+                    familyPlanningMethod = 0;
                 }
             }
         });
@@ -453,6 +471,11 @@ public class ClientRegisterActivity extends BaseActivity {
     void createNewUserObject(View view){
         AncClient ancClient = new AncClient();
 
+        long range = 1234567L;
+        Random r = new Random();
+        long number = (long)(r.nextDouble()*range);
+        ancClient.setHealthFacilityClientId(number);
+
         ancClient.setFirstName(fnameValue);
         ancClient.setMiddleName(mnameValue);
         ancClient.setSurname(lnameValue);
@@ -469,6 +492,8 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setClientType(1);
         ancClient.setGestationalAgeBelow20(gestationalAgeBelow12Weeks);
         ancClient.setHeightBelowAverage(heightBelowAverage);
+        ancClient.setLevelOfEducation(levelOfEducation);
+        ancClient.setFamilyPlanningMethod(familyPlanningMethod);
         Date today  = new Date();
         ancClient.setCreatedAt(today.getTime());
 
@@ -581,6 +606,12 @@ public class ClientRegisterActivity extends BaseActivity {
                 //ShowProgress
                 saveClientProgress.setVisibility(View.VISIBLE);
                 saveClientText.setVisibility(View.GONE);
+
+                Intent intent = new Intent(ClientRegisterActivity.this, AncClientsListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                ClientRegisterActivity.this.finish();
+
             }
         }.execute();
     }

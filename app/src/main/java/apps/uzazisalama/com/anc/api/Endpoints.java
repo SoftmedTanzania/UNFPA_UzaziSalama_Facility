@@ -3,7 +3,9 @@ package apps.uzazisalama.com.anc.api;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.database.AncClient;
+import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
+import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.objects.RoutineResponse;
@@ -11,6 +13,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -33,6 +36,12 @@ public class Endpoints {
         @POST("save-anc-client")
         Call<RegistrationResponse> postAncClient(@Body RequestBody p );
 
+        @POST("save-pnc-client")
+        Call<PncClientPostResponce> postPncClient(@Body RequestBody p);
+
+        @POST("get-facility-pnc-clients/{facilityUUID}")
+        Call<List<PncClient>> getPncClients(@Path("facilityUUID") String facilityUUID);
+
     }
 
     public interface ReferralService{
@@ -41,6 +50,9 @@ public class Endpoints {
 
         @POST("receive-feedback")
         Call<String> postReferralFeedback(@Body RequestBody b);
+
+        @POST("save-facility-referral")
+        Call<String> postFacilityReferral(@Body RequestBody b);
 
     }
 

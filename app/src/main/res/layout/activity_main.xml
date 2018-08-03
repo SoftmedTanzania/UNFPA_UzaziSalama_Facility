@@ -88,7 +88,7 @@
                                 android:textColor="@color/white"
                                 android:layout_marginRight="8dp"
                                 android:layout_marginLeft="4dp"
-                                android:fontFamily="@font/avenir_light"
+                                android:fontFamily="@font/google_sans_bold"
                                 android:textSize="14sp"/>
 
 
