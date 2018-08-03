@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.LongDef;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
@@ -584,15 +585,18 @@ public class ClientRegisterActivity extends BaseActivity {
         //ShowProgress
         saveClientProgress.setVisibility(View.VISIBLE);
         saveClientText.setVisibility(View.GONE);
-        new AsyncTask<Void, Void, Void>(){
+        new AsyncTask<AncClient, Void, Void>(){
 
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(AncClient... clients) {
 
-                database.clientModel().addNewClient(client);
+                AncClient mClient  = clients[0];
+                database.clientModel().addNewClient(mClient);
+
+                Log.d("heavy", "Saved a client with ID "+mClient.getHealthFacilityClientId());
 
                 PostBox postBox = new PostBox();
-                postBox.setPostBoxId(client.getHealthFacilityClientId()+"");
+                postBox.setPostBoxId(mClient.getHealthFacilityClientId()+"");
                 postBox.setPostDataType(POST_BOX_DATA_ANC_CLIENT);
                 postBox.setSyncStatus(POST_DATA_UNSYNCED);
                 database.postBoxModelDao().AddNewPost(postBox);
@@ -613,7 +617,7 @@ public class ClientRegisterActivity extends BaseActivity {
                 ClientRegisterActivity.this.finish();
 
             }
-        }.execute();
+        }.execute(client);
     }
 
     void fillInputsWithClientZeroData(AncClient client){

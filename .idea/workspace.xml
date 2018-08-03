@@ -6,17 +6,13 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="POSTBOXSERVICE" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c4527eb-40e2-4ba5-aab5-08e2a0cfee79" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/objects/PncClientPostResponce.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" />
+    <list default="true" id="b510a5d5-4a49-4034-9859-9f653d88522c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
@@ -67,37 +63,60 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_uniquestudio_checkbox_1_0_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_uniquestudio_checkbox_1_0_10.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" afterPath="$PROJECT_DIR$/UNFPA_UzaziSalama_Facility.iml" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/adapters/ClientsAttendingFirstVisitRecyclerAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/base/BaseActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/AncClient.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/AncClientModelDao.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/AncClientModelDao.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/AncToPncDispatcherService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_clients.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/clients_attending_first_visit_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/clients_attending_first_visit_list_item.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_delivered_at_the_facility.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_delivered_at_the_facility.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_more_than_four_visits.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_more_than_four_visits.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_visits_less_than_twelve_weeks.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_visits_less_than_twelve_weeks.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_women_attending_first_anc.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_report_women_attending_first_anc.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" />
       <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-30-11-26-42-575.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-30-11-26-42-575.rawproto" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-30-12-59-17-444.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-30-12-59-17-444.rawproto" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-31-10-24-30-630.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-07-31-10-24-30-630.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-35-05-793.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-35-05-793.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-39-00-662.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-39-00-662.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-39-08-502.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-39-08-502.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-43-43-576.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-10-43-43-576.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-09-42-125.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-09-42-125.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-38-07-345.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-38-07-345.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-40-04-550.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-40-04-550.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-58-46-429.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-58-46-429.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-58-52-556.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-11-58-52-556.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-08-25-357.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-08-25-357.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-12-44-120.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-12-44-120.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-16-43-425.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-12-16-43-425.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-06-25-364.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-06-25-364.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-08-04-581.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-08-04-581.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-17-23-822.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-17-23-822.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-23-46-685.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-23-46-685.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-41-00-341.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-41-00-341.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-54-09-228.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-54-09-228.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-57-32-350.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-14-57-32-350.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-03-25-881.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-03-25-881.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-22-26-777.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-22-26-777.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-30-14-701.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-30-14-701.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-30-42-771.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-30-42-771.rawproto" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-46-49-757.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-08-03-15-46-49-757.rawproto" afterPath="" />
       <change beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,24 +131,14 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view />
-      </state>
-    </system>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostBoxWatcherService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
+    <leaf>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="99" column="78" lean-forward="true" selection-start-line="99" selection-start-column="78" selection-end-line="99" selection-end-column="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3499#3508#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="277">
+              <caret line="172" column="56" lean-forward="false" selection-start-line="172" selection-start-column="56" selection-end-line="172" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,38 +146,63 @@
       <file leaf-file-name="PostBoxModelDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="165">
+              <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
+      <file leaf-file-name="ClientRegisterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="96" column="38" lean-forward="false" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+            <state relative-caret-position="403">
+              <caret line="614" column="55" lean-forward="false" selection-start-line="614" selection-start-column="55" selection-end-line="614" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java">
+      <file leaf-file-name="PostBoxWatcherService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="144" column="51" lean-forward="false" selection-start-line="144" selection-start-column="51" selection-end-line="144" selection-end-column="51" />
+            <state relative-caret-position="700">
+              <caret line="219" column="23" lean-forward="false" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="23" />
+              <folding>
+                <element signature="e#7023#7024#0" expanded="true" />
+                <element signature="e#7089#7090#0" expanded="true" />
+                <element signature="e#12464#12465#0" expanded="true" />
+                <element signature="e#12492#12493#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AncClientModelDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/AncClientModelDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="31" column="69" lean-forward="false" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JobService.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-jobdispatcher/0.8.5/77cd9cca5bdf7487dfde23e74929ed63416606e3/firebase-jobdispatcher-0.8.5-sources.jar!/com/firebase/jobdispatcher/JobService.java">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/utils/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+            <state relative-caret-position="225">
+              <caret line="15" column="63" lean-forward="true" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Endpoints.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -182,7 +216,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\SOMMAAPP\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1" />
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.1-all/bzyivzo6n839fup2jbap0tjew/gradle-4.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -2112,21 +2146,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="202" />
-    <option name="y" value="41" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1920" />
+    <option name="height" value="1015" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2140,57 +2172,104 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView">
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="UNFPA_UzaziSalama_Facility" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="UNFPA_UzaziSalama_Facility" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="UNFPA_UzaziSalama_Facility" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="anc" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="UNFPA_UzaziSalama_Facility" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="anc" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="UNFPA_UzaziSalama_Facility" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="anc" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="anc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="anc" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="anc" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="anc" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UNFPA_UzaziSalama_Facility" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UNFPA_UzaziSalama_Facility" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="anc" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
-    <property name="android.sdk.path" value="D:/Android/sdk" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
-    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1533322730372" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Projects/Nilinde Nikulinde/UNFPA_UzaziSalama_Facility/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1533332459627" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/somaapps/Development/Android/UNFPA_UzaziSalama_Facility/app/src/main/java/apps/uzazisalama/com/anc/utils/ServiceGenerator.java" />
     <property name="device.picker.selection" value="5203405f528f9400" />
   </component>
   <component name="RunDashboard">
@@ -2308,7 +2387,7 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
@@ -2331,11 +2410,26 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
     </configuration>
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
     </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -2349,47 +2443,47 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7c4527eb-40e2-4ba5-aab5-08e2a0cfee79" name="Default" comment="" />
-      <created>1533322724312</created>
+      <changelist id="b510a5d5-4a49-4034-9859-9f653d88522c" name="Default" comment="" />
+      <created>1533332443605</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1533322724312</updated>
+      <updated>1533332443605</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1015" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44588745" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5021299" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33874458" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38127092" sideWeight="0.4978701" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30952382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2400,80 +2494,71 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="186" column="63" lean-forward="false" selection-start-line="186" selection-start-column="63" selection-end-line="186" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3499#3508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="144" column="51" lean-forward="false" selection-start-line="144" selection-start-column="51" selection-end-line="144" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-jobdispatcher/0.8.5/77cd9cca5bdf7487dfde23e74929ed63416606e3/firebase-jobdispatcher-0.8.5-sources.jar!/com/firebase/jobdispatcher/JobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5491">
-          <caret line="387" column="24" lean-forward="false" selection-start-line="387" selection-start-column="24" selection-end-line="387" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-jobdispatcher/0.8.5/77cd9cca5bdf7487dfde23e74929ed63416606e3/firebase-jobdispatcher-0.8.5-sources.jar!/com/firebase/jobdispatcher/JobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="144" column="51" lean-forward="false" selection-start-line="144" selection-start-column="51" selection-end-line="144" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/PostBoxModelDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="165">
+          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="96" column="38" lean-forward="false" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+        <state relative-caret-position="277">
+          <caret line="172" column="56" lean-forward="false" selection-start-line="172" selection-start-column="56" selection-end-line="172" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/database/dao/AncClientModelDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="69" lean-forward="false" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/ClientRegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="614" column="55" lean-forward="false" selection-start-line="614" selection-start-column="55" selection-end-line="614" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/api/Endpoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/utils/ServiceGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="63" lean-forward="true" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="99" column="78" lean-forward="true" selection-start-line="99" selection-start-column="78" selection-end-line="99" selection-end-column="78" />
+        <state relative-caret-position="700">
+          <caret line="219" column="23" lean-forward="false" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3499#3508#0" expanded="true" />
+            <element signature="e#7023#7024#0" expanded="true" />
+            <element signature="e#7089#7090#0" expanded="true" />
+            <element signature="e#12464#12465#0" expanded="true" />
+            <element signature="e#12492#12493#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -96,14 +96,7 @@ public class PostBoxWatcherService extends JobService {
                 @Override
                 protected Void doInBackground(Void... voids) {
                     postBoxes = database.postBoxModelDao().getAllPostBoxEntries();
-
                     Log.d("POSTBOXSERVICE", "PostBox Size "+postBoxes.size());
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(Void aVoid) {
-                    super.onPostExecute(aVoid);
 
                     if (postBoxes.size() > 0){
                         for (PostBox box : postBoxes){
@@ -117,13 +110,11 @@ public class PostBoxWatcherService extends JobService {
                                         /**
                                          *  Post data to server and delete it if successfully stored to server
                                          */
-                                        LiveData<AncClient> clientLiveData = database.clientModel().getLiveAncClient(Long.parseLong(box.getPostBoxId()));
-                                        clientLiveData.observe(lifecycleService, new Observer<AncClient>() {
-                                            @Override
-                                            public void onChanged(@Nullable AncClient client) {
-                                                postAncClient(client, box, database);
-                                            }
-                                        });
+                                        AncClient mClient = database.clientModel().getClientById(Long.parseLong(box.getPostBoxId()));
+                                        if (mClient != null){
+                                            postAncClient(mClient, box, database);
+                                        }
+
                                     }
                                     break;
                                 case POST_BOX_DATA_PNC_CLIENT:
@@ -133,7 +124,9 @@ public class PostBoxWatcherService extends JobService {
                                          *  Post data to server and delete it if successfully stored to server
                                          */
                                         PncClient client = database.pncClientModelDao().getClientByID(box.getPostBoxId());
-                                        postPncClient(client, box, database);
+                                        if (client != null){
+                                            postPncClient(client, box, database);
+                                        }
                                     }
                                     break;
                                 case POST_BOX_DATA_ROUTINE_VISIT:
@@ -143,7 +136,9 @@ public class PostBoxWatcherService extends JobService {
                                          *  Post data to server and delete it if successfully stored to server
                                          */
                                         RoutineVisits routineVisits = database.routineModelDao().getRoutineById(Long.parseLong(box.getPostBoxId()));
-                                        postRoutineData(routineVisits, box, database);
+                                        if (routineVisits != null){
+                                            postRoutineData(routineVisits, box, database);
+                                        }
                                     }
                                     break;
                                 case POST_BOX_DATA_APPOINTMENT:
@@ -158,6 +153,12 @@ public class PostBoxWatcherService extends JobService {
                         Log.d("POSTBOXSERVICE", "Postbox Empty");
                     }
 
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
                 }
 
             }.execute();
@@ -170,9 +171,6 @@ public class PostBoxWatcherService extends JobService {
 
     private void postAncClient(AncClient client, PostBox box, AppDatabase database){
         //Send to Server
-
-        Log.d("POSTBOXSERVICE", "Saving the user from the postbox service");
-
         Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(client));
         call.enqueue(new Callback<RegistrationResponse>() {
             @SuppressLint("StaticFieldLeak")
@@ -181,8 +179,7 @@ public class PostBoxWatcherService extends JobService {
 
                 if (response != null){
                     RegistrationResponse registrationResponse = response.body();
-                    Gson gson = new Gson();
-                    Log.d("POSTBOXSERVICE", "Registration Response "+gson.toJson(registrationResponse));
+
                     PostAncWrapper wrapper = new PostAncWrapper();
                     wrapper.setResponse(registrationResponse);
                     wrapper.setBoxItem(box);
@@ -202,12 +199,17 @@ public class PostBoxWatcherService extends JobService {
                             registeredClient.setCreatedAt(oldClientObject.getCreatedAt());
                             List<ClientAppointment> appointmentList = mResponse.getClientAppointments();
 
+                            //Add the client that has been received from the server
                             database.clientModel().addNewClient(registeredClient);
                             for (ClientAppointment appointment : appointmentList){
                                 database.clientAppointmentDao().addNewAppointment(appointment);
                             }
 
+                            //Delete the postBox Entry
                             database.postBoxModelDao().deletePostItem(postAncWrappers[0].boxItem);
+
+                            //Delete the old Client registered with a temporary ID
+                            database.clientModel().deleteAClient(oldClientObject);
 
                             return null;
                         }
@@ -220,6 +222,7 @@ public class PostBoxWatcherService extends JobService {
                              */
                         }
                     }.execute(wrapper);
+                }else {
                 }
 
             }
@@ -247,25 +250,36 @@ public class PostBoxWatcherService extends JobService {
                     PostPncWrapper postPncWrapper = new PostPncWrapper();
                     postPncWrapper.setPostBox(box);
                     postPncWrapper.setResponce(pncClientPostResponce);
+                    postPncWrapper.setOldPncClient(client);
 
                     new AsyncTask<PostPncWrapper, Void, Void>(){
                         @Override
                         protected Void doInBackground(PostPncWrapper... wrappers) {
-                            PncClientPostResponce response = wrappers[0].getResponce();
+
+                            //Unpack individual objects from the wrapper
+                            PostPncWrapper mWrapper = wrappers[0];
+                            PncClientPostResponce response = mWrapper.getResponce();
                             PncClient receivedClient = response.getPncClient();
                             AncClient receivedAncClient = response.getAncClient();
                             List<RoutineVisits> visits = response.getRoutineVisits();
 
+                            //Add the newly registered client to the local database
                             database.pncClientModelDao().addNewClient(receivedClient);
+
+                            //Add the corresponding AncClient to the database
                             database.clientModel().addNewClient(receivedAncClient);
 
+                            //Add all the received Routine Visits
                             for (RoutineVisits v : visits){
                                 database.routineModelDao().addRoutine(v);
                             }
 
                             //Get PostBox From the wrapper
-                            PostBox boxItem = wrappers[0].getPostBox();
+                            PostBox boxItem = mWrapper.getPostBox();
                             database.postBoxModelDao().deletePostItem(boxItem);
+
+                            //Delete the old PNC object registered with temporary ID
+                            database.pncClientModelDao().deleteAClient(mWrapper.oldPncClient);
 
                             return null;
                         }
@@ -314,6 +328,7 @@ public class PostBoxWatcherService extends JobService {
         RequestBody body;
         Gson gson = new Gson();
         String datastream = gson.toJson(client);
+        Log.d("POSTBOXSERVICE", "Anc Client Body === "+datastream);
         body = RequestBody.create(MediaType.parse("application/json"), datastream);
         return body;
     }
@@ -333,6 +348,8 @@ public class PostBoxWatcherService extends JobService {
 
         PostBox postBox;
 
+        PncClient oldPncClient;
+
         public PostPncWrapper(){}
 
         public PncClientPostResponce getResponce() {
@@ -349,6 +366,14 @@ public class PostBoxWatcherService extends JobService {
 
         public void setPostBox(PostBox postBox) {
             this.postBox = postBox;
+        }
+
+        public PncClient getOldPncClient() {
+            return oldPncClient;
+        }
+
+        public void setOldPncClient(PncClient oldPncClient) {
+            this.oldPncClient = oldPncClient;
         }
     }
 

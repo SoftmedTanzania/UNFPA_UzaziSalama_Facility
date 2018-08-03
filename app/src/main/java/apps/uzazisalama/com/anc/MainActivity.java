@@ -92,6 +92,15 @@ public class MainActivity extends BaseActivity {
             userName.setText(session.getUserName());
             facilityName.setText(session.getKeyHfid());
         }
+
+        LiveData<Integer> postBoxSize = database.postBoxModelDao().getBoxSize();
+        postBoxSize.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer integer) {
+                Log.d("heavy", "Post Box Size = "+integer);
+            }
+        });
+
         dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
         clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
                 session.getUserName(),
@@ -136,7 +145,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @SuppressLint("StaticFieldLeak")
     private void checkPostBox(){
 
         LiveData<Integer> boxSize = database.postBoxModelDao().getBoxSize();
@@ -162,7 +170,7 @@ public class MainActivity extends BaseActivity {
                 .setTag("10002")        // uniquely identifies the job
                 .setRecurring(true)
                 .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
-                .setTrigger(Trigger.executionWindow(0, 60))
+                .setTrigger(Trigger.executionWindow(0, 10)) //60 seconds changed to 10 seconds for development purposes
                 .setReplaceCurrent(false)
                 .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
                 .build();
