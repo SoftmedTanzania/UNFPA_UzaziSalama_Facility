@@ -30,6 +30,7 @@ import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
+import apps.uzazisalama.com.anc.utils.SessionManager;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -55,18 +56,21 @@ public class PostBoxWatcherService extends JobService {
     private Endpoints.RoutineServices routineService;
     private Endpoints.ReferralService referralService;
 
+    private SessionManager mSession;
+
     @SuppressLint("StaticFieldLeak")
     @Override
     public boolean onStartJob(JobParameters job) {
         AppDatabase database = AppDatabase.getDatabase(this);
+        mSession = new SessionManager(getApplicationContext());
         clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
-                session.getUserName(),
-                session.getUserPass(),
-                session.getKeyHfid());
+                mSession.getUserName(),
+                mSession.getUserPass(),
+                mSession.getKeyHfid());
         routineService = ServiceGenerator.createService(Endpoints.RoutineServices.class,
-                session.getUserName(),
-                session.getUserPass(),
-                session.getKeyHfid());
+                mSession.getUserName(),
+                mSession.getUserPass(),
+                mSession.getKeyHfid());
         /**
          if internet exist
          Scan through the postBox database

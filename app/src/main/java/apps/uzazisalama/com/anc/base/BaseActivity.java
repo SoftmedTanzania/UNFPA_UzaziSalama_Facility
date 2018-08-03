@@ -33,7 +33,7 @@ import okhttp3.RequestBody;
  * On Project ANC
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements InternetConnectivityListener {
+public abstract class BaseActivity extends AppCompatActivity{
 
     //This is the base activity to be subclassed by all activities created on the application
 
@@ -50,8 +50,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Internet
         database = AppDatabase.getDatabase(this);
         // Session class instance
         session = new SessionManager(getApplicationContext());
-
-        InternetAvailabilityChecker.init(this);
 
     }
 
@@ -86,13 +84,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Internet
         datastream = gson.toJson(client);
         body = RequestBody.create(MediaType.parse("application/json"), datastream);
         return body;
-    }
-
-    @Override
-    public void onInternetConnectivityChanged(boolean isConnected) {
-        //do something based on connectivity
-        networkStatus = isConnected;
-        Log.d("OMUNYA", "Network changed : "+networkStatus);
     }
 
 }
