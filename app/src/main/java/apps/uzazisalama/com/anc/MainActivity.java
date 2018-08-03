@@ -284,6 +284,8 @@ public class MainActivity extends BaseActivity {
     private void syncPostBoxData(){
         new AsyncTask<Void, Void, Void>(){
 
+            boolean dataPushed = false;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
@@ -358,9 +360,6 @@ public class MainActivity extends BaseActivity {
                 syncProgressBar.setVisibility(View.INVISIBLE);
                 manualSync.setVisibility(View.VISIBLE);
                 unsynced.setText("Sync Data");
-
-                unsynced.setTextColor(getResources().getColor(R.color.white));
-                manualSync.setColorFilter(getResources().getColor(R.color.white));
 
             }
         }.execute();

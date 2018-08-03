@@ -11,15 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b510a5d5-4a49-4034-9859-9f653d88522c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/activities/AncRoutineActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" afterPath="$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/services/PostBoxWatcherService.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,21 +30,21 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="345" column="36" lean-forward="true" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+            <state relative-caret-position="191">
+              <caret line="361" column="46" lean-forward="false" selection-start-line="361" selection-start-column="46" selection-end-line="361" selection-end-column="46" />
               <folding>
                 <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#isNetworkAvailable#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#postAncClient#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#postPncClient#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#20877#20878#0" expanded="true" />
-                <element signature="e#20959#20960#0" expanded="true" />
+                <element signature="e#20755#20756#0" expanded="true" />
+                <element signature="e#20837#20838#0" expanded="true" />
                 <element signature="method#postRoutineData#0;class#MainActivity#0" expanded="false" />
                 <element signature="class#PostPncWrapper#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#24876#24877#0" expanded="true" />
-                <element signature="e#24919#24920#0" expanded="true" />
-                <element signature="e#24982#24983#0" expanded="true" />
-                <element signature="e#25038#25039#0" expanded="true" />
+                <element signature="e#24754#24755#0" expanded="true" />
+                <element signature="e#24797#24798#0" expanded="true" />
+                <element signature="e#24860#24861#0" expanded="true" />
+                <element signature="e#24916#24917#0" expanded="true" />
                 <element signature="class#PostAncWrapper#0;class#MainActivity#0" expanded="false" />
                 <element signature="class#PostRoutineWrapper#0;class#MainActivity#0" expanded="false" />
               </folding>
@@ -2458,6 +2450,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1015" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -2469,7 +2462,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38127092" sideWeight="0.4978701" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38127092" sideWeight="0.4978701" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -2666,21 +2659,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/apps/uzazisalama/com/anc/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="345" column="36" lean-forward="true" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+        <state relative-caret-position="191">
+          <caret line="361" column="46" lean-forward="false" selection-start-line="361" selection-start-column="46" selection-end-line="361" selection-end-column="46" />
           <folding>
             <element signature="class#ViewPagerAdapter#0;class#MainActivity#0" expanded="false" />
             <element signature="method#isNetworkAvailable#0;class#MainActivity#0" expanded="false" />
             <element signature="method#postAncClient#0;class#MainActivity#0" expanded="false" />
             <element signature="method#postPncClient#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#20877#20878#0" expanded="true" />
-            <element signature="e#20959#20960#0" expanded="true" />
+            <element signature="e#20755#20756#0" expanded="true" />
+            <element signature="e#20837#20838#0" expanded="true" />
             <element signature="method#postRoutineData#0;class#MainActivity#0" expanded="false" />
             <element signature="class#PostPncWrapper#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#24876#24877#0" expanded="true" />
-            <element signature="e#24919#24920#0" expanded="true" />
-            <element signature="e#24982#24983#0" expanded="true" />
-            <element signature="e#25038#25039#0" expanded="true" />
+            <element signature="e#24754#24755#0" expanded="true" />
+            <element signature="e#24797#24798#0" expanded="true" />
+            <element signature="e#24860#24861#0" expanded="true" />
+            <element signature="e#24916#24917#0" expanded="true" />
             <element signature="class#PostAncWrapper#0;class#MainActivity#0" expanded="false" />
             <element signature="class#PostRoutineWrapper#0;class#MainActivity#0" expanded="false" />
           </folding>
