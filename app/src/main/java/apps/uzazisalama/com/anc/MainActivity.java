@@ -303,7 +303,6 @@ public class MainActivity extends BaseActivity {
                 if (postBoxList.size() > 0){
                     for (PostBox item : postBoxList){
                         int dataType = item.getPostDataType();
-                        Log.d("POSTBOXSERVICE", "Data type "+dataType);
                         switch (dataType){
                             case POST_BOX_DATA_ANC_CLIENT:
                                 //Anc Client
@@ -312,7 +311,9 @@ public class MainActivity extends BaseActivity {
                                      *  Post data to server and delete it if successfully stored to server
                                      */
                                     AncClient client = database.clientModel().getClientById(Long.parseLong(item.getPostBoxId()));
-                                    postAncClient(client, item);
+                                    if (client != null){
+                                        postAncClient(client, item);
+                                    }
                                 }
                                 break;
                             case POST_BOX_DATA_PNC_CLIENT:
@@ -322,7 +323,9 @@ public class MainActivity extends BaseActivity {
                                      *  Post data to server and delete it if successfully stored to server
                                      */
                                     PncClient client = database.pncClientModelDao().getClientByID(item.getPostBoxId());
-                                    postPncClient(client, item);
+                                    if (client != null){
+                                        postPncClient(client, item);
+                                    }
                                 }
                                 break;
                             case POST_BOX_DATA_ROUTINE_VISIT:
@@ -332,7 +335,9 @@ public class MainActivity extends BaseActivity {
                                      *  Post data to server and delete it if successfully stored to server
                                      */
                                     RoutineVisits routineVisits = database.routineModelDao().getRoutineById(Long.parseLong(item.getPostBoxId()));
-                                    postRoutineData(routineVisits, item);
+                                    if (routineVisits != null){
+                                        postRoutineData(routineVisits, item);
+                                    }
                                 }
                                 break;
                             case POST_BOX_DATA_APPOINTMENT:
@@ -378,8 +383,6 @@ public class MainActivity extends BaseActivity {
 
                 if (response != null){
                     RegistrationResponse registrationResponse = response.body();
-                    Gson gson = new Gson();
-                    Log.d("POSTBOXSERVICE", "Registration Response "+gson.toJson(registrationResponse));
 
                     PostAncWrapper wrapper = new PostAncWrapper();
                     wrapper.setResponse(registrationResponse);
@@ -399,12 +402,19 @@ public class MainActivity extends BaseActivity {
                             registeredClient.setCreatedAt(oldClientObject.getCreatedAt());
                             List<ClientAppointment> appointmentList = mResponse.getClientAppointments();
 
+                            //Save the newly registered client
                             database.clientModel().addNewClient(registeredClient);
+
+                            //Save client appointments received from the server
                             for (ClientAppointment appointment : appointmentList){
                                 database.clientAppointmentDao().addNewAppointment(appointment);
                             }
 
+                            //Delete postBox entry
                             database.postBoxModelDao().deletePostItem(wrapper.boxItem);
+
+                            //Delete the old Client registered with a temporary ID
+                            database.clientModel().deleteAClient(oldClientObject);
 
                             return null;
                         }
@@ -440,31 +450,42 @@ public class MainActivity extends BaseActivity {
 
                     PncClientPostResponce pncClientPostResponce = response.body();
 
-                    /**
-                     * Wrap response and postBox data together to pass to the background class
-                     */
+
+                    //Wrap response and postBox data together to pass to the background class
                     PostPncWrapper postPncWrapper = new PostPncWrapper();
                     postPncWrapper.setPostBox(postBox);
                     postPncWrapper.setResponce(pncClientPostResponce);
+                    postPncWrapper.setOldPncClient(client);
 
                     new AsyncTask<PostPncWrapper, Void, Void>(){
                         @Override
                         protected Void doInBackground(PostPncWrapper... wrappers) {
-                            PncClientPostResponce response = wrappers[0].getResponce();
+                            PostPncWrapper wrapper = wrappers[0];
+
+                            //Unpack the objects from the wrapper
+                            PncClientPostResponce response = wrapper.getResponce();
                             PncClient receivedClient = response.getPncClient();
                             AncClient receivedAncClient = response.getAncClient();
                             List<RoutineVisits> visits = response.getRoutineVisits();
+                            PncClient oldPncClient = wrapper.getOldPncClient();
+                            PostBox postBoxItem = wrapper.getPostBox();
 
+                            //Save the newly registered client in the database
                             database.pncClientModelDao().addNewClient(receivedClient);
+
+                            //Save the corresponding ANC client to the database (CONTRACT - Replace if exists)
                             database.clientModel().addNewClient(receivedAncClient);
 
+                            //Save received client routines (CONTRACT -> Replace if exists)
                             for (RoutineVisits v : visits){
                                 database.routineModelDao().addRoutine(v);
                             }
 
-                            //Get PostBox From the wrapper
-                            PostBox boxItem = wrappers[0].getPostBox();
-                            database.postBoxModelDao().deletePostItem(boxItem);
+                            //Delete the postBox entry after it has been saved to the server
+                            database.postBoxModelDao().deletePostItem(postBoxItem);
+
+                            //Delete the old PncClient registered with a temporary ID
+                            database.pncClientModelDao().deleteAClient(oldPncClient);
 
                             return null;
                         }
@@ -495,34 +516,40 @@ public class MainActivity extends BaseActivity {
 
                 RoutineResponse routineResponse = response.body();
                 if (routineResponse != null){
-                    /**
-                     * Wrapp the response and postBox object together
-                     *
-                     */
+                    //Wrapp the response and postBox object together
                     PostRoutineWrapper wrapper = new PostRoutineWrapper();
                     wrapper.setResponse(routineResponse);
                     wrapper.setPostBox(postBox);
+                    wrapper.setOldRoutineVisit(routineVisits);
 
                     new AsyncTask<PostRoutineWrapper, Void, Void>(){
                         @Override
                         protected Void doInBackground(PostRoutineWrapper... postRoutineWrappers) {
-
-                            //Get the response object from the wrapper
                             PostRoutineWrapper mWrapper = postRoutineWrappers[0];
+
+                            //Unpack the objects from the wrapper
                             RoutineResponse mResponse = mWrapper.getResponse();
                             RoutineVisits oldRoutineVisit = mWrapper.getOldRoutineVisit();
+                            PostBox postBoxItem = mWrapper.getPostBox();
                             RoutineVisits visit = mResponse.getRoutineVisits();
+                            List<ClientAppointment> appointments = mResponse.getAppointments();
+
+                            //Save the newly received Routine visit to the databse
                             if (visit.getVisitDate() == 0){
                                 visit.setVisitDate(Calendar.getInstance().getTimeInMillis());
                             }
-                            List<ClientAppointment> appointments = mResponse.getAppointments();
-                            if (visit != null){
-                                database.routineModelDao().deleteRoutine(oldRoutineVisit);
-                            }
                             database.routineModelDao().addRoutine(visit);
+
+                            //Save client appointments received with the client object
                             for (ClientAppointment a : appointments){
                                 database.clientAppointmentDao().addNewAppointment(a);
                             }
+
+                            //Delete the old routine registered with a temporary ID
+                            database.routineModelDao().deleteRoutine(oldRoutineVisit);
+
+                            //Delete the PostBox entry after the object have been successfully saved to the server
+                            database.postBoxModelDao().deletePostItem(postBoxItem);
 
                             return null;
                         }
@@ -549,6 +576,8 @@ public class MainActivity extends BaseActivity {
 
         PostBox postBox;
 
+        PncClient oldPncClient;
+
         public PostPncWrapper(){}
 
         public PncClientPostResponce getResponce() {
@@ -565,6 +594,14 @@ public class MainActivity extends BaseActivity {
 
         public void setPostBox(PostBox postBox) {
             this.postBox = postBox;
+        }
+
+        public PncClient getOldPncClient() {
+            return oldPncClient;
+        }
+
+        public void setOldPncClient(PncClient oldPncClient) {
+            this.oldPncClient = oldPncClient;
         }
     }
 

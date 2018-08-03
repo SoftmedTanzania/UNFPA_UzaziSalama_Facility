@@ -30,6 +30,7 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import apps.uzazisalama.com.anc.R;
@@ -421,7 +422,11 @@ public class AncRoutineActivity extends BaseActivity {
         int visitCount = lastVisit+1;
 
         RoutineVisits routineVisits = new RoutineVisits();
-        routineVisits.setID(0);
+        //Generate random temporary ID
+        long range = 1234567L;
+        Random r = new Random();
+        long randomID = (long)(r.nextDouble()*range);
+        routineVisits.setID(randomID);
 
         routineVisits.setHealthFacilityClientId(currentAncClient.getHealthFacilityClientId());
         routineVisits.setVisitDate(visitDate);
@@ -554,6 +559,10 @@ public class AncRoutineActivity extends BaseActivity {
                     postBox.setPostDataType(POST_BOX_DATA_ROUTINE_VISIT);
                     postBox.setPostBoxId(routineVisits.getID()+"");
 
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.add(Calendar.DAY_OF_MONTH, 30);
+                    nextAppointmentDate = simpleDateFormat.format(calendar.getTimeInMillis());
+
                     db.postBoxModelDao().AddNewPost(postBox);
 
                     return null;
@@ -567,7 +576,7 @@ public class AncRoutineActivity extends BaseActivity {
                     saveRoutinesText.setVisibility(View.VISIBLE);
 
                     Context context = AncRoutineActivity.this;
-                    AlertView alert = new AlertView("Routine Stored Successfully", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
+                    AlertView alert = new AlertView("Routine Stored Successfully (SYNC NEEDED)", "Next Appointment : "+nextAppointmentDate, AlertStyle.DIALOG);
                     alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
                         // Action 2 callback
                         finish();

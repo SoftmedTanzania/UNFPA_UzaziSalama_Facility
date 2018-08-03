@@ -31,6 +31,7 @@ import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.RegistrationResponse;
+import apps.uzazisalama.com.anc.objects.RoutineResponse;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import apps.uzazisalama.com.anc.utils.SessionManager;
 import okhttp3.MediaType;
@@ -171,7 +172,7 @@ public class PostBoxWatcherService extends JobService {
 
     private void postAncClient(AncClient client, PostBox box, AppDatabase database){
         //Send to Server
-        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(client));
+        Call<RegistrationResponse> call = clientService.postAncClient(getRequestBody(client));
         call.enqueue(new Callback<RegistrationResponse>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -235,7 +236,7 @@ public class PostBoxWatcherService extends JobService {
     }
 
     private void postPncClient(PncClient client, PostBox box, AppDatabase database){
-        Call<PncClientPostResponce> call = clientService.postPncClient(getPncClientBody(client));
+        Call<PncClientPostResponce> call = clientService.postPncClient(getRequestBody(client));
         call.enqueue(new Callback<PncClientPostResponce>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -301,7 +302,61 @@ public class PostBoxWatcherService extends JobService {
     }
 
     private void postRoutineData(RoutineVisits visits, PostBox box, AppDatabase database){
+        Call<RoutineResponse> call = routineService.saveRoutineVisit(getRequestBody(visits));
+        call.enqueue(new Callback<RoutineResponse>() {
+            @SuppressLint("StaticFieldLeak")
+            @Override
+            public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
+                if (response != null){
+                    RoutineResponse routineResponse = response.body();
 
+                    //Wrap objects to send to a background thread
+                    PostRoutineWrapper wrapper = new PostRoutineWrapper();
+                    wrapper.setResponse(routineResponse);
+                    wrapper.setBoxItem(box);
+                    wrapper.setVisit(visits);
+
+                    new AsyncTask<PostRoutineWrapper, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(PostRoutineWrapper... postRoutineWrappers) {
+                            PostRoutineWrapper mWrapper = postRoutineWrappers[0];
+
+                            //Unpack the objects from the wrapper
+                            RoutineResponse mResponse = mWrapper.getResponse();
+                            RoutineVisits mVisit = mResponse.getRoutineVisits();
+                            List<ClientAppointment> mAppointments = mResponse.getAppointments();
+                            RoutineVisits oldRoutineVisit = mWrapper.getVisit();
+
+                            //Store the received Routine Visit to the database
+                            database.routineModelDao().addRoutine(mVisit);
+
+                            //Store the received appointments to the database
+                            for (ClientAppointment a : mAppointments){
+                                database.clientAppointmentDao().addNewAppointment(a);
+                            }
+
+                            //Delete the old routine visit with temporary ID
+                            database.routineModelDao().deleteRoutine(oldRoutineVisit);
+
+                            //Delete the postBoxEntry
+                            database.postBoxModelDao().deletePostItem(mWrapper.boxItem);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                        }
+                    }.execute();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RoutineResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
@@ -316,7 +371,8 @@ public class PostBoxWatcherService extends JobService {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public RequestBody getReferralFeedbackBody(Referral referral){
+    /*
+    private RequestBody getReferralFeedbackBody(Referral referral){
         RequestBody body;
         Gson gson = new Gson();
         String datastream = gson.toJson(referral);
@@ -324,7 +380,7 @@ public class PostBoxWatcherService extends JobService {
         return body;
     }
 
-    public RequestBody getAncClientBody(AncClient client){
+    private RequestBody getAncClientBody(AncClient client){
         RequestBody body;
         Gson gson = new Gson();
         String datastream = gson.toJson(client);
@@ -333,13 +389,17 @@ public class PostBoxWatcherService extends JobService {
         return body;
     }
 
-    public RequestBody getPncClientBody(PncClient client){
+    private RequestBody getPncClientBody(PncClient client){
         RequestBody body;
         String datastream = "";
         Gson gson = new Gson();
         datastream = gson.toJson(client);
         body = RequestBody.create(MediaType.parse("application/json"), datastream);
         return body;
+    }*/
+
+    private RequestBody getRequestBody (Object type){
+        return RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(type));
     }
 
     class PostPncWrapper{
@@ -399,6 +459,37 @@ public class PostBoxWatcherService extends JobService {
         }
         public void setClient(AncClient client) {
             this.client = client;
+        }
+    }
+
+    class PostRoutineWrapper{
+        private RoutineResponse response;
+        private PostBox boxItem;
+        private RoutineVisits visit;
+        public PostRoutineWrapper(){}
+
+        public RoutineResponse getResponse() {
+            return response;
+        }
+
+        public void setResponse(RoutineResponse response) {
+            this.response = response;
+        }
+
+        public PostBox getBoxItem() {
+            return boxItem;
+        }
+
+        public void setBoxItem(PostBox boxItem) {
+            this.boxItem = boxItem;
+        }
+
+        public RoutineVisits getVisit() {
+            return visit;
+        }
+
+        public void setVisit(RoutineVisits visit) {
+            this.visit = visit;
         }
     }
 
