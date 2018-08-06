@@ -374,7 +374,7 @@ public class MainActivity extends BaseActivity {
 
     private void postAncClient (AncClient client, PostBox postBoxData){
         //Send to Server
-        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(client));
+        Call<RegistrationResponse> call = clientService.postAncClient(getRequestBody(client));
         call.enqueue(new Callback<RegistrationResponse>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -410,7 +410,7 @@ public class MainActivity extends BaseActivity {
                             }
 
                             //Delete postBox entry
-                            database.postBoxModelDao().deletePostItem(wrapper.boxItem);
+                            database.postBoxModelDao().deletePostItem(mWrapper.getBoxItem());
 
                             //Delete the old Client registered with a temporary ID
                             database.clientModel().deleteAClient(oldClientObject);
@@ -440,7 +440,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void postPncClient(PncClient client, PostBox postBox){
-        Call<PncClientPostResponce> call = clientService.postPncClient(getPncClientBody(client));
+        Call<PncClientPostResponce> call = clientService.postPncClient(getRequestBody(client));
         call.enqueue(new Callback<PncClientPostResponce>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -448,7 +448,6 @@ public class MainActivity extends BaseActivity {
                 if (response != null){
 
                     PncClientPostResponce pncClientPostResponce = response.body();
-
 
                     //Wrap response and postBox data together to pass to the background class
                     PostPncWrapper postPncWrapper = new PostPncWrapper();
@@ -507,7 +506,7 @@ public class MainActivity extends BaseActivity {
 
     private void postRoutineData(RoutineVisits routineVisits, PostBox postBox){
 
-        Call<RoutineResponse> call = routineService.saveRoutineVisit(getRoutineBody(routineVisits));
+        Call<RoutineResponse> call = routineService.saveRoutineVisit(getRequestBody(routineVisits));
         call.enqueue(new Callback<RoutineResponse>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -569,95 +568,5 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    class PostPncWrapper{
-
-        PncClientPostResponce responce;
-
-        PostBox postBox;
-
-        PncClient oldPncClient;
-
-        public PostPncWrapper(){}
-
-        public PncClientPostResponce getResponce() {
-            return responce;
-        }
-
-        public void setResponce(PncClientPostResponce responce) {
-            this.responce = responce;
-        }
-
-        public PostBox getPostBox() {
-            return postBox;
-        }
-
-        public void setPostBox(PostBox postBox) {
-            this.postBox = postBox;
-        }
-
-        public PncClient getOldPncClient() {
-            return oldPncClient;
-        }
-
-        public void setOldPncClient(PncClient oldPncClient) {
-            this.oldPncClient = oldPncClient;
-        }
-    }
-
-    class PostAncWrapper{
-        private RegistrationResponse response;
-        private PostBox boxItem;
-        private AncClient client;
-        public PostAncWrapper(){ }
-        public RegistrationResponse getResponse() {
-            return response;
-        }
-        public void setResponse(RegistrationResponse response) {
-            this.response = response;
-        }
-        public PostBox getBoxItem() {
-            return boxItem;
-        }
-        public void setBoxItem(PostBox boxItem) {
-            this.boxItem = boxItem;
-        }
-        public AncClient getClient() {
-            return client;
-        }
-        public void setClient(AncClient client) {
-            this.client = client;
-        }
-    }
-
-    class PostRoutineWrapper{
-        private RoutineResponse response;
-        private PostBox postBox;
-        private RoutineVisits oldRoutineVisit;
-        public PostRoutineWrapper(){}
-
-        public RoutineResponse getResponse() {
-            return response;
-        }
-
-        public void setResponse(RoutineResponse response) {
-            this.response = response;
-        }
-
-        public PostBox getPostBox() {
-            return postBox;
-        }
-
-        public void setPostBox(PostBox postBox) {
-            this.postBox = postBox;
-        }
-
-        public RoutineVisits getOldRoutineVisit() {
-            return oldRoutineVisit;
-        }
-
-        public void setOldRoutineVisit(RoutineVisits oldRoutineVisit) {
-            this.oldRoutineVisit = oldRoutineVisit;
-        }
-    }
 
 }

@@ -476,7 +476,7 @@ public class AncRoutineActivity extends BaseActivity {
                 protected void onPostExecute(Void aVoid) {
                     super.onPostExecute(aVoid);
 
-                    Call<RoutineResponse> call = routineService.saveRoutineVisit(getRoutineBody(routineVisits));
+                    Call<RoutineResponse> call = routineService.saveRoutineVisit(getRequestBody(routineVisits));
                     call.enqueue(new Callback<RoutineResponse>() {
                         @Override
                         public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {

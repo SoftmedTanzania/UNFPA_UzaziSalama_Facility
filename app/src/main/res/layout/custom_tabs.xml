@@ -24,8 +24,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:textStyle="bold"
-            android:textColor="@color/card_title_text"
-            android:fontFamily="@font/avenir_light"
+            android:textColor="@color/card_grid_tex"
+            android:fontFamily="@font/google_sans_bold"
             android:id="@+id/title_text"
             android:text="Home"/>
 

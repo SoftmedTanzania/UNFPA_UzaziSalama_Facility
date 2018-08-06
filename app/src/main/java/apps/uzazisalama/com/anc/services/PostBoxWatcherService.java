@@ -57,6 +57,8 @@ import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ROUTINE_VIS
 
 public class PostBoxWatcherService extends JobService {
 
+    private final String TAG = PostBoxWatcherService.class.getSimpleName();
+
     private Endpoints.ClientService clientService;
     private Endpoints.RoutineServices routineService;
     private Endpoints.ReferralService referralService;
@@ -310,6 +312,8 @@ public class PostBoxWatcherService extends JobService {
                 if (response != null){
                     RoutineResponse routineResponse = response.body();
 
+                    Log.d("POSTBOXSERVICE", "Routine Data response = "+new Gson().toJson(routineResponse));
+
                     //Wrap objects to send to a background thread
                     PostRoutineWrapper wrapper = new PostRoutineWrapper();
                     wrapper.setResponse(routineResponse);
@@ -323,23 +327,28 @@ public class PostBoxWatcherService extends JobService {
 
                             //Unpack the objects from the wrapper
                             RoutineResponse mResponse = mWrapper.getResponse();
-                            RoutineVisits mVisit = mResponse.getRoutineVisits();
-                            List<ClientAppointment> mAppointments = mResponse.getAppointments();
-                            RoutineVisits oldRoutineVisit = mWrapper.getVisit();
 
-                            //Store the received Routine Visit to the database
-                            database.routineModelDao().addRoutine(mVisit);
+                            if (mResponse != null){
+                                RoutineVisits mVisit = mResponse.getRoutineVisits();
+                                List<ClientAppointment> mAppointments = mResponse.getAppointments();
+                                RoutineVisits oldRoutineVisit = mWrapper.getVisit();
 
-                            //Store the received appointments to the database
-                            for (ClientAppointment a : mAppointments){
-                                database.clientAppointmentDao().addNewAppointment(a);
+                                //Store the received Routine Visit to the database
+                                database.routineModelDao().addRoutine(mVisit);
+
+                                //Store the received appointments to the database
+                                for (ClientAppointment a : mAppointments){
+                                    database.clientAppointmentDao().addNewAppointment(a);
+                                }
+
+                                //Delete the old routine visit with temporary ID
+                                database.routineModelDao().deleteRoutine(oldRoutineVisit);
+
+                                //Delete the postBoxEntry
+                                database.postBoxModelDao().deletePostItem(mWrapper.boxItem);
+                            }else {
+                                //Received null response from the server
                             }
-
-                            //Delete the old routine visit with temporary ID
-                            database.routineModelDao().deleteRoutine(oldRoutineVisit);
-
-                            //Delete the postBoxEntry
-                            database.postBoxModelDao().deletePostItem(mWrapper.boxItem);
 
                             return null;
                         }
@@ -348,7 +357,7 @@ public class PostBoxWatcherService extends JobService {
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
                         }
-                    }.execute();
+                    }.execute(wrapper);
                 }
             }
 
@@ -399,6 +408,7 @@ public class PostBoxWatcherService extends JobService {
     }*/
 
     private RequestBody getRequestBody (Object type){
+        Log.d(TAG, "Request Body : "+new Gson().toJson(type));
         return RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(type));
     }
 

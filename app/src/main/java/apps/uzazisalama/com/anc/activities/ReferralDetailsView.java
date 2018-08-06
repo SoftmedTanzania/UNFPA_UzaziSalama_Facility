@@ -131,7 +131,7 @@ public class ReferralDetailsView extends BaseActivity {
                 currentReferral.setReferralFeedback("Client has been enrolled to the clinic");
                 currentReferral.setReferralStatus(1);
 
-                Call<String> call = referralService.postReferralFeedback(getReferralFeedbackBody(currentReferral));
+                Call<String> call = referralService.postReferralFeedback(getRequestBody(currentReferral));
                 call.enqueue(new Callback<String>() {
                     @SuppressLint("StaticFieldLeak")
                     @Override

@@ -1,6 +1,9 @@
 package apps.uzazisalama.com.anc.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,13 +19,29 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
+import apps.uzazisalama.com.anc.MainActivity;
 import apps.uzazisalama.com.anc.R;
+import apps.uzazisalama.com.anc.api.Endpoints;
 import apps.uzazisalama.com.anc.base.AppDatabase;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.database.PostBox;
+import apps.uzazisalama.com.anc.database.RoutineVisits;
+import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
+import apps.uzazisalama.com.anc.objects.RegistrationResponse;
+import apps.uzazisalama.com.anc.utils.ServiceGenerator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ANC_CLIENT;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_PNC_CLIENT;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_DATA_UNSYNCED;
 
 /**
  * Created by issy on 18/05/2018.
@@ -50,6 +69,8 @@ public class PncClientDetailActivity extends BaseActivity {
     boolean misscarriageValue;
     int deliveryMethodValue, deliveryComplicationsValue, motherDischargedConditionValue, childPlaceOfBirth;
 
+    private Endpoints.ClientService clientService;
+
     AncClient currentAncClient;
     PncClient createdPncClient;
 
@@ -63,6 +84,11 @@ public class PncClientDetailActivity extends BaseActivity {
             currentAncClient = (AncClient) getIntent().getSerializableExtra("currentAncClient");
             displayClientInformation(currentAncClient);
         }
+
+        clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
+                session.getUserName(),
+                session.getUserPass(),
+                session.getKeyHfid());
 
         dateOfDeliveryEt.setFocusableInTouchMode(false);
         dateOfAdmissionEt.setFocusableInTouchMode(false);
@@ -223,6 +249,12 @@ public class PncClientDetailActivity extends BaseActivity {
     boolean createPncClientObject(){
 
         createdPncClient = new PncClient();
+
+        long range = 1234567L;
+        Random r = new Random();
+        long number = (long)(r.nextDouble()*range);
+        createdPncClient.setPncClientID(String.valueOf(number));
+
         createdPncClient.setHealthFacilityClientID(currentAncClient.getHealthFacilityClientId());
         createdPncClient.setPncClientID(UUID.randomUUID().toString());
         if (dateOfAdmissionValue == 0){
@@ -254,18 +286,117 @@ public class PncClientDetailActivity extends BaseActivity {
 
     @SuppressLint("StaticFieldLeak")
     void savePncClientObject(PncClient client){
-        new AsyncTask<Void, Void, Void>(){
+
+        if (isNetworkAvailable()){
+            //Post to Server
+        }else {
+            //Save Locally
+        }
+    }
+
+    /**
+     * Method to Save the created PncClient to Server if the internet connection is available
+     * @param client
+     */
+    private void postPncClient(PncClient client){
+        Call<PncClientPostResponce> call = clientService.postPncClient(getRequestBody(client));
+        call.enqueue(new Callback<PncClientPostResponce>() {
+            @SuppressLint("StaticFieldLeak")
+            @Override
+            public void onResponse(Call<PncClientPostResponce> call, Response<PncClientPostResponce> response) {
+                if (response != null){
+
+                    PncClientPostResponce pncClientPostResponce = response.body();
+
+                    //Wrap response and postBox data together to pass to the background class
+                    PostPncWrapper postPncWrapper = new PostPncWrapper();
+                    postPncWrapper.setResponce(pncClientPostResponce);
+                    postPncWrapper.setOldPncClient(client);
+
+                    new AsyncTask<PostPncWrapper, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(PostPncWrapper... wrappers) {
+                            PostPncWrapper wrapper = wrappers[0];
+
+                            //Unpack the objects from the wrapper
+                            PncClientPostResponce response = wrapper.getResponce();
+                            PncClient receivedClient = response.getPncClient();
+                            AncClient receivedAncClient = response.getAncClient();
+                            List<RoutineVisits> visits = response.getRoutineVisits();
+                            PncClient oldPncClient = wrapper.getOldPncClient();
+
+                            //Save the newly registered client in the database
+                            database.pncClientModelDao().addNewClient(receivedClient);
+
+                            //Save the corresponding ANC client to the database (CONTRACT - Replace if exists)
+                            database.clientModel().addNewClient(receivedAncClient);
+
+                            //Save received client routines (CONTRACT -> Replace if exists)
+                            for (RoutineVisits v : visits){
+                                database.routineModelDao().addRoutine(v);
+                            }
+
+                            //Delete the old PncClient registered with a temporary ID
+                            database.pncClientModelDao().deleteAClient(oldPncClient);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            toastMessage("Client Created Successfully");
+                            finish();
+                        }
+                    }.execute(postPncWrapper);
+
+                }else {
+                    //Response from the server is null. Assumption is the obeject has not been saved on the server -> save is locally
+                    savePncClientLocally(client);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PncClientPostResponce> call, Throwable t) {
+                //Call to server failed -> Save client locally
+                savePncClientLocally(client);
+            }
+        });
+    }
+
+    private void updateCorrespondingAncClient(AncClient client){
+
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    void savePncClientLocally(PncClient client){
+        new AsyncTask<PncClient, Void, Void>(){
 
             AppDatabase db = database;
 
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(PncClient... clients) {
                 //Saving the newly created PNC client to the database
-                db.pncClientModelDao().addNewClient(client);
+                PncClient pncClient = clients[0];
+                db.pncClientModelDao().addNewClient(pncClient);
+
+                //Save postBox Item corresponding to the PNC client
+                PostBox pncPostBox = new PostBox();
+                pncPostBox.setPostBoxId(pncClient.getPncClientID());
+                pncPostBox.setPostDataType(POST_BOX_DATA_PNC_CLIENT);
+                pncPostBox.setSyncStatus(POST_DATA_UNSYNCED);
+                db.postBoxModelDao().AddNewPost(pncPostBox);
 
                 //Updating the ANC client type to 2 = PNC Client
                 currentAncClient.setClientType(2);
                 db.clientModel().updateClient(currentAncClient);
+
+                //Save postBox item corresponding to the Updated Anc Client
+                PostBox ancPostBox = new PostBox();
+                ancPostBox.setPostBoxId(String.valueOf(currentAncClient.getHealthFacilityClientId()));
+                ancPostBox.setPostDataType(POST_BOX_DATA_ANC_CLIENT);
+                ancPostBox.setSyncStatus(POST_DATA_UNSYNCED);
+                db.postBoxModelDao().AddNewPost(ancPostBox);
 
                 return null;
             }
@@ -325,5 +456,13 @@ public class PncClientDetailActivity extends BaseActivity {
     void toastMessage(String mess){
         Toast.makeText(this, mess, Toast.LENGTH_LONG).show();
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 
 }

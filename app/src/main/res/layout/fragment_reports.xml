@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@color/card_separator_sec"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
@@ -37,13 +37,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="Registered Pregnant Women"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/google_sans_regular"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 
@@ -70,13 +70,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="Womens Attending First ANC"
                     android:layout_centerInParent="true"
                     android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/google_sans_regular"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 
@@ -103,13 +103,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="ANC Visit at 12th Week and Before"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/google_sans_regular"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 
@@ -152,13 +152,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="Women Attending Four or More times"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/google_sans_regular"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 
@@ -185,13 +185,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="All Women Delivering at the Facility"
                     android:layout_centerInParent="true"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:fontFamily="@font/google_sans_regular"/>
+                    android:fontFamily="@font/google_sans_bold"/>
 
             </RelativeLayout>
 
@@ -219,7 +219,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/card_grid_text"
                     android:text="Women Diagnosed with Any of the Danger Signs"
                     android:layout_centerInParent="true"
                     android:gravity="center"

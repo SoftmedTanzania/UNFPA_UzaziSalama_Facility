@@ -20,8 +20,12 @@ import java.text.SimpleDateFormat;
 
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.database.PostBox;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
+import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
+import apps.uzazisalama.com.anc.objects.RegistrationResponse;
+import apps.uzazisalama.com.anc.objects.RoutineResponse;
 import apps.uzazisalama.com.anc.utils.SessionManager;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -34,6 +38,8 @@ import okhttp3.RequestBody;
  */
 
 public abstract class BaseActivity extends AppCompatActivity{
+
+    private final String TAG = BaseActivity.class.getSimpleName();
 
     //This is the base activity to be subclassed by all activities created on the application
 
@@ -53,6 +59,103 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     }
 
+    public RequestBody getRequestBody (Object type){
+        Log.d(TAG, "Request Body : "+new Gson().toJson(type));
+        return RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(type));
+    }
+
+    public class PostPncWrapper{
+
+        PncClientPostResponce responce;
+
+        PostBox postBox;
+
+        PncClient oldPncClient;
+
+        public PostPncWrapper(){}
+
+        public PncClientPostResponce getResponce() {
+            return responce;
+        }
+
+        public void setResponce(PncClientPostResponce responce) {
+            this.responce = responce;
+        }
+
+        public PostBox getPostBox() {
+            return postBox;
+        }
+
+        public void setPostBox(PostBox postBox) {
+            this.postBox = postBox;
+        }
+
+        public PncClient getOldPncClient() {
+            return oldPncClient;
+        }
+
+        public void setOldPncClient(PncClient oldPncClient) {
+            this.oldPncClient = oldPncClient;
+        }
+    }
+
+    public class PostAncWrapper{
+        private RegistrationResponse response;
+        private PostBox boxItem;
+        private AncClient client;
+        public PostAncWrapper(){ }
+        public RegistrationResponse getResponse() {
+            return response;
+        }
+        public void setResponse(RegistrationResponse response) {
+            this.response = response;
+        }
+        public PostBox getBoxItem() {
+            return boxItem;
+        }
+        public void setBoxItem(PostBox boxItem) {
+            this.boxItem = boxItem;
+        }
+        public AncClient getClient() {
+            return client;
+        }
+        public void setClient(AncClient client) {
+            this.client = client;
+        }
+    }
+
+    public class PostRoutineWrapper{
+        private RoutineResponse response;
+        private PostBox postBox;
+        private RoutineVisits oldRoutineVisit;
+        public PostRoutineWrapper(){}
+
+        public RoutineResponse getResponse() {
+            return response;
+        }
+
+        public void setResponse(RoutineResponse response) {
+            this.response = response;
+        }
+
+        public PostBox getPostBox() {
+            return postBox;
+        }
+
+        public void setPostBox(PostBox postBox) {
+            this.postBox = postBox;
+        }
+
+        public RoutineVisits getOldRoutineVisit() {
+            return oldRoutineVisit;
+        }
+
+        public void setOldRoutineVisit(RoutineVisits oldRoutineVisit) {
+            this.oldRoutineVisit = oldRoutineVisit;
+        }
+    }
+
+    /*
     public RequestBody getRoutineBody(RoutineVisits visits){
         RequestBody body;
         Gson gson  = new Gson();
@@ -85,5 +188,6 @@ public abstract class BaseActivity extends AppCompatActivity{
         body = RequestBody.create(MediaType.parse("application/json"), datastream);
         return body;
     }
+    */
 
 }

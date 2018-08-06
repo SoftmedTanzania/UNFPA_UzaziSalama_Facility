@@ -512,7 +512,7 @@ public class ClientRegisterActivity extends BaseActivity {
 
     private void sendClientToServer(AncClient client, View view){
         //Send to Server
-        Call<RegistrationResponse> call = clientService.postAncClient(getAncClientBody(client));
+        Call<RegistrationResponse> call = clientService.postAncClient(getRequestBody(client));
         call.enqueue(new Callback<RegistrationResponse>() {
             @SuppressLint("StaticFieldLeak")
             @Override
