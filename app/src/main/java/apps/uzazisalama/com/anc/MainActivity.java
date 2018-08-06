@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
         if (session.isLoggedIn()){
             TextView userName = findViewById(R.id.toolbar_user_name);
             userName.setText(session.getUserName());
-            facilityName.setText(session.getKeyHfid());
+            facilityName.setText(session.getKeyHealthFacilityName());
         }
 
         LiveData<Integer> postBoxSize = database.postBoxModelDao().getBoxSize();

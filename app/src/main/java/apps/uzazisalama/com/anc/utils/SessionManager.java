@@ -54,6 +54,7 @@ public class SessionManager {
     //Change this
     public static final String USER_PASS = "userPassword";
 
+    public static final String KEY_FACILITY_NAME = "facilityName";
 
     public static boolean sessionActive = false;
 
@@ -61,7 +62,7 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String name, String personUUID, String pass, String health_facility_uuid){
+    public void createLoginSession(String name, String personUUID, String pass, String health_facility_uuid, String facilityName){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -76,6 +77,8 @@ public class SessionManager {
 
         //Storing health Facility ID
         editor.putString(KEY_HFID, health_facility_uuid);
+
+        editor.putString(KEY_FACILITY_NAME, facilityName);
 
         // commit changes
         editor.commit();
@@ -99,6 +102,8 @@ public class SessionManager {
     public String getServiceProviderUUID(){
         return pref.getString(KEY_UUID, null);
     }
+
+    public String getKeyHealthFacilityName () {return pref.getString(KEY_FACILITY_NAME, "");}
 
     public String getKeyHfid(){
         return pref.getString(KEY_HFID, null );

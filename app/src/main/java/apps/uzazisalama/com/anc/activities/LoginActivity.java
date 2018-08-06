@@ -139,6 +139,7 @@ public class LoginActivity extends BaseActivity {
                         String userName = loginResponse.getUser().getUsername();
                         String userUUID = loginResponse.getUser().getAttributes().getPersonUUID();
                         String facilityUUID = loginResponse.getTeam().getTeam().getLocation().getUuid();
+                        String facilityName = loginResponse.getTeam().getTeam().getLocation().getName();
 
                         Log.d("facilityID", facilityUUID);
 
@@ -146,7 +147,8 @@ public class LoginActivity extends BaseActivity {
                                 userName,
                                 userUUID,
                                 passwordValue,
-                                facilityUUID);
+                                facilityUUID,
+                                facilityName);
 
                         referalService = ServiceGenerator.createService(Endpoints.ReferralService.class, session.getUserName(), session.getUserPass(), session.getKeyHfid());
                         clientService = ServiceGenerator.createService(Endpoints.ClientService.class, session.getUserName(), session.getUserPass(), session.getKeyHfid());
