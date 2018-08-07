@@ -75,6 +75,7 @@ public class MainActivity extends BaseActivity {
     private Endpoints.RoutineServices routineService;
     private Endpoints.ReferralService referralService;
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,13 +94,15 @@ public class MainActivity extends BaseActivity {
             facilityName.setText(session.getKeyHealthFacilityName());
         }
 
-        LiveData<Integer> postBoxSize = database.postBoxModelDao().getBoxSize();
-        postBoxSize.observe(this, new Observer<Integer>() {
+        new AsyncTask<Void, Void, Void>(){
             @Override
-            public void onChanged(@Nullable Integer integer) {
-                Log.d("heavy", "Post Box Size = "+integer);
+            protected Void doInBackground(Void... voids) {
+                List<PostBox> x = database.postBoxModelDao().getAllPostBoxEntries();
+                Log.d("heavy", "Box size : "+x.size());
+                Log.d("heavy", "Entry : "+x.get(0).getPostDataType());
+                return null;
             }
-        });
+        }.execute();
 
         dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
         clientService = ServiceGenerator.createService(Endpoints.ClientService.class,
@@ -337,6 +340,7 @@ public class MainActivity extends BaseActivity {
                                      *  Post data to server and delete it if successfully stored to server
                                      */
                                     RoutineVisits routineVisits = database.routineModelDao().getRoutineById(Long.parseLong(item.getPostBoxId()));
+                                    Log.d("heavy", "Routine Found ID : "+routineVisits == null?"NOTHING": routineVisits.getID()+"" );
                                     if (routineVisits != null){
                                         postRoutineData(routineVisits, item);
                                     }
@@ -511,6 +515,8 @@ public class MainActivity extends BaseActivity {
             @SuppressLint("StaticFieldLeak")
             @Override
             public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
+
+                Log.d("heavy", "Received Response from the server "+new Gson().toJson(response.body()));
 
                 RoutineResponse routineResponse = response.body();
                 if (routineResponse != null){
