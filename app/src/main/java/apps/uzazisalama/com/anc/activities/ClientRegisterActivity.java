@@ -66,7 +66,7 @@ public class ClientRegisterActivity extends BaseActivity {
     Toolbar clientsRegisterToolbar;
     MaterialSpinner gestationalAgeSpinner, heightSpinner, levelOfEducationSpinner, pmtctStatusSpinner, lastChildBirthYearSpinner, lastChildBirthStatusSpinner, familyPlanningMethodSpinner;
     EditText firstName, middleName, surname, dateOfBirth, phoneNumber, village, gravidaEt, paraEt, spauseName;
-    EditText dateOfLNMP, dateOfDelivery, lastChildBirthYearEt;
+    EditText dateOfLNMP, dateOfDelivery, lastChildBirthYearEt, ancNumberEt;
     CircleCheckBox historyOfAbortionYes, historyOfAbortionNo, ageBelow20Yes, ageBelow20No, lastPregnancy10YearsYes, lastPregnancy10YearsNo, usesFamilyPlanningNo, usesFamilyPlanningYes;
     CircleCheckBox pregnancyWithMoreThan35YearsYes, pregnancyWithMoreThan35YearsNo, historyOfStillBirthYes, historyOfStillBirthNo, historyOfPostmartumYes, historyOfPostmartumNo;
     CircleCheckBox historyOfRetainedPlacentaYes, historyOfRetainedPlacentaNo;
@@ -77,7 +77,7 @@ public class ClientRegisterActivity extends BaseActivity {
     TextView saveClientText;
 
     //ValueHolders
-    String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue;
+    String fnameValue, mnameValue, lnameValue, dobValue, phoneValue, villageValue, spauseNameValue, cardNumber;
     int gravidaValue, paraValue, lastChildBirthStatus, lastChildBirthYear;
     boolean historyOfAbortion, ageBelow20, lastPregnancy10Years, pregnancyWithMoreThan35Years, historyOfStillBirths, historyOfPostmartum, historyOfRetainedPlacenta;
     boolean gestationalAgeBelow12Weeks = true;
@@ -460,10 +460,12 @@ public class ClientRegisterActivity extends BaseActivity {
         dobValue = dateOfBirth.getText().toString();
         phoneValue = phoneNumber.getText().toString();
         villageValue = village.getText().toString();
+        cardNumber = ancNumberEt.getText().toString();
         gravidaValue = Integer.parseInt(gravidaEt.getText().toString());
         paraValue = Integer.parseInt(paraEt.getText().toString());
         spauseNameValue = spauseName.getText().toString();
         lastChildBirthYear = lastChildBirthYearEt.getText().toString().isEmpty()? 0 : Integer.parseInt(lastChildBirthYearEt.getText().toString());
+
 
         return true;
     }
@@ -488,6 +490,7 @@ public class ClientRegisterActivity extends BaseActivity {
         ancClient.setSpouseName(spauseNameValue);
         ancClient.setLnmp(dateOfLNMPValue);
         ancClient.setEdd(dateOfDeliveryValue);
+        ancClient.setCardNumber(cardNumber);
         ancClient.setLastChildBirthStatus(lastChildBirthStatus);
         ancClient.setLastChildBirthYear(lastChildBirthYear);
         ancClient.setClientType(1);
@@ -758,6 +761,7 @@ public class ClientRegisterActivity extends BaseActivity {
         dateOfDelivery = findViewById(R.id.date_of_delivery);
         dateOfDelivery.setFocusableInTouchMode(false); //Prevent Soft keyboard when user clicks and open up a date picker
         lastChildBirthYearEt = findViewById(R.id.last_child_birth_year_et);
+        ancNumberEt = findViewById(R.id.anc_number);
 
         //CircleCheckBox
         historyOfAbortionYes = findViewById(R.id.history_of_abortion_yes_checkbox);
