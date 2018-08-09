@@ -98,8 +98,10 @@ public class MainActivity extends BaseActivity {
             @Override
             protected Void doInBackground(Void... voids) {
                 List<PostBox> x = database.postBoxModelDao().getAllPostBoxEntries();
-                Log.d("heavy", "Box size : "+x.size());
-                Log.d("heavy", "Entry : "+x.get(0).getPostDataType());
+                if (x.size() > 0){
+                    Log.d("heavy", "Box size : "+x.size());
+                    Log.d("heavy", "Entry : "+x.get(0).getPostDataType());
+                }
                 return null;
             }
         }.execute();
@@ -306,54 +308,77 @@ public class MainActivity extends BaseActivity {
                  *  Hide loader
                  */
                 if (postBoxList.size() > 0){
-                    for (PostBox item : postBoxList){
-                        int dataType = item.getPostDataType();
-                        switch (dataType){
-                            case POST_BOX_DATA_ANC_CLIENT:
-                                //Anc Client
-                                if (isNetworkAvailable()){
-                                    /**
-                                     *  Post data to server and delete it if successfully stored to server
-                                     */
-                                    AncClient client = database.clientModel().getClientById(Long.parseLong(item.getPostBoxId()));
-                                    if (client != null){
-                                        postAncClient(client, item);
-                                    }
-                                }
-                                break;
-                            case POST_BOX_DATA_PNC_CLIENT:
-                                //Pnc Client
-                                if (isNetworkAvailable()){
-                                    /**
-                                     *  Post data to server and delete it if successfully stored to server
-                                     */
-                                    PncClient client = database.pncClientModelDao().getClientByID(item.getPostBoxId());
-                                    if (client != null){
-                                        postPncClient(client, item);
-                                    }
-                                }
-                                break;
-                            case POST_BOX_DATA_ROUTINE_VISIT:
-                                //Routine Visit
-                                if (isNetworkAvailable()){
-                                    /**
-                                     *  Post data to server and delete it if successfully stored to server
-                                     */
-                                    RoutineVisits routineVisits = database.routineModelDao().getRoutineById(Long.parseLong(item.getPostBoxId()));
-                                    Log.d("heavy", "Routine Found ID : "+routineVisits == null?"NOTHING": routineVisits.getID()+"" );
-                                    if (routineVisits != null){
-                                        postRoutineData(routineVisits, item);
-                                    }
-                                }
-                                break;
-                            case POST_BOX_DATA_APPOINTMENT:
-                                //Client Appointments
-                                break;
-                            default:
-                                //Nothing
+
+                    /**
+                     * Loop through the postBox data and separate per dataType
+                     *      Sync in the following order
+                     *      1. Clients
+                     *      2. Appointments
+                     *      3. Routines
+                     *      4. Referrals
+                     */
+                    List<PostBox> ancClientsPb = new ArrayList<>();
+                    List<PostBox> pncClientsPb = new ArrayList<>();
+                    List<PostBox> appointmentsPb = new ArrayList<>();
+                    List<PostBox> routinesPb = new ArrayList<>();
+                    List<PostBox> referralsPb = new ArrayList<>();
+                    for (PostBox pb : postBoxList){
+                        if (pb.getPostDataType() == POST_BOX_DATA_ANC_CLIENT){
+                            ancClientsPb.add(pb);
+                        } else if (pb.getPostDataType() == POST_BOX_DATA_PNC_CLIENT){
+                            pncClientsPb.add(pb);
+                        }else if (pb.getPostDataType() == POST_BOX_DATA_APPOINTMENT){
+                            appointmentsPb.add(pb);
+                        }else if (pb.getPostDataType() == POST_BOX_DATA_ROUTINE_VISIT){
+                            routinesPb.add(pb);
                         }
                     }
 
+
+                    //Post All ANC clients first
+                    for (PostBox postBox : ancClientsPb){
+                        if (isNetworkAvailable()){
+                            /**
+                             *  Post data to server and delete it if successfully stored to server
+                             */
+                            AncClient client = database.clientModel().getClientById(Long.parseLong(postBox.getPostBoxId()));
+                            if (client != null){
+                                postAncClient(client, postBox);
+                            }
+                        }
+                    }
+
+                    //Post all PNC clients
+                    for (PostBox postBox : pncClientsPb){
+                        if (isNetworkAvailable()){
+                            /**
+                             *  Post data to server and delete it if successfully stored to server
+                             */
+                            PncClient client = database.pncClientModelDao().getClientByID(postBox.getPostBoxId());
+                            if (client != null){
+                                postPncClient(client, postBox);
+                            }
+                        }
+                    }
+
+                    //Post all client appointments after posting the clients
+                    for (PostBox postBox : appointmentsPb){
+                        //post all appointments if present
+                    }
+
+                    //Post all routine details after clients and appointments have been posted
+                    for (PostBox postBox : routinesPb){
+                        if (isNetworkAvailable()){
+                            /**
+                             *  Post data to server and delete it if successfully stored to server
+                             */
+                            RoutineVisits routineVisits = database.routineModelDao().getRoutineById(Long.parseLong(postBox.getPostBoxId()));
+                            Log.d("heavy", "Routine Found ID : "+routineVisits == null?"NOTHING": routineVisits.getID()+"" );
+                            if (routineVisits != null){
+                                postRoutineData(routineVisits, postBox);
+                            }
+                        }
+                    }
                 }
                 return null;
             }
@@ -509,6 +534,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void postRoutineData(RoutineVisits routineVisits, PostBox postBox){
+
+
+        Log.d("heavy", "posting Routine data");
 
         Call<RoutineResponse> call = routineService.saveRoutineVisit(getRequestBody(routineVisits));
         call.enqueue(new Callback<RoutineResponse>() {

@@ -552,6 +552,18 @@ public class AncRoutineActivity extends BaseActivity {
 
                 @Override
                 protected Void doInBackground(Void... voids) {
+
+                    List<ClientAppointment> list = database.clientAppointmentDao().getAppointmentsByClientId(
+                            routineVisits.getHealthFacilityClientId());
+                    ClientAppointment visitAppointment = new ClientAppointment();
+                    for (ClientAppointment a : list){
+                        if (a.getVisitNumber() == routineVisits.getVisitNumber()){
+                            visitAppointment = a;
+                            routineVisits.setAppointmentID(visitAppointment.getAppointmentID());
+                            routineVisits.setAppointmentDate(visitAppointment.getAppointmentDate());
+                        }
+                    }
+
                     db.routineModelDao().addRoutine(routineVisits);
 
                     PostBox postBox = new PostBox();

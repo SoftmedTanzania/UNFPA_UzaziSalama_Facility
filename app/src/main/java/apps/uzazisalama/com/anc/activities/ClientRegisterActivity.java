@@ -498,6 +498,8 @@ public class ClientRegisterActivity extends BaseActivity {
         Date today  = new Date();
         ancClient.setCreatedAt(today.getTime());
 
+        //Create sample appointment
+
         if (isNetworkAvailable()){
             //ShowProgressView
             saveClientProgress.setVisibility(View.VISIBLE);
@@ -590,8 +592,27 @@ public class ClientRegisterActivity extends BaseActivity {
             @Override
             protected Void doInBackground(AncClient... clients) {
 
+
+                //Save the client object to the database
                 AncClient mClient  = clients[0];
                 database.clientModel().addNewClient(mClient);
+
+                //Create an appointment for today
+                ClientAppointment todayAppointment = new ClientAppointment();
+                todayAppointment.setAppointmentDate(Calendar.getInstance().getTimeInMillis());
+                todayAppointment.setAppointmentType(1);
+                todayAppointment.setCancelled(false);
+                todayAppointment.setHealthFacilityClientId(mClient.getHealthFacilityClientId());
+                todayAppointment.setVisitNumber(1);
+                todayAppointment.setStatus("");
+
+                long range = 1234567L;
+                Random r = new Random();
+                long number = (long)(r.nextDouble()*range);
+                todayAppointment.setAppointmentID(number);
+
+                //Save the created temporary appointment
+                database.clientAppointmentDao().addNewAppointment(todayAppointment);
 
                 Log.d("heavy", "Saved a client with ID "+mClient.getHealthFacilityClientId());
 
