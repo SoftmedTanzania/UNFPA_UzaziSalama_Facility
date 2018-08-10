@@ -99,14 +99,6 @@ public class AncClient implements Serializable{
     private boolean historyOfRetainedPlacenta;
 
     /**
-     *  0 -> None
-     *  1 -> Condoms
-     *  2 -> Pills
-     *  3 -> Calendar
-     */
-    private int familyPlanningMethod;
-
-    /**
      *  0 -> general
      *  1 -> ANC
      *  2 -> PNC
@@ -116,6 +108,15 @@ public class AncClient implements Serializable{
 
     @SerializedName("cardNumber")
     private String cardNumber;
+
+    /**
+     * 0 -> Does not use FP Method
+     * 1 -> Condom
+     * 2 -> Birth Control Pills
+     * 3 -> Calendar
+     * .............
+     */
+    private int familyPlanningMethod;
 
     /**
      * Year
