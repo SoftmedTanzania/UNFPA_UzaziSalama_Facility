@@ -4,6 +4,7 @@ import java.util.List;
 
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.database.ReferralServiceIndicators;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
 import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
 import apps.uzazisalama.com.anc.objects.ReferralResponse;
@@ -42,6 +43,9 @@ public class Endpoints {
         @POST("get-facility-pnc-clients/{facilityUUID}")
         Call<List<PncClient>> getPncClients(@Path("facilityUUID") String facilityUUID);
 
+        @GET("get-services-indicators")
+        Call<List<ReferralServiceIndicators>> getServiceIndicators();
+
     }
 
     public interface ReferralService{
@@ -51,8 +55,8 @@ public class Endpoints {
         @POST("receive-feedback")
         Call<String> postReferralFeedback(@Body RequestBody b);
 
-        @POST("save-facility-referral")
-        Call<String> postFacilityReferral(@Body RequestBody b);
+        @POST("/save-facility-referral")
+        Call<String> saveFacilityReferral(@Body RequestBody b);
 
     }
 

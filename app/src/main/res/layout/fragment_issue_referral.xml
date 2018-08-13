@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:padding="32dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/card_title_text"
+            android:fontFamily="@font/google_sans_bold"
+            android:textStyle="bold"
+            android:text="Refer"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:fontFamily="@font/google_sans_bold"
+            android:textColor="@color/card_grid_tex"
+            android:textStyle="bold"
+            android:id="@+id/client_name"
+            android:text="Sample Name"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/card_title_text"
+                android:fontFamily="@font/google_sans_regular"
+                android:text="Referral Reason"/>
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/card_title_text"
+                android:fontFamily="@font/google_sans_regular"
+                android:text="Select Service"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_one"
+                android:padding="2dp"
+                android:visibility="gone">
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/services_indicator_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:ms_arrow_tint="@color/card_grid_tex"
+                    app:ms_text_color="@color/colorPrimary" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_one"
+                android:minLines="4"
+                android:padding="4dp"
+                android:textSize="16sp"
+                android:textColor="@color/card_grid_text"
+                android:textColorHint="@color/card_grid_tex"
+                android:hint="..."
+                android:scrollbars="vertical"
+                android:gravity="start"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border_fill_color_primary"
+                android:id="@+id/btn_send"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:id="@+id/send_text"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:text="Send"/>
+
+                <com.github.rahatarmanahmed.cpv.CircularProgressView
+                    android:id="@+id/progress_view"
+                    android:visibility="invisible"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    app:cpv_animAutostart="true"
+                    app:cpv_indeterminate="true"
+                    app:cpv_color="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border_one"
+                android:layout_centerVertical="true"
+                android:id="@+id/btn_cancel"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/btn_send">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/card_grid_text"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/google_sans_bold"
+                    android:text="Cancel"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

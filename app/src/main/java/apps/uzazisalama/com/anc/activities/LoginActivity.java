@@ -131,8 +131,6 @@ public class LoginActivity extends BaseActivity {
                         Log.d("tag", "response is null");
                     }
 
-                    loginButtonText.setVisibility(View.VISIBLE);
-                    progressView.setVisibility(View.GONE);
                     if (response.isSuccessful()){
                         LoginResponse loginResponse = response.body();
 
@@ -259,6 +257,9 @@ public class LoginActivity extends BaseActivity {
                             protected void onPostExecute(Void aVoid) {
                                 super.onPostExecute(aVoid);
 
+                                loginButtonText.setVisibility(View.VISIBLE);
+                                progressView.setVisibility(View.GONE);
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 startActivity(intent);
@@ -275,6 +276,10 @@ public class LoginActivity extends BaseActivity {
                 }
             });
         }
+    }
+
+    void callServiceIndicators(){
+
     }
 
     void setupviews(){

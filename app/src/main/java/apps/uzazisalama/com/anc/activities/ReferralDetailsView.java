@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.ReferralDetailsBinder;
 import apps.uzazisalama.com.anc.databinding.ReferralDetailsViewBinding;
+import apps.uzazisalama.com.anc.fragments.IssueReferralFragment;
 import apps.uzazisalama.com.anc.utils.ServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +40,7 @@ public class ReferralDetailsView extends BaseActivity {
     Toolbar toolbar;
     TextView names, phone, village, age, spauseName, gravida, para;
     TextView referralDate, referralReasons, otherClinicalInformation;
-    Button enrollClient, forwardReferral;
+    Button enrollClient, issueReferral;
 
     Referral currentReferral;
     /**
@@ -76,6 +78,7 @@ public class ReferralDetailsView extends BaseActivity {
 
         data.setReferralDate(referralDate);
 
+        //Get Client object referred with the current referral
         new AsyncTask<Referral, Void, Void>(){
 
             AncClient client;
@@ -163,11 +166,21 @@ public class ReferralDetailsView extends BaseActivity {
             }
         });
 
+        issueReferral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                IssueReferralFragment issueReferralDialogueFragment = IssueReferralFragment.newInstance(clientZero);
+                issueReferralDialogueFragment.show(fm, "issue_referral");
+            }
+        });
+
     }
 
     void setupview(){
         toolbar = findViewById(R.id.referral_toolbar);
         enrollClient = findViewById(R.id.referral_enroll_button);
+        issueReferral = findViewById(R.id.issue_referral_button);
     }
 
     @SuppressLint("StaticFieldLeak")
