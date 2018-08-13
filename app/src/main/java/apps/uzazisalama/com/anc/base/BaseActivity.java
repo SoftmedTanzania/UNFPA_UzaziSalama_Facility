@@ -39,7 +39,7 @@ import okhttp3.RequestBody;
 
 public abstract class BaseActivity extends AppCompatActivity{
 
-    private final String TAG = BaseActivity.class.getSimpleName();
+    private final static String TAG = BaseActivity.class.getSimpleName();
 
     //This is the base activity to be subclassed by all activities created on the application
 
@@ -59,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     }
 
-    public RequestBody getRequestBody (Object type){
+    public static RequestBody getRequestBody (Object type){
         Log.d(TAG, "Request Body : "+new Gson().toJson(type));
         return RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(type));
     }
@@ -152,6 +152,36 @@ public abstract class BaseActivity extends AppCompatActivity{
 
         public void setOldRoutineVisit(RoutineVisits oldRoutineVisit) {
             this.oldRoutineVisit = oldRoutineVisit;
+        }
+    }
+
+    public class PostReferralWrapper{
+        private Referral referralResponse;
+        private PostBox postBox;
+        private Referral localCopyReferral;
+
+        public Referral getReferralResponse() {
+            return referralResponse;
+        }
+
+        public void setReferralResponse(Referral referralResponse) {
+            this.referralResponse = referralResponse;
+        }
+
+        public PostBox getPostBox() {
+            return postBox;
+        }
+
+        public void setPostBox(PostBox postBox) {
+            this.postBox = postBox;
+        }
+
+        public Referral getLocalCopyReferral() {
+            return localCopyReferral;
+        }
+
+        public void setLocalCopyReferral(Referral localCopyReferral) {
+            this.localCopyReferral = localCopyReferral;
         }
     }
 

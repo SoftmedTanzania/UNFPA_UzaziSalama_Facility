@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
@@ -37,13 +38,16 @@ import java.util.Calendar;
 import java.util.List;
 
 import apps.uzazisalama.com.anc.api.Endpoints;
+import apps.uzazisalama.com.anc.base.AppDatabase;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.ClientAppointment;
 import apps.uzazisalama.com.anc.database.PncClient;
 import apps.uzazisalama.com.anc.database.PostBox;
+import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.RoutineVisits;
 import apps.uzazisalama.com.anc.fragments.AncFragment;
+import apps.uzazisalama.com.anc.fragments.IssueReferralFragment;
 import apps.uzazisalama.com.anc.fragments.PncFragment;
 import apps.uzazisalama.com.anc.fragments.ReportsFragment;
 import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
@@ -59,6 +63,7 @@ import retrofit2.Response;
 import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ANC_CLIENT;
 import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_APPOINTMENT;
 import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_PNC_CLIENT;
+import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_REFERRAL;
 import static apps.uzazisalama.com.anc.utils.Constants.POST_BOX_DATA_ROUTINE_VISIT;
 
 public class MainActivity extends BaseActivity {
@@ -331,6 +336,8 @@ public class MainActivity extends BaseActivity {
                             appointmentsPb.add(pb);
                         }else if (pb.getPostDataType() == POST_BOX_DATA_ROUTINE_VISIT){
                             routinesPb.add(pb);
+                        }else if (pb.getPostDataType() == POST_BOX_DATA_REFERRAL){
+                            referralsPb.add(pb);
                         }
                     }
 
@@ -379,6 +386,18 @@ public class MainActivity extends BaseActivity {
                             }
                         }
                     }
+
+                    //Post all Referrals
+                    for (PostBox postBox : referralsPb){
+                        /**
+                         * Post all referral data to server and delete local copy if successfully stored to server
+                         */
+                        Referral referral = database.referralModelDao().getReferalByID(Integer.parseInt(postBox.getPostBoxId()));
+                        if (referral != null){
+                            postReferralData(referral, postBox);
+                        }
+                    }
+
                 }
                 return null;
             }
@@ -602,5 +621,62 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    private void postReferralData(Referral referral, PostBox postBox){
+        Call<Referral> sendReferral = referralService.saveFacilityReferral(BaseActivity.getRequestBody(referral));
+        sendReferral.enqueue(new Callback<Referral>() {
+            @SuppressLint("StaticFieldLeak")
+            @Override
+            public void onResponse(Call<Referral> call, Response<Referral> response) {
+                if (response != null){
+
+                    Log.d("Monday", "Referral Response : "+ new Gson().toJson(response.body()));
+
+                    Referral referralRespose = response.body();
+
+                    PostReferralWrapper wrapper = new PostReferralWrapper();
+                    wrapper.setLocalCopyReferral(referral);
+                    wrapper.setReferralResponse(response.body());
+                    wrapper.setPostBox(postBox);
+
+                    /**
+                     * Save the received referral locally
+                     */
+                    new AsyncTask<PostReferralWrapper, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(PostReferralWrapper... postReferralWrappers) {
+                            PostReferralWrapper mWrapper = postReferralWrappers[0];
+                            Referral mReferral = mWrapper.getReferralResponse();
+                            Referral localReferral = mWrapper.getLocalCopyReferral();
+                            PostBox postBoxItem = mWrapper.getPostBox();
+
+                            //Save the received referral to the local database
+                            database.referralModelDao().addNewReferral(mReferral);
+
+                            //Delete the old local copy of the database
+                            database.referralModelDao().deleteAReferral(localReferral); //NameIdea -> kica
+
+                            //Delete the postBox entry
+                            database.postBoxModelDao().deletePostItem(postBoxItem);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                        }
+                    }.execute(wrapper);
+
+                }else {
+                    Log.d("Monday", "response is null");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Referral> call, Throwable t) {
+                Log.d("Monday", "Failed!");
+            }
+        });
+    }
 
 }

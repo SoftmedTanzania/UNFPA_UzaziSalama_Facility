@@ -23,6 +23,7 @@ public class Constants {
     public static final int POST_BOX_DATA_PNC_CLIENT = 2;
     public static final int POST_BOX_DATA_APPOINTMENT = 3;
     public static final int POST_BOX_DATA_ROUTINE_VISIT = 4;
+    public static final int POST_BOX_DATA_REFERRAL = 5;
 
     public static final int POST_DATA_UNSYNCED = 0;
     public static final int POST_DATA_SYNCED = 1;

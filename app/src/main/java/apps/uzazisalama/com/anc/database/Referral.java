@@ -59,6 +59,7 @@ public class Referral implements Serializable{
     /**
      *  1 -> Chw referral
      *  2 -> Health Facility Referrals
+     *  3 -> Health Facility to CHW
      */
     @SerializedName("referralType")
     private int referralType;

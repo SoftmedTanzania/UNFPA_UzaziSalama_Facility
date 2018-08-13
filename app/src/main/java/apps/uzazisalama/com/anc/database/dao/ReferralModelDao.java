@@ -27,6 +27,9 @@ public interface ReferralModelDao  {
     @Query("SELECT * from Referral")
     LiveData<List<Referral>> getAllReferrals();
 
+    @Query("SELECT * from Referral where referralID =:referralId")
+    Referral getReferalByID(int referralId);
+
     @Query("select * from Referral where referralType = 1 and referralStatus = 0")
     LiveData<List<Referral>> getAllChwReferrals();
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
+import apps.uzazisalama.com.anc.database.Referral;
 import apps.uzazisalama.com.anc.database.ReferralServiceIndicators;
 import apps.uzazisalama.com.anc.objects.LoginResponse;
 import apps.uzazisalama.com.anc.objects.PncClientPostResponce;
@@ -56,7 +57,7 @@ public class Endpoints {
         Call<String> postReferralFeedback(@Body RequestBody b);
 
         @POST("/save-facility-referral")
-        Call<String> saveFacilityReferral(@Body RequestBody b);
+        Call<Referral> saveFacilityReferral(@Body RequestBody b);
 
     }
 
