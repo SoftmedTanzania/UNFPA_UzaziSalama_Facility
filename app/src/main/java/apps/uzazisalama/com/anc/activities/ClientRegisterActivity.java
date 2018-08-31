@@ -22,6 +22,10 @@ import android.widget.TextView;
 
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.google.gson.Gson;
+import com.irozon.alertview.AlertActionStyle;
+import com.irozon.alertview.AlertStyle;
+import com.irozon.alertview.AlertView;
+import com.irozon.alertview.objects.AlertAction;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.uniquestudio.library.CircleCheckBox;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -802,4 +806,15 @@ public class ClientRegisterActivity extends BaseActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    @Override
+    public void onBackPressed() {
+        Context context = this;
+        AlertView alert = new AlertView("Close Registration Form", "Are you sure you want to close the registration form?", AlertStyle.DIALOG);
+        alert.addAction(new AlertAction("OK", AlertActionStyle.DEFAULT, action -> {
+            // Action 2 callback
+            super.onBackPressed();
+        }));
+        alert.show(this);
+
+    }
 }

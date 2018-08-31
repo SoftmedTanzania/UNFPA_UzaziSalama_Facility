@@ -164,11 +164,12 @@ public class PncClientDetailActivity extends BaseActivity {
         });
 
         /**
+         *  0 -> None
          *  1 -> Postmotum Haemorrhage,
          *  2 -> Third degree tear ,
          *  3 -> Retained Placenta
          */
-        deliveryComplicationsSpinner.setItems("Postmotum Haemorrhage", "Third degree tear", "Retained Placenta");
+        deliveryComplicationsSpinner.setItems("Postmotum Haemorrhage", "Third degree tear", "Retained Placenta", "None");
         deliveryComplicationsSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {

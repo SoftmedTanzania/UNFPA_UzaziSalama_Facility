@@ -420,7 +420,7 @@
                                 android:layout_below="@+id/misscarriage_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -450,7 +450,7 @@
                                 android:layout_below="@+id/delivery_method_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -489,7 +489,7 @@
                                 android:layout_below="@+id/delivery_complications_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -519,7 +519,7 @@
                                 android:layout_below="@+id/mother_discharge_condition_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -614,7 +614,7 @@
                                 android:layout_below="@+id/child_gender_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -642,7 +642,7 @@
                                 android:layout_below="@+id/child_pob_title"
                                 android:layout_marginTop="8dp"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 app:ms_background_selector="@drawable/border_one"
                                 android:layout_height="wrap_content"/>
 
@@ -681,7 +681,7 @@
                                 android:id="@+id/child_status_spinner"
                                 android:layout_width="match_parent"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 android:layout_height="wrap_content"/>
 
                         </RelativeLayout>
@@ -715,7 +715,7 @@
                                 android:id="@+id/child_Status_spinner"
                                 android:layout_width="match_parent"
                                 app:ms_arrow_tint="@color/card_grid_tex"
-                                app:ms_text_color="@color/pink_400"
+                                app:ms_text_color="@color/orange_800"
                                 android:layout_height="wrap_content"/>
 
                         </RelativeLayout>

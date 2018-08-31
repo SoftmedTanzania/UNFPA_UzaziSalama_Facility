@@ -17,7 +17,6 @@ import apps.uzazisalama.com.anc.adapters.PncClientsListAdapter;
 import apps.uzazisalama.com.anc.base.BaseActivity;
 import apps.uzazisalama.com.anc.database.AncClient;
 import apps.uzazisalama.com.anc.database.PncClient;
-import apps.uzazisalama.com.anc.viewmodels.AncClientsViewModel;
 import apps.uzazisalama.com.anc.viewmodels.PncClientsViewModel;
 
 /**
@@ -27,7 +26,7 @@ import apps.uzazisalama.com.anc.viewmodels.PncClientsViewModel;
  * On Project ANC
  */
 
-public class PncClientsListActivity extends BaseActivity{
+public class PncClientsListActivity extends BaseActivity implements ClientListAdapter.ClientSelectedListener {
 
     Toolbar pncClientsListToolbar;
     RecyclerView clientsListRecycler;
@@ -47,7 +46,7 @@ public class PncClientsListActivity extends BaseActivity{
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        listAdapter = new ClientListAdapter(new ArrayList<>(), this);
+        listAdapter = new ClientListAdapter(new ArrayList<>(), this, this);
         pncClientsViewModel = ViewModelProviders.of(this).get(PncClientsViewModel.class);
         pncClientsViewModel.getAllPncClients().observe(this, new Observer<List<PncClient>>() {
             @Override
@@ -65,5 +64,10 @@ public class PncClientsListActivity extends BaseActivity{
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         clientsListRecycler.setLayoutManager(layoutManager);
         clientsListRecycler.setHasFixedSize(true);
+    }
+
+    @Override
+    public void onClientSelected(AncClient client) {
+        //... Do Something
     }
 }
